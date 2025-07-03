@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
 import Sms from "./Sms";
-import {
-  ValidationEmail,
-  ValidationPassword,
- 
-} from "@/utils/auth";
+import { ValidationEmail, ValidationPassword } from "@/utils/auth";
+import { useRouter } from "next/navigation";
 
 const Login = ({ showRegisterForm }) => {
   const [isLoginWithOtp, setIsLoginWithOtp] = useState(false);
 
   const [email, setPhoneOrEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const hideOtpForm = () => setIsLoginWithOtp(false);
 
@@ -50,7 +48,6 @@ const Login = ({ showRegisterForm }) => {
     }
 
     const user = { password, email };
-console.log("sending request to /api/auth/signin", user);
 
     try {
       const res = await fetch("/api/auth/signin", {
@@ -61,7 +58,6 @@ console.log("sending request to /api/auth/signin", user);
 
       const data = await res.json();
       console.log(res);
-      
 
       if (!res.ok) {
         return swal({
@@ -74,6 +70,9 @@ console.log("sending request to /api/auth/signin", user);
       swal({
         title: "ورود موفق",
         icon: "success",
+        buttons: "ورود به سایت",
+      }).then(() => {
+        router.push("/"); 
       });
 
       // انجام عملیات بعد از ورود موفق (مثل redirect)

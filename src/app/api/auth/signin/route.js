@@ -5,7 +5,7 @@ import {
   ValidationPassword,
   verifyPassword,
 } from "@/utils/auth";
-import UserModel from "../../../../../model/User";
+import UserModel from "../../../../model/User";
 import connectToDB from "@/configs/db";
 import { NextResponse } from "next/server";
 
@@ -43,8 +43,7 @@ export async function POST(req) {
       { status: 401 }
     );
   }
-  console.log("email:", email, ValidationEmail(email));
-console.log("password:", password, ValidationPassword(password));
+
 
 
   const accessToken = generateAccessToken({ email, id: user._id });

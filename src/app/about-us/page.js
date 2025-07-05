@@ -3,6 +3,7 @@ import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
 import styles from "@/styles/aboutUs.module.css";
 import { authUser } from "../lib/authUser";
+import Breadcrumb from "@/components/modules/breadcrumb/Breadcrumb";
 
 
 const page = async () => {
@@ -11,7 +12,7 @@ const page = async () => {
   return (
     <>
       <Navbar isLogin={user ? true : false} />
-      {/* <Breadcrumb route={"درباره ما"} /> */}
+      <Breadcrumb route={"درباره ما"} />
       <div className={styles.container}>
         <section>
           <div>

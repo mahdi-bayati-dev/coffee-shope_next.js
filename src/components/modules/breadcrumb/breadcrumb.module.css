@@ -33,4 +33,18 @@
 .title {
   text-align: center;
   font-size: 4.4rem;
+  color: whitesmoke;
 }
+.breadcrumb div p {
+    color: whitesmoke;
+
+}
+.breadcrumb div a {
+    color: whitesmoke;
+
+}
+.breadcrumb div span {
+    color: whitesmoke;
+
+}
+

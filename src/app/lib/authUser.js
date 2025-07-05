@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import UserModel from "../../../model/User";
+import UserModel from "../../model/User";
 import { verifyAccessToken } from "@/utils/auth";
 
 export async function authUser() {
@@ -14,6 +14,7 @@ export async function authUser() {
     const foundUser = await UserModel.findOne({ email: tokenPayload.email });
     user = foundUser
       ? {
+          id: foundUser._id,
           name: foundUser.name,
           email: foundUser.email,
           role: foundUser.role,

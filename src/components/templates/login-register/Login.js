@@ -57,7 +57,7 @@ const Login = ({ showRegisterForm }) => {
       });
 
       const data = await res.json();
-      console.log(res);
+     
 
       if (!res.ok) {
         return swal({

@@ -4,7 +4,7 @@ import Articles from "@/components/templates/index/articles/Articles";
 import Banner from "@/components/templates/index/Banner/Banner";
 import Latest from "@/components/templates/index/latest/Latest";
 import Promote from "@/components/templates/index/promote/Promote";
-import { authUser } from '@/app/lib/authUser'
+import { authUser } from "@/app/lib/authUser";
 
 export default async function Home() {
   const user = await authUser();

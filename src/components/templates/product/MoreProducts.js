@@ -34,7 +34,7 @@ const MoreProducts = ({ relatedProduct }) => {
       >
         {relatedProduct.map((product) => (
           <SwiperSlide key={product._id}>
-            <Cart {...product} />
+            <Cart/>
           </SwiperSlide>
         ))}
       </Swiper>

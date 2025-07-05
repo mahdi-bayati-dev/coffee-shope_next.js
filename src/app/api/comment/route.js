@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import connectToDB from "@/configs/db"; // یادت نره اتصال به DB
-import CommentModel from "../../../../model/Comments";
-import ProductModel from "../../../../model/Products";
+import CommentModel from "../../../model/Comments";
+import ProductModel from "../../../model/Products";
 
 export async function POST(req) {
   try {

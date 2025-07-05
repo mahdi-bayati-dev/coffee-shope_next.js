@@ -1,5 +1,5 @@
 import connectToDB from "@/configs/db";
-import UserModel from "../../../../../model/User"; // Ensure this path is correct
+import UserModel from "../../../../model/User"; // Ensure this path is correct
 import { hashPassword, generateAccessToken } from "@/utils/auth";
 
 // Define role constants

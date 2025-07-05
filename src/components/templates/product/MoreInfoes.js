@@ -14,6 +14,10 @@ const MoreInfoes = ({product}) => {
           <p>مناسب برای:</p>
           <p>{product.SuitableFor}</p>
         </div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <p>نوع :</p>
+          <p>{product.smell}</p>
+        </div>
       </main>
     </div>
   );

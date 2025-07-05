@@ -1,7 +1,7 @@
 // app/product/[id]/page.js
 import connectToDB from "@/configs/db";
-import ProductModel from "../../../../model/Products";
-import CommentsModel from "../../../../model/Comments";
+import ProductModel from "../../../model/Products";
+import CommentsModel from "../../../model/Comments";
 import { authUser } from "@/app/lib/authUser";
 
 import styles from "@/styles/product.module.css";

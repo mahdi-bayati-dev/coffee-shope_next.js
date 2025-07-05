@@ -3,7 +3,7 @@ import styles from "./comments.module.css";
 import CommentForm from "./CommentForm";
 
 const Comments = ({productId, comments }) => {
-  console.log(comments);
+  
   
   return (
     <>

@@ -1,6 +1,6 @@
 import { FaFacebookF, FaStar, FaTwitter, FaRegStar } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
-import { CiHeart } from "react-icons/ci";
+import AddToWishlist from "./addToWishlist";
 import { TbSwitch3 } from "react-icons/tb";
 import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
@@ -57,10 +57,7 @@ const Details = ({ product }) => {
       </div>
 
       <section className={styles.wishlist}>
-        <div>
-          <CiHeart />
-          <Link href="/">افزودن به علاقه مندی ها</Link>
-        </div>
+        <AddToWishlist productId={product}/>
         <div>
           <TbSwitch3 />
           <Link href="/">مقایسه</Link>

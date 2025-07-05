@@ -27,8 +27,8 @@ const Gallery = () => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2 gallery-slider"
       >
-        {images.map((img) => (
-          <SwiperSlide key={Math.random()}>
+        {images.map((img, index) => (
+          <SwiperSlide key={index}>
             <img src={img} />
           </SwiperSlide>
         ))}

@@ -2,14 +2,13 @@ import { IoMdStar } from "react-icons/io";
 import styles from "./commentForm.module.css";
 import { useState } from "react";
 
-const CommentForm = ({ProductId}) => {
-  
+const CommentForm = ({ ProductId , userId}) => {
 
-  
   const [userName, setUserName] = useState("");
   const [body, setBody] = useState("");
   const [email, setEmail] = useState("");
   const [score, setScore] = useState(0);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +18,7 @@ const CommentForm = ({ProductId}) => {
       return;
     }
 
-    const comment = { userName, email, body, score , ProductId};
+    const comment = { userName, email, body, score, ProductId ,  user: userId };
 
     const res = await fetch("/api/comment", {
       method: "POST",
@@ -27,11 +26,8 @@ const CommentForm = ({ProductId}) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(comment),
-      
-      
     });
     console.log(comment);
-    
 
     console.log(res);
   };

@@ -16,13 +16,17 @@ export default async function ProductPage({ params }) {
   await connectToDB();
 
   const user = await authUser();
+  const userId = user.id;
   const { id } = await params;
-  const productId = id;
-  const product = await ProductModel.findOne({ _id: productId }).populate(
-    "Comments"
-  ).lean();
 
-  const relatedProduct = await ProductModel.find({ smell: product.smell }).lean();
+  const productId = id;
+  const product = await ProductModel.findOne({ _id: productId })
+    .populate("Comments")
+    .lean();
+
+  const relatedProduct = await ProductModel.find({
+    smell: product.smell,
+  }).lean();
 
   return (
     <div className={styles.container}>
@@ -32,8 +36,10 @@ export default async function ProductPage({ params }) {
           <Details product={JSON.parse(JSON.stringify(product))} />
           <Gallery />
         </div>
-        <Tabs product={JSON.parse(JSON.stringify(product))} />
-        <MoreProducts relatedProduct={JSON.parse(JSON.stringify(relatedProduct))} />
+        <Tabs product={JSON.parse(JSON.stringify(product ))} userId={userId} />
+        <MoreProducts
+          relatedProduct={JSON.parse(JSON.stringify(relatedProduct))}
+        />
       </div>
       <Footer />
     </div>

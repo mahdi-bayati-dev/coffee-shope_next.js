@@ -10,7 +10,7 @@ export async function POST(req) {
 
     // خواندن بدنه درخواست
     const body = await req.json();
-    const { user, product} = body;
+    const { user, product } = body;
 
     if (!user || !product) {
       return NextResponse.json(
@@ -29,12 +29,10 @@ export async function POST(req) {
       );
     }
 
-    await WishlistModel.create({ user,product});
+    await WishlistModel.create({ user, product });
 
     console.log("User ID:", user);
     console.log("Product ID:", product);
-
-  
 
     return NextResponse.json(
       { message: "Product added to wishlist successfully" },
@@ -56,3 +54,4 @@ export async function POST(req) {
     );
   }
 }
+

@@ -2,7 +2,7 @@ import Comment from "@/components/modules/comment/Comment";
 import styles from "./comments.module.css";
 import CommentForm from "./CommentForm";
 
-const Comments = ({productId, comments }) => {
+const Comments = ({productId, comments , userId }) => {
   
   
   return (
@@ -24,7 +24,7 @@ const Comments = ({productId, comments }) => {
             ))}
           </div>
           <div className={styles.form_bg}>
-            <CommentForm ProductId={productId} />
+            <CommentForm ProductId={productId} userId={userId} />
           </div>
         </main>
       </div>

@@ -9,7 +9,7 @@ export async function POST(req) {
 
     const reqBody = await req.json(); // ✅
 
-    const { userName, email, body, score, date, ProductId } = reqBody;
+    const { userName, email, body, score, date, ProductId , user} = reqBody;
 
     const comment = await CommentModel.create({
       name: userName,
@@ -18,6 +18,7 @@ export async function POST(req) {
       score,
       date,
       ProductId,
+      user
     
     });
 

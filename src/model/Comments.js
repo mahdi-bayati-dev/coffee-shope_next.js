@@ -7,7 +7,8 @@ const schema = new mongoose.Schema({
   score: { type: Number, required: true },
   isAccess: { type: Boolean, default: false },
   date: { type: Date, default: () => new Date() },
-  ProductId: { type: mongoose.Types.ObjectId, ref: "Products" }, // توجه: نام مدل محصولات
+  ProductId: { type: mongoose.Types.ObjectId, ref: "Products" }, 
+  user: { type: mongoose.Types.ObjectId, ref: "User", },
 });
 
 const Comments = mongoose.models.Comments || mongoose.model("Comments", schema);

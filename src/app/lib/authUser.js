@@ -1,8 +1,10 @@
 import { cookies } from "next/headers";
 import UserModel from "../../model/User";
 import { verifyAccessToken } from "@/utils/auth";
+import connectToDB from "@/configs/db";
 
 export async function authUser() {
+  await connectToDB()
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 

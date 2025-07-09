@@ -60,7 +60,7 @@ const logoutHandler = () => {
               <FaShoppingBag />
               سفارش ها
             </Link>
-            <Link href={"/p-user/tickets"}>
+            <Link href={"/p-user/tickets/sendTicket"}>
               <MdSms />
               تیکت های پشتیبانی
             </Link>

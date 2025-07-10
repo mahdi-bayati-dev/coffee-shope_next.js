@@ -7,6 +7,7 @@ import {
   ValidationPassword,
   ValidationPhone,
 } from "@/utils/auth";
+import { useRouter } from "next/navigation";
 
 const Register = ({ showLoginForm }) => {
   const [isRegisterWithPass, setIsRegisterWithPass] = useState(false);
@@ -16,6 +17,8 @@ const Register = ({ showLoginForm }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  const router=useRouter()
 
   const hideOtpForm = () => setIsRegisterWithOtp(false);
 
@@ -77,10 +80,12 @@ const Register = ({ showLoginForm }) => {
           icon: "success",
           buttons: "ورود به پنل کاربر",
         });
+        router.replace('/')
         setEmail("");
         setPassword("");
         setPhone("");
         setName("");
+
       } else if (res.status === 400) {
         swal({
           title: "مقادیر رو درست وارد کنید",

@@ -5,8 +5,9 @@ import Link from "next/link";
 import { IoMdStar } from "react-icons/io";
 import { FaRegStar } from "react-icons/fa";
 import swal from "sweetalert";
-
+import { useRouter } from "next/navigation";
 const Card = ({ price, score = 0, name, productId }) => {
+  const router = useRouter();
   const removeProduct = (productId) => {
     swal({
       title: "آیا از حذف محصول اطمینان دارید؟",
@@ -39,7 +40,7 @@ const Card = ({ price, score = 0, name, productId }) => {
             icon: "success",
             buttons: "فهمیدم",
           }).then(() => {
-            window.location.reload();
+            router.reload();
           });
         } else {
           swal(data?.message || "خطا در حذف محصول", {

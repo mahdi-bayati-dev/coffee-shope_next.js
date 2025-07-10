@@ -1,5 +1,4 @@
 "use client";
-
 import styles from "./sidebar.module.css";
 import { ImReply } from "react-icons/im";
 import { FaComments, FaHeart, FaShoppingBag, FaUsers } from "react-icons/fa";
@@ -10,10 +9,9 @@ import { TbListDetails } from "react-icons/tb";
 import Link from "next/link";
 import swal from "sweetalert";
 import { useRouter } from "next/navigation";
-
 const Sidebar = () => {
   const path = usePathname();
-  const router = useRouter();
+  const router=useRouter()
 
   const logoutHandler = () => {
     swal({
@@ -38,7 +36,6 @@ const Sidebar = () => {
       }
     });
   };
-
   return (
     <aside className={styles.sidebar}>
       <div className={styles.sidebar_header}>

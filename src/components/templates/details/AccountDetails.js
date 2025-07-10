@@ -5,19 +5,20 @@ import swal from "sweetalert";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { MdOutlineDelete } from "react-icons/md";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 function AccountDetails() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  const router = useRouter();
+
   useEffect(() => {
     const getUser = async () => {
       const res = await fetch("/api/auth/me");
       const data = await res.json();
-      // console.log("User Data:", data);
-      // console.log("User res:", res);
-
+ 
       // مقداردهی ایمن
       setName(data.data?.user?.name || "");
       setEmail(data.data?.user?.email || "");
@@ -42,8 +43,6 @@ function AccountDetails() {
       },
       body: JSON.stringify(userNewInfos),
     });
-    console.log("==>", res);
-   
 
     if (res.status === 200) {
       swal({
@@ -51,8 +50,8 @@ function AccountDetails() {
         icon: "success",
         buttons: "فهمیدم",
       }).then(async (result) => {
-        // await fetch("/api/auth/signout", { method: "POST" });
-        // location.replace("/login-register");
+        await fetch("/api/auth/signout", { method: "POST" });
+        router.replace("/login-register");
       });
     }
   };

@@ -7,7 +7,6 @@ export async function GET(request, { params }) {
     await connectToDB(); // ⬅️ اتصال به دیتابیس
 
     const id = params.id; // ⬅️ به هیچ وجه از optional chaining استفاده نکن
-    console.log(id);
     
 
     if (!isValidObjectId(id)) {

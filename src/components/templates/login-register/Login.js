@@ -70,9 +70,9 @@ const Login = ({ showRegisterForm }) => {
       swal({
         title: "ورود موفق",
         icon: "success",
-        buttons: "ورود به سایت",
+        buttons:  "ورور به پنل کاربر",
       }).then(() => {
-        router.push("/"); 
+        router.replace("p-user"); 
       });
 
       // انجام عملیات بعد از ورود موفق (مثل redirect)

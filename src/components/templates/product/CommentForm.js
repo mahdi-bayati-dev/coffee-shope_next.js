@@ -27,9 +27,7 @@ const CommentForm = ({ ProductId , userId}) => {
       },
       body: JSON.stringify(comment),
     });
-    console.log(comment);
 
-    console.log(res);
   };
 
   return (

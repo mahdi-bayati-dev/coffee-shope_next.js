@@ -31,8 +31,6 @@ export async function POST(req) {
 
     await WishlistModel.create({ user, product });
 
-    console.log("User ID:", user);
-    console.log("Product ID:", product);
 
     return NextResponse.json(
       { message: "Product added to wishlist successfully" },

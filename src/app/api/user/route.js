@@ -8,20 +8,22 @@ export async function POST(req) {
     await connectToDB();
 
     const user = await authUser(); // اطمینان از پارامت
-    console.log(user);
-    
 
     if (!user) {
-      return NextResponse.json({ message: "احراز هویت انجام نشد" }, { status: 401 });
+      return NextResponse.json(
+        { message: "احراز هویت انجام نشد" },
+        { status: 401 }
+      );
     }
-    console.log("authUser:", user);
-
 
     const body = await req.json();
     const { name, email, phone } = body;
 
     if (!name || !email || !phone) {
-      return NextResponse.json({ message: "تمام فیلدها الزامی هستند" }, { status: 400 });
+      return NextResponse.json(
+        { message: "تمام فیلدها الزامی هستند" },
+        { status: 400 }
+      );
     }
 
     await UserModel.findOneAndUpdate(
@@ -40,6 +42,33 @@ export async function POST(req) {
       { status: 200 }
     );
   } catch (err) {
-    return NextResponse.json({ message: err.message || "خطا در سرور" }, { status: 500 });
+    return NextResponse.json(
+      { message: err.message || "خطا در سرور" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    await connectToDB();
+    const body = await req.json();
+    const { id } = body;
+
+    const user = await UserModel.findById(id);
+    if (!user) {
+      return NextResponse.json({ message: "کاربر پیدا نشد" }, { status: 404 });
+    }
+
+    await UserModel.findByIdAndDelete(id);
+    return NextResponse.json(
+      { message: "کاربر با موفقیت حذف شد" },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: "خطا در حذف کاربر", error: error.message },
+      { status: 500 }
+    );
   }
 }

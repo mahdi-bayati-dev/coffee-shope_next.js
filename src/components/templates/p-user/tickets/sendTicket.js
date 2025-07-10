@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/p-user/sendTicket.module.css";
 import Link from "next/link";
 import { IoIosSend } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 function SentTicket() {
   const [title, setTitle] = useState("");
@@ -12,6 +13,7 @@ function SentTicket() {
   const [departmentID, setDepartmentID] = useState('');
   const [subDepartmentID, setSubDepartmentID] = useState('');
   const [priority, setPriority] = useState(1);
+  const router=useRouter()
 
   useEffect(() => {
     const getDepartments = async () => {
@@ -56,7 +58,6 @@ useEffect(() => {
       },
       body: JSON.stringify(ticket),
     });
-    console.log(res);
     
 
     if (res.status === 201) {
@@ -65,7 +66,7 @@ useEffect(() => {
         icon: "success",
         buttons: "مشاهده تیکت‌ها",
       }).then(() => {
-        location.replace("/p-user/tickets");
+       router.replace("/p-user/tickets");
       });
     }
   };

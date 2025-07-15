@@ -16,7 +16,7 @@ export default async function ProductPage({ params }) {
   await connectToDB();
 
   const user = await authUser();
-  const userId = user.id;
+  const userId = user.id?.toString();
   const { id } = await params;
 
   const productId = id;
@@ -36,7 +36,7 @@ export default async function ProductPage({ params }) {
           <Details product={JSON.parse(JSON.stringify(product))} />
           <Gallery />
         </div>
-        <Tabs product={JSON.parse(JSON.stringify(product ))} userId={userId} />
+        <Tabs product={JSON.parse(JSON.stringify(product))} userId={userId} />{" "}
         <MoreProducts
           relatedProduct={JSON.parse(JSON.stringify(relatedProduct))}
         />

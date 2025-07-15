@@ -7,10 +7,10 @@ import TicketModel from "@/model/Ticket";
 const page = async () => {
   connectToDB();
   const user = await authUser();
-  const tickets = await TicketModel.find({ user: user.id }).populate(
-    "department",
-    "title"
-  );
+  const tickets = await TicketModel.find({
+    user: user.id,
+    isAnswer: false,
+  }).populate("department", "title");
 
   return (
     <Layout>

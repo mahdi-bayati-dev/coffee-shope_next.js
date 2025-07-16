@@ -13,68 +13,46 @@ export default function DataTable({ comments, title }) {
     });
   };
 
-  const acceptComments = async (id) => {
-    try {
-      swal({
-        title: "میخواهید کامنت را تایید کنید؟",
-        icon: "warning",
-        buttons: ["خیر", "بله"],
-      }).then(async (willDelete) => {
-        if (willDelete) {
-          const response = await fetch("/api/comment/accept", {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ id }),
-          });
-          console.log(response);
-          console.log(id);
+  const acceptComment = async (commentID) => {
+    const res = await fetch("/api/comment/accept", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: commentID }),
+    });
 
-          if (response.ok) {
-            swal("کامنت تایید شد", "", "success");
-            router.refresh();
-          } else {
-            swal("خطا در تایید کامنت", "", "error");
-          }
-        }
+    if (res.status === 200) {
+      swal({
+        title: "کامنت مورد نظر با موفقیت تایید شد",
+        icon: "success",
+        buttons: "فهمیدم",
+      }).then(() => {
+        router.refresh();
       });
-    } catch (error) {
-      console.error("Error rejecting comment:", error);
-      swal("خطا در تایید کامنت", "", "error");
     }
   };
-  const rejectComments = async (id) => {
-    try {
-      swal({
-        title: "میخواهید کامنت را رد کنید؟",
-        icon: "warning",
-        buttons: ["خیر", "بله"],
-      }).then(async (willDelete) => {
-        if (willDelete) {
-          const response = await fetch("/api/comment/reject", {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ id }),
-          });
-          console.log(response);
-          console.log(id);
 
-          if (response.ok) {
-            swal("کامنت رد شد", "", "success");
-            router.refresh();
-          } else {
-            swal("خطا در رد کامنت", "", "error");
-          }
-        }
+  const rejectComment = async (commentID) => {
+    const res = await fetch("/api/comment/reject", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: commentID }),
+    });
+
+    if (res.status === 200) {
+      swal({
+        title: "کامنت مورد نظر با موفقیت رد شد",
+        icon: "success",
+        buttons: "فهمیدم",
+      }).then(() => {
+        router.refresh();
       });
-    } catch (error) {
-      console.error("Error rejecting comment:", error);
-      swal("خطا در رد کامنت", "", "error");
     }
   };
+
   return (
     <div>
       <div>
@@ -95,7 +73,7 @@ export default function DataTable({ comments, title }) {
               <th>مشاهده</th>
               <th>ویرایش</th>
               <th>حذف</th>
-              <th>رد/ تایید</th>
+              <th>تایید / رد</th>
               <th>پاسخ</th>
               <th>بن</th>
             </tr>
@@ -103,7 +81,11 @@ export default function DataTable({ comments, title }) {
           <tbody>
             {comments.map((comment, index) => (
               <tr key={comment._id}>
-                <td>{index + 1}</td>
+                <td
+                  className={comment.isAccept ? styles.accept : styles.reject}
+                >
+                  {index + 1}
+                </td>
                 <td>{comment.username}</td>
                 <td>{comment.email}</td>
                 <td>{comment.score}</td>
@@ -129,25 +111,21 @@ export default function DataTable({ comments, title }) {
                   </button>
                 </td>
                 <td>
-                  {comment.isAccess ? (
+                  {!comment.isAccess ? (
                     <button
                       type="button"
                       className={styles.delete_btn}
-                      onClick={() => {
-                        rejectComments(comment._id);
-                      }}
+                      onClick={() => acceptComment(comment._id)}
                     >
-                      رد
+                      تایید
                     </button>
                   ) : (
                     <button
                       type="button"
                       className={styles.delete_btn}
-                      onClick={() => {
-                        acceptComments(comment._id);
-                      }}
+                      onClick={() => rejectComment(comment._id)}
                     >
-                      تایید
+                      رد
                     </button>
                   )}
                 </td>

@@ -7,11 +7,10 @@ export default function DataTable({ tickets, title }) {
   const router = useRouter();
 
   const showTicketBody = (body) => {
-    swal({
-      title: body,
-      buttons: "ممنون",
-    });
-  };
+swal({
+  title: body,
+  buttons: 'خوندم'
+})  };
 
   const answerToTicket = async (ticket) => {
     swal({
@@ -33,8 +32,6 @@ export default function DataTable({ tickets, title }) {
           },
           body: JSON.stringify(answer),
         });
-        console.log(res);
-        
 
         if (res.status === 201) {
           swal({

@@ -1,7 +1,7 @@
 import React from "react";
 import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
-import GrowthCart from "@/components/templates/p-admin/index/GrowthCart";
-import SaleCharts from "@/components/templates/p-admin/index/SaleCharts";
+import GrowthChart from "@/components/templates/p-admin/index/GrowthChart";
+import SaleChart from "@/components/templates/p-admin/index/SaleChart";
 
 import styles from "@/styles/p-admin/index.module.css";
 import Box from "@/components/modules/infoBox/InfoBox";
@@ -29,11 +29,11 @@ async function AdminHomePage() {
         <div className={styles.dashboard_charts}>
           <section>
             <p>آمار فروش</p>
-            <SaleCharts/>
+            <SaleChart/>
           </section>
           <section>
             <p>نرخ رشد</p>
-            <GrowthCart/>
+            <GrowthChart/>
           </section>
         </div>
       </main>

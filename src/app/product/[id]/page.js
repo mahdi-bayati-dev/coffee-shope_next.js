@@ -16,7 +16,7 @@ export default async function ProductPage({ params }) {
   await connectToDB();
 
   const user = await authUser();
-  const userId = user.id?.toString();
+  const userId = await user.id?.toString();
   const { id } = await params;
 
   const productId = id;

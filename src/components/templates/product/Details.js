@@ -1,3 +1,4 @@
+"use client";
 import { FaFacebookF, FaStar, FaTwitter, FaRegStar } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
 import AddToWishlist from "./addToWishlist";
@@ -6,8 +7,45 @@ import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
 import Breadcrumb from "./Breadcrumb";
 import Link from "next/link";
+import { useState } from "react";
 
 const Details = ({ product }) => {
+  const [count, setCount] = useState(1);
+
+  const addToCart = () => {
+    if (!product || !product._id || count <= 0) {
+      swal({
+        title: "اطلاعات محصول نامعتبر است",
+        icon: "error",
+        buttons: "باشه",
+      });
+      return;
+    }
+
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const existingItem = cart.find((item) => item.id === product._id);
+
+    if (existingItem) {
+      // اگه قبلاً بوده، تعدادش رو زیاد کن
+      existingItem.count += count;
+    } else {
+      cart.push({
+        id: product._id,
+        name: product.name,
+        price: product.price,
+        count,
+      });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    swal({
+      title: "محصول با موفقیت به سبد خرید اضافه شد",
+      icon: "success",
+      buttons: "فهمیدم",
+    });
+  };
+
   if (!product) {
     return <p>در حال بارگذاری محصول...</p>;
   }
@@ -35,7 +73,10 @@ const Details = ({ product }) => {
             <FaRegStar key={i} />
           ))}
         </div>
-        <p>(دیدگاه {Comments.filter((comments)=>comments.isAccess).length || 0} کاربر)</p>
+        <p>
+          (دیدگاه {Comments.filter((comments) => comments.isAccess).length || 0}{" "}
+          کاربر)
+        </p>
       </div>
 
       <p className={styles.price}>{price?.toLocaleString?.() || "۰"} تومان</p>
@@ -50,14 +91,16 @@ const Details = ({ product }) => {
       </div>
 
       <div className={styles.cart}>
-        <button>افزودن به سبد خرید</button>
+        <button onClick={addToCart}>افزودن به سبد خرید</button>
         <div>
-          <span>-</span>1<span>+</span>
+          <span onClick={() => setCount(count - 1)}>-</span>
+          {count}
+          <span onClick={() => setCount(count + 2)}>+</span>
         </div>
       </div>
 
       <section className={styles.wishlist}>
-        <AddToWishlist productId={product}/>
+        <AddToWishlist productId={product} />
         <div>
           <TbSwitch3 />
           <Link href="/">مقایسه</Link>

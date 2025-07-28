@@ -2,6 +2,10 @@
   border-radius: 10px;
   height: 300px;
   width: 100%;
+  z-index: 100 !important;
+}
+.map-module__XZx8Ba__details{
+  z-index: 100 !important;
 }
 
 .details {

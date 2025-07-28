@@ -1,0 +1,161 @@
+.order{
+    color: black;
+    width: 50%;
+    text-align: right;
+    position: relative;
+    background-color: #f7f7f7;
+    padding: 30px;
+}
+ .title{
+    text-align: center;
+    font-size: 22px;
+}
+.order:before {
+    top: -10px;
+    background-position: -3px -5px, 0 0;
+}
+.order:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    background-position: -3px -5px, 0 0;
+    width: 100%;
+    height: 10px;
+    background-color: transparent;
+    background-image: radial-gradient(farthest-side, transparent 6px, #f7f7f7 0);
+    background-size: 15px 15px;
+}
+.main{
+    background: white;
+    margin-top: 2rem;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    padding:0 15px;
+}
+.main div:nth-child(2){
+    color: gray;
+} 
+.main div div p{
+    font-size: 14px;
+}
+.main div div h2{
+    margin-right: auto;
+}
+.main div div{
+    padding-left: 0;
+    flex-direction: column;
+    text-align: left;
+    direction: rtl;
+    justify-content: left;
+    border-bottom: 0;
+}
+.main div{
+    display: flex;   
+     padding: 22px 15px;  
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+.product_name{
+    width:50%;
+    direction: rtl;
+}
+ .transaction div{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    justify-content: right;
+    flex-direction: row-reverse;
+ }
+ .transaction{
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+ }
+ .paymentBox{ 
+    background: white;
+    color: gray; 
+    position: relative;
+    margin-top: 15px;
+    padding: 15px; 
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+ }
+ .warning{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: rgb(43, 43, 43);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+ }
+ .accept_rules{
+    display: flex;
+    gap: 5px;
+    flex-direction: row !important;
+    direction: rtl; 
+ }
+ .accept_rules span{
+    color: red;
+ }
+ .submit:hover {
+    background: rgb(113, 29, 28) !important;
+}
+
+
+.submit {
+    padding: 10px 28px;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    transition: .1s all ease-in;
+    font-size: 14px;
+    border-radius: 5px !important;
+    line-height: 20px;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.001px;
+    color: white;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .15);
+    background-color: rgb(0, 137, 121);
+}
+
+.order input {
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #757474;
+    border-radius: 1px;
+    vertical-align: sub; 
+    transform: translateY(25%);
+    position: relative;
+    bottom: 4px;
+    border-radius: 4px;
+    outline: none;
+  }
+  .order input:checked {
+    background-color: rgb(52,24,14);
+    border-color: rgb(52,24,14);
+  }
+ 
+  .order input:checked:focus, .order input:checked:hover {
+    box-shadow: 0 0 0 3px #d9d9d9;
+    border-color: rgb(52,24,14);
+  }
+  .order input:after {
+    content: "";
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==");
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .order input:focus, .order input:hover {
+    box-shadow: 0 0 0 3px #ebebeb;
+    border-color: #8c8c8c;
+  }

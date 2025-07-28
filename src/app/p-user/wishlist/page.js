@@ -5,7 +5,7 @@ import connectToDB from "@/configs/db";
 import { authUser } from "@/app/lib/authUser";
 import WishlistModel from "@/model/Wishlist";
 import { redirect } from "next/navigation";
-import ProductModel from "@/model/Products";
+import ProductModel from "@/model/Product";
 
 export default async function Page() {
   await connectToDB();

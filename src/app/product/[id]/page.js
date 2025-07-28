@@ -1,7 +1,7 @@
 // app/product/[id]/page.js
 import connectToDB from "@/configs/db";
-import ProductModel from "../../../model/Products";
-import CommentsModel from "../../../model/Comments";
+import ProductModel from "@/model/Product";
+import CommentsModel from "@/model/Comments";
 import { authUser } from "@/app/lib/authUser";
 
 import styles from "@/styles/product.module.css";
@@ -16,16 +16,21 @@ export default async function ProductPage({ params }) {
   await connectToDB();
 
   const user = await authUser();
-  const userId = await user.id?.toString();
-  const { id } = await params;
+  const userId = user?.id?.toString() || null;
+  const { id } = params;
 
-  const productId = id;
-  const product = await ProductModel.findOne({ _id: productId })
-    .populate("Comments")
+  const product = await ProductModel.findOne({ _id: id })
+    .populate("comments")
+
     .lean();
+
+  if (!product) {
+    return <div>محصول پیدا نشد</div>;
+  }
 
   const relatedProduct = await ProductModel.find({
     smell: product.smell,
+    _id: { $ne: product._id },
   }).lean();
 
   return (
@@ -36,7 +41,7 @@ export default async function ProductPage({ params }) {
           <Details product={JSON.parse(JSON.stringify(product))} />
           <Gallery />
         </div>
-        <Tabs product={JSON.parse(JSON.stringify(product))} userId={userId} />{" "}
+        <Tabs product={JSON.parse(JSON.stringify(product))} userId={userId} />
         <MoreProducts
           relatedProduct={JSON.parse(JSON.stringify(relatedProduct))}
         />

@@ -4,7 +4,7 @@ import styles from "@/components/templates/p-admin/comments/table.module.css";
 import Table from "@/components/templates/p-admin/comments/Table";
 import connectToDB from "@/configs/db";
 import CommentModel from "@/model/Comments"
-import ProductModel from '@/model/Products'
+import ProductModel from '@/model/Product'
 
 const page = async () => {
   await connectToDB();

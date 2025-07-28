@@ -1,15 +1,15 @@
 import { NextResponse } from "next/server";
 import connectToDB from "@/configs/db"; // یادت نره اتصال به DB
 import CommentModel from "../../../model/Comments";
-import ProductModel from "../../../model/Products";
+import ProductModel from "../../../model/Product";
 
 export async function POST(req) {
   try {
-    await connectToDB();
+   
 
     const reqBody = await req.json(); // ✅
 
-    const { userName, email, body, score, date, ProductId , user} = reqBody;
+    const { userName, email, body, score, date, ProductId, user } = reqBody;
 
     const comment = await CommentModel.create({
       name: userName,
@@ -18,8 +18,7 @@ export async function POST(req) {
       score,
       date,
       ProductId,
-      user
-    
+      user,
     });
 
     await ProductModel.findByIdAndUpdate(
@@ -27,7 +26,7 @@ export async function POST(req) {
       {
         $push: { Comments: comment._id },
       },
-      { new: true } 
+      { new: true }
     );
 
     return NextResponse.json(

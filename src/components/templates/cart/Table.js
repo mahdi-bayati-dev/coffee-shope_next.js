@@ -6,48 +6,61 @@ import { IoMdClose } from "react-icons/io";
 import { useEffect, useState } from "react";
 import stateData from "@/utils/stateData";
 import Select from "react-select";
+import swal from "sweetalert";
+
 
 const stateOptions = stateData();
 
 const Table = () => {
   const [cart, setCart] = useState([]);
+  const [discount, setDiscount] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
   const [stateSelectedOption, setStateSelectedOption] = useState(null);
   const [changeAddress, setChangeAddress] = useState(false);
-  const [discant, setDiscount] = useState("");
 
   useEffect(() => {
     const localCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(localCart);
   }, []);
 
-  const calcTotalPrice = () => {
-    let totalPrice = 0;
+  useEffect(calcTotalPrice, [cart]);
+
+  function calcTotalPrice() {
+    let price = 0;
 
     if (cart.length) {
-      totalPrice = cart.reduce(
+      price = cart.reduce(
         (prev, current) => prev + current.price * current.count,
         0
       );
+      setTotalPrice(price);
     }
 
-    return totalPrice;
-  };
+    setTotalPrice(price);
+  }
 
-  // تابع تخفیف درست:
   const checkDiscount = async () => {
-    try {
-      const res = await fetch("/api/discount/use", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ code: discant }), // فرض بر اینکه discant استیت تعریف شده باشه
-      });
+    // Validation (You) ✅
 
-      const data = await res.json(); // فقط وقتی res.json قابل خوندنه
-      console.log("✅ result:", data.message);
-    } catch (err) {
-      console.error("❌ Error checking discount:", err);
+    const res = await fetch("api/discounts/use", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ code: discount }),
+    });
+
+    console.log("Response ->", res);
+
+    if (res.status === 404) {
+      return swal({title:"کد تخفیف وارد شده معتبر نیست", icon:"error", button:"تلاش مجدد"});
+    } else if (res.status === 422) {
+      return swal({title:"کد تخفیف وارد شده منقضی شده", icon:"error", button:"تلاش مجدد"});
+    } else if (res.status === 200) {
+      const discountCode = await res.json();
+      const newPrice = totalPrice - (totalPrice * discountCode.percent) / 100;
+      setTotalPrice(newPrice);
+      return swal({title:"کد تخفیف با موفقیت اعمال شد", icon:"success", button:"فهمیدم"});
     }
   };
 
@@ -66,8 +79,8 @@ const Table = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.map((item, index) => (
-              <tr key={item.id || index}>
+            {cart.map((item) => (
+              <tr key={item.id}>
                 <td>{(item.count * item.price).toLocaleString()} تومان</td>
                 <td className={styles.counter}>
                   <div>
@@ -86,6 +99,7 @@ const Table = () => {
                   />
                   <Link href={"/"}>{item.name}</Link>
                 </td>
+
                 <td>
                   <IoMdClose className={styles.delete_icon} />
                 </td>
@@ -96,14 +110,14 @@ const Table = () => {
         <section>
           <button className={styles.update_btn}> بروزرسانی سبد خرید</button>
           <div>
-            <button onClick={checkDiscount} className={styles.set_off_btn}>
+            <button className={styles.set_off_btn} onClick={checkDiscount}>
               اعمال کوپن
             </button>
             <input
               type="text"
-              placeholder="کد تخفیف"
-              value={discant}
+              value={discount}
               onChange={(event) => setDiscount(event.target.value)}
+              placeholder="کد تخفیف"
             />
           </div>
         </section>
@@ -149,7 +163,7 @@ const Table = () => {
 
         <div className={totalStyles.total}>
           <p>مجموع</p>
-          <p>{calcTotalPrice().toLocaleString()} تومان</p>
+          <p>{totalPrice.toLocaleString()} تومان</p>
         </div>
         <Link href={"/checkout"}>
           <button className={totalStyles.checkout_btn}>

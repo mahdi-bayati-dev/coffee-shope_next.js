@@ -1,0 +1,22 @@
+.stars{
+    display: flex;
+    margin: 5px 0 10px;
+    color: orange;
+}
+.card{
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 8px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.388);
+}
+.card img{
+    width: 65px;
+    height: 65px;
+}
+.card span{
+    color: rgb(52,24,14);
+}
+.card:last-child{
+    border-bottom: 0;
+}

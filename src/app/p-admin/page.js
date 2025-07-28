@@ -8,7 +8,7 @@ import Box from "@/components/modules/infoBox/InfoBox";
 
 import TicketModel from "@/model/Ticket";
 import UserModel from "@/model/User";
-import ProductModel from "@/model/Products";
+import ProductModel from "@/model/Product";
 import connectToDB from "@/configs/db";
 
 async function AdminHomePage() {

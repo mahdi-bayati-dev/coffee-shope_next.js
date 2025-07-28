@@ -44,8 +44,6 @@ export async function POST(req) {
     );
   }
 
-
-
   const accessToken = generateAccessToken({ email, id: user._id });
   const refreshToken = refreshAccessToken({ email, id: user._id });
 
@@ -53,6 +51,20 @@ export async function POST(req) {
     { message: "User logged in successfully" },
     { status: 200 }
   );
+
+  console.log("Generated refresh token:", refreshToken);
+
+
+  const result = await UserModel.findOneAndUpdate(
+    { email },
+    {
+      $set: {
+        refreshToken,
+      },
+    },
+    { new: true }
+  );
+  console.log("Updated user:", result);
 
   response.cookies.set({
     name: "token",

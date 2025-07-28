@@ -4,7 +4,7 @@ import { verifyAccessToken } from "@/utils/auth";
 import connectToDB from "@/configs/db";
 
 export async function authUser() {
-  await connectToDB()
+  await connectToDB();
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
@@ -25,4 +25,27 @@ export async function authUser() {
   }
 
   return user;
+}
+
+export async function authAdmin() {
+  await connectToDB();
+  const cookieStore = cookies();
+  const token = cookieStore.get("token")?.value;
+
+  const tokenPayload = verifyAccessToken(token);
+  if (!tokenPayload) return null;
+
+  const foundUser = await UserModel.findOne({ email: tokenPayload.email });
+
+  // بررسی نقش ادمین
+  if (foundUser?.role !== "ADMIN") {
+    return null; // یا throw new Error("دسترسی غیرمجاز")
+  }
+
+  return {
+    id: foundUser._id,
+    name: foundUser.name,
+    email: foundUser.email,
+    role: foundUser.role,
+  };
 }

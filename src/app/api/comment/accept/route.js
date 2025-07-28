@@ -5,6 +5,9 @@ import CommentsModel from "@/model/Comments";
 export async function PUT(req) {
   try {
     await connectToDB();
+    if (!admin) {
+      return NextResponse.json({ message: "دسترسی غیرمجاز" }, { status: 403 });
+    }
     const body = await req.json();
     const { id } = body;
     await CommentsModel.findOneAndUpdate(
@@ -13,7 +16,7 @@ export async function PUT(req) {
       { new: true }
     );
     return NextResponse.json(
-      { message: "کامنت با موفقیت رد شد" },
+      { message: "کامنت با موفقیت تایید شد" },
       { status: 200 }
     );
   } catch (error) {

@@ -5,15 +5,16 @@ import Banner from "@/components/templates/index/Banner/Banner";
 import Latest from "@/components/templates/index/latest/Latest";
 import Promote from "@/components/templates/index/promote/Promote";
 import { authUser } from "@/app/lib/authUser";
-
+import ProductModel from "@/model/Product"
 export default async function Home() {
   const user = await authUser();
+  const latestProducts = await ProductModel.find({}).sort({ _id: -1 }).limit(8);
 
   return (
     <>
       <Navbar isLogin={user ? true : false} />
       <Banner />
-      <Latest />
+      <Latest products={JSON.parse(JSON.stringify(latestProducts))} />
       <Promote />
       <Articles />
       <Footer />

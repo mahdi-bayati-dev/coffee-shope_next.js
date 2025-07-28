@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Product from '@/model/Product'
 
 const schema = new mongoose.Schema(
   {
@@ -9,7 +10,7 @@ const schema = new mongoose.Schema(
     },
     product: {
       type: mongoose.Types.ObjectId,
-      ref: "Products",
+      ref: "Product",
 
       required: true,
     },

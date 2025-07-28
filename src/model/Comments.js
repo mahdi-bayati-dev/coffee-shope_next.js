@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
   score: { type: Number, required: true },
   isAccess: { type: Boolean, default: false },
   date: { type: Date, default: () => new Date() },
-  ProductId: { type: mongoose.Types.ObjectId, ref: "Products" },
+  ProductId: { type: mongoose.Types.ObjectId, ref: "Product" },
   user: { type: mongoose.Types.ObjectId, ref: "User" },
 });
 

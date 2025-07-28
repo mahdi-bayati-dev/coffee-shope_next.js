@@ -18,7 +18,6 @@ const page = async () => {
     .limit(3)
     .lean()
     .sort({_id:-1})
-  console.log(tickets);
 
   return (
     <Layout>

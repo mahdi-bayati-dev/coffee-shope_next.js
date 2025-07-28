@@ -9,7 +9,7 @@ const page = async ({ params }) => {
   const ticketID = params.id;
   connectToDB();
   const ticket = await TicketModel.findOne({ _id: ticketID }).populate('user','name').lean()
-  const answerTicket = await TicketModel.findOne({ mainTicket: ticket._id });
+  const answerTicket = await TicketModel.findOne({ mainTicket: ticket._id }).populate('user','name')
 
 
   return (
@@ -22,7 +22,7 @@ const page = async ({ params }) => {
 
         <div>
           <Answer type="user" {...ticket} />
-          {answerTicket && <Answer type="admin" />}
+          {answerTicket && <Answer {...ticket} type="admin" />}
 
           {!answerTicket && (
             <div className={styles.empty}>

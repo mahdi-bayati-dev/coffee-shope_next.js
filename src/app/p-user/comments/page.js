@@ -5,7 +5,7 @@ import connectToDB from "@/configs/db";
 import CommentModel from "@/model/Comments";
 import { authUser } from "@/app/lib/authUser";
 
-import ProductModel from "@/model/Products";
+import ProductModel from "@/model/Product";
 
 const page = async () => {
   await connectToDB();

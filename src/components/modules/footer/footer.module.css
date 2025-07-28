@@ -4,12 +4,16 @@
   margin-top: 10px;
   align-items: center;
 }
+.titleH4{
+  color: white;
+}
 .descriptions {
   width: 300px;
   padding: 10px;
   font-family: shabnam;
   font-size: 15px;
   direction: rtl;
+  color: white;
 }
 .description:nth-child(3) p {
   font-size: 15px;
@@ -17,6 +21,7 @@
 .descriptions_title {
   margin-bottom: 30px;
   margin-top: 20px;
+  color: white;
 }
 .footer main {
   display: flex;
@@ -83,6 +88,7 @@
   padding: 20px 0px;
   font-size: 12px;
   text-align: right;
+  color: white;
 }
 
 .footer hr {

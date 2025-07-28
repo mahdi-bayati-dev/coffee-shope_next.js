@@ -3,9 +3,7 @@ import styles from "./latest.module.css";
 import { FaChevronLeft } from "react-icons/fa6";
 import Product from "@/components/modules/product/Product";
 
-const Latest = () => {
- 
-  
+const Latest = ({ products }) => {
   return (
     <div className={styles.container}>
       <section className={styles.title}>
@@ -18,14 +16,9 @@ const Latest = () => {
         </Link>
       </section>
       <main data-aos="fade-up" className={styles.products}>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {products.map((product) => (
+          <Product key={product._id} {...product} />
+        ))}
       </main>
     </div>
   );

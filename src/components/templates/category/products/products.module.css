@@ -1,0 +1,88 @@
+.products{  
+    width: 80%;
+}
+.filtering{
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    display: flex;
+}
+.filtering select{
+    background: white;
+    color: black;
+    direction: rtl;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    outline: 0;
+    height: auto;
+    border-top: none;
+    border-right: none;
+    appearance: none;
+    border-left: none;
+    border-radius: 0; 
+    background-position: left 17px top 44%; 
+    font-weight: 600;
+    font-size: inherit;
+    line-height: 1.2;
+    padding-inline-start: 2px;
+    padding-inline-end: 20px;
+    padding-left: 30px;
+    background-image:  url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNiYmIiPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==);
+    background-position: left 10px top 50%;
+    background-size: auto 18px;
+    background-repeat: no-repeat;
+}
+.view .active:hover{
+    color: black !important;
+}
+.view .active{
+    color: black;
+    cursor: default !important;
+}
+.view svg:hover{
+    color: rgb(74, 71, 71);
+}
+.view svg{
+    cursor: pointer;
+    transition: .1s all ease-in;
+}
+.view{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: gray;
+    font-size: 1.8rem;
+}
+.view svg:nth-child(2){
+    font-size: 2rem;
+}
+.view svg:nth-child(1){ 
+    font-size: 1.5rem;
+}
+ .main {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 40px; 
+}
+.available_filters{
+    display: flex;
+    direction: rtl;
+    gap: 23px;
+    justify-content: right;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.available_filters div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: row-reverse;
+    transition: .1s all ease-in;
+}
+.available_filters div:hover{
+    color: gray;
+}
+.available_filters div:nth-child(1){
+    padding-left: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.29);
+}

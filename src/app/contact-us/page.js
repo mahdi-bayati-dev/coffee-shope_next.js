@@ -1,3 +1,4 @@
+// 'use client'
 import Breadcrumb from "@/components/modules/breadcrumb/Breadcrumb";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
@@ -62,3 +63,4 @@ const page = async () => {
 };
 
 export default page;
+

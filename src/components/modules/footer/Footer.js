@@ -32,7 +32,7 @@ const Footer = () => {
         </section>
 
         <section>
-          <h4>جدیدترین نوشته ها</h4>
+          <h4 className={styles.titleH4}>جدیدترین نوشته ها</h4>
           <Article
             href={"/article/123"}
             data="۱۷ آبان ۱۴۰۲ "
@@ -54,7 +54,7 @@ const Footer = () => {
 
         <ul className={styles.links}>
           <div>
-            <h4>منوی فوتر</h4>
+            <h4 className={styles.titleH4}>منوی فوتر</h4>
             <li>
               <Link href={"/contact-us"}>تماس با ما</Link>
             </li>
@@ -66,7 +66,7 @@ const Footer = () => {
             </li>
           </div>
           <div>
-            <h4>دسترسی سریع</h4>
+            <h4 className={styles.titleH4}>دسترسی سریع</h4>
             <li>
               <Link href={"/category"}> فروشگاه </Link>
             </li>

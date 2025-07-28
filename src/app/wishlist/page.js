@@ -8,7 +8,7 @@ import { authUser } from "@/app/lib/authUser";
 import Link from "next/link";
 import { FaRegHeart } from "react-icons/fa";
 import WishlistModel from "@/model/Wishlist";
-import "@/model/Products"; // ← بسیار مهم
+import "@/model/Product"; // ← بسیار مهم
 
 const page = async () => {
   let wishes = [];
@@ -16,7 +16,7 @@ const page = async () => {
   const user = await authUser();
   if (user) {
     wishes = await WishlistModel.find({ user: user.id })
-      .populate("product", "name price score") // ← اصلاح‌شده
+      .populate("product", "name price score")
       .lean();
   }
 

@@ -1,0 +1,95 @@
+.details{
+    padding: 30px;
+    width: 50%;
+    color: black;
+    text-align: right;
+}
+.details_title{
+    font-size: 22px;
+}
+.form label { 
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 4px;
+}
+.form span{
+    color: red;
+}
+.form input,.form textarea{
+    outline: 0;
+    border: 0;
+    margin-top: .5rem;
+    background: white;
+    width: 100%;
+    direction: rtl;
+    width: 100%;
+    resize: none;
+    border-radius: 5px;
+    color: black;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.groups{
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+}
+.group{
+    margin-top: 1rem;
+    width: -webkit-fill-available;
+}
+
+.create_account{
+    margin-top: 1.5rem;
+}
+.create_account section{
+    margin-top: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.create_account input{
+    padding: .8rem 1rem;
+}
+.create_account button{
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 18px;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #F3F3F3;
+    margin-bottom: 2rem;
+    color: #3E3E3E;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: 0px solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease, opacity .25s ease;
+}
+  .accept_rules{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-direction: row !important;
+    margin-top: 1rem;
+    direction: rtl; 
+ }
+ .accept_rules input{
+    width: 20px !important;
+    margin-top: 0;
+ }
+ .destination{
+    margin-top: 2rem;
+ }
+
+ 

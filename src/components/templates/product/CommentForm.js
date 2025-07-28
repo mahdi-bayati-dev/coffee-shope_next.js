@@ -1,33 +1,82 @@
 import { IoMdStar } from "react-icons/io";
 import styles from "./commentForm.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import swal from "sweetalert";
 
-const CommentForm = ({ ProductId , userId}) => {
-
+const CommentForm = ({ ProductId, userId }) => {
   const [userName, setUserName] = useState("");
   const [body, setBody] = useState("");
   const [email, setEmail] = useState("");
   const [score, setScore] = useState(0);
-  
+  const [isSaveUserInfo, setIsUserInfo] = useState(false);
+
+  useEffect(() => {
+    const savedUserInfo = localStorage.getItem("userInfo");
+    if (savedUserInfo) {
+      const { userName, email } = JSON.parse(savedUserInfo);
+      setUserName(userName);
+      setEmail(email);
+      setIsUserInfo(true);
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!userName || !email || !body) {
-      alert("همه‌ی فیلدها را پر کنید!");
-      return;
+      return swal({
+        title: "خطا",
+        text: "لطفاً همه‌ی فیلدها را پر کنید!",
+        icon: "error",
+        button: "باشه",
+      });
     }
 
-    const comment = { userName, email, body, score, ProductId ,  user: userId };
+    if (isSaveUserInfo) {
+      const userInfo = { userName, email };
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    }
 
-    const res = await fetch("/api/comment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(comment),
-    });
+    const comment = { userName, email, body, score, ProductId, user: userId };
 
+    try {
+      const res = await fetch("/api/comment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(comment),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        return swal({
+          title: "ثبت ناموفق!",
+          text: data.message || "مشکلی در ثبت نظر به‌وجود آمد.",
+          icon: "error",
+          button: "تلاش مجدد",
+        });
+      }
+
+      swal({
+        title: "ثبت موفق!",
+        text: "نظر شما با موفقیت ثبت شد و پس از بررسی نمایش داده خواهد شد.",
+        icon: "success",
+        button: "باشه",
+      });
+
+      // پاک کردن فیلدها بعد از ارسال موفق
+      setBody("");
+      setScore(0);
+
+    } catch (error) {
+      console.error("⛔ Error:", error.message);
+      swal({
+        title: "خطای شبکه",
+        text: "مشکلی در برقراری ارتباط با سرور پیش آمد.",
+        icon: "error",
+        button: "متوجه شدم",
+      });
+    }
   };
 
   return (
@@ -90,7 +139,11 @@ const CommentForm = ({ ProductId , userId}) => {
       </div>
 
       <div className={styles.checkbox}>
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          checked={isSaveUserInfo}
+          onChange={() => setIsUserInfo((prev) => !prev)}
+        />
         <p>ذخیره نام، ایمیل و وبسایت من در مرورگر</p>
       </div>
 

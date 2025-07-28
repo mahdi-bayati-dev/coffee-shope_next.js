@@ -1,0 +1,16 @@
+.category{
+    display: flex;
+    gap:40px;
+}
+.container{
+    color: black;
+    text-align: right;
+    max-width: 1222px; 
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-bottom: 4rem;
+    margin-left: auto;
+}
+

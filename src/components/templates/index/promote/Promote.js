@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./promote.module.css";
+import Image from "next/image";
 
 const Promote = () => {
   return (
@@ -9,7 +10,13 @@ const Promote = () => {
           <section>
             <span>خرید قهوه ، به سبک حرفه ای ها</span>
             <p>زیبایی امروز رو با قهوه “ست” کنید</p>
-            <img data-aos="fade-left" src="/images/coffee-image-1.jpg" alt="" />
+            <Image
+              width={500}
+              height={500}
+              data-aos="fade-left"
+              src="/images/coffee-image-1.jpg"
+              alt=""
+            />
           </section>
           <section className={styles.club}>
             <div>
@@ -19,9 +26,11 @@ const Promote = () => {
           </section>
         </main>
         <main className={styles.main}>
-          <img width={660} height={530} src="/images/Home32.jpg" alt="" />
+          <Image width={500} height={500} src="/images/Home32.jpg" alt="" />
           <section data-aos="fade-up" className={styles.why_coffee}>
-            <img
+            <Image
+              width={500}
+              height={500}
               className={styles.logo}
               src="/images/coffee-svg-2.svg"
               alt=""

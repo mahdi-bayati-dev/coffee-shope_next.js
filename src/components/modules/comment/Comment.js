@@ -1,10 +1,14 @@
 import { FaStar, FaRegStar } from "react-icons/fa";
+import Image from "next/image";
 
 import styles from "./comment.module.css";
 const Comment = ({ comments }) => {
   return (
     <section className={styles.comment}>
-      <img src="/images/shahin.jpg" className={styles.avatar} alt="" />
+      <Image
+      width={50}
+      height={50} 
+       src="/images/shahin.jpg" className={styles.avatar} alt="" />
       <div>
         <div className={styles.main_details}>
           <div className={styles.user_info}>

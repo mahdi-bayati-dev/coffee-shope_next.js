@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
+import Image from "next/image";
 
 const Gallery = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -29,7 +30,10 @@ const Gallery = () => {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <img src={img} />
+            <Image  
+            width={700}
+            height={700}
+             src={img} />
           </SwiperSlide>
         ))}
       </Swiper>

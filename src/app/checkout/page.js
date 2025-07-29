@@ -7,7 +7,7 @@ import { useState } from "react"
 import Order from "@/components/templates/checkout/order/Order" 
 import Details from "@/components/templates/checkout/details/Details"
 
-const page = () => {
+const Page = () => {
     const [showDiscountForm, setShowDiscountForm] = useState(false)
     return (
         <>
@@ -42,4 +42,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

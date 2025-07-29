@@ -2,12 +2,15 @@ import Link from "next/link";
 import styles from "./product.module.css";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { CiSearch, CiHeart } from "react-icons/ci";
+import Image from "next/image";
 
 const Card = ({ name, price, img }) => {
   return (
     <div className={styles.card}>
       <div className={styles.details_container}>
-        <img
+        <Image
+          width={430}
+          height={430}
           src={
             img ||
             "https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"

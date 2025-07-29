@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import stateData from "@/utils/stateData";
 import Select from "react-select";
 import swal from "sweetalert";
+import Image from "next/image";
 
 
 const stateOptions = stateData();
@@ -93,7 +94,9 @@ const Table = () => {
                   {item.price.toLocaleString()} تومان
                 </td>
                 <td className={styles.product}>
-                  <img
+                  <Image
+                    width={430}
+                    height={430}
                     src="https://set-coffee.com/wp-content/uploads/2020/12/Red-box-DG--430x430.jpg"
                     alt=""
                   />

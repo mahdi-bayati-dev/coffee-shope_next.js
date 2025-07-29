@@ -2,6 +2,7 @@
 import styles from "@/styles/login-register.module.css";
 import { useState } from "react";
 import { authTypes } from "@/utils/constants";
+import Image from "next/image";
 
 import Login from "@/components/templates/login-register/Login";
 import Register from "@/components/templates/login-register/Register";
@@ -22,7 +23,10 @@ const Login_register = () => {
         )}
       </div>
       <section>
-        <img
+        <Image
+          width={780}
+
+          height={700}
           src="https://neurosciencenews.com/files/2023/06/coffee-brain-caffeine-neuroscincces.jpg"
           alt=""
         />

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./order.module.css";
+import Image from "next/image";
 
 const Order = () => {
   return (
@@ -7,7 +8,9 @@ const Order = () => {
       <div>
         <div>
           <p>قهوه عربیکا 40 درصد</p>
-          <img
+          <Image
+            width={430}
+            height={430}
             src="https://set-coffee.com/wp-content/uploads/2022/03/ethiopia-430x430.png"
             alt=""
           />

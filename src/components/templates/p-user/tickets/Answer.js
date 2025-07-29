@@ -1,4 +1,6 @@
+import { ImOpera } from "react-icons/im";
 import styles from "./answer.module.css";
+import Image from "next/image";
 
 const Answer = ({ type, body, title, createdAt, user }) => {
 
@@ -13,7 +15,11 @@ const Answer = ({ type, body, title, createdAt, user }) => {
             <p>{user.name}</p>
             <span>{type=== 'user'? 'کاربر':"مدیر"}</span>
           </div>
-          <img src="/images/shahin.jpg" alt="" />
+          <Image
+            width={50}
+            height={50}
+            
+           src="/images/shahin.jpg" alt="" />
         </div>
       </div>
       <div className={styles.ticket_text}>

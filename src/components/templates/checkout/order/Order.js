@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import styles from './order.module.css'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Order = () => {
     const [showZarinPallAlert, setShowZarinPallAlert] = useState(false)
@@ -37,12 +38,12 @@ const Order = () => {
                 <div>
                     <input onClick={() => setShowZarinPallAlert(false)} type="radio" name="payment_method" value="melli" />
                     <label> بانک ملی</label>
-                    <img width={24} height={40} src="https://set-coffee.com/wp-content/plugins/WooCommerce-melli/images/logo.png" alt="بانک ملی"></img>
+                    <Image width={24} height={40} src="https://set-coffee.com/wp-content/plugins/WooCommerce-melli/images/logo.png" alt="بانک ملی"></Image>
                 </div>
                 <div>
                     <input onClick={() => setShowZarinPallAlert(true)} type="radio" name="payment_method" value="zarinpal" />
                     <label>پرداخت امن زرین پال </label>
-                    <img width={40} height={40} src="https://set-coffee.com/wp-content/plugins/zarinpal-woocommerce-payment-gateway/assets/images/logo.png" alt="زرین پال"></img>
+                    <Image width={40} height={40} src="https://set-coffee.com/wp-content/plugins/zarinpal-woocommerce-payment-gateway/assets/images/logo.png" alt="زرین پال"></Image>
                 </div>
                 {showZarinPallAlert && (
                     <div className={styles.paymentBox}>

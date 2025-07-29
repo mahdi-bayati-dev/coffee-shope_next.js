@@ -9,12 +9,15 @@ import {
   FaTelegram,
   FaTwitter,
 } from "react-icons/fa";
+import Image from "next/image";
 
 const Card = () => {
   return (
     <div className={styles.card}>
       <Link className={styles.img_container} href={"/article/123"}>
-        <img
+        <Image
+          width={430}
+          height={430}
           src="https://set-coffee.com/wp-content/uploads/elementor/thumbs/-%D9%82%D9%87%D9%88%D9%87-%D8%A8%D8%A7-%D8%B4%DB%8C%D8%B1-qi8xuncj4ordgstrl43mbg5jfj1ezzamf6v9rnitn0.jpg"
           alt=""
         />
@@ -30,7 +33,9 @@ const Card = () => {
         </Link>
         <div>
           <p>نویسنده</p>
-          <img
+          <Image
+            width={32}
+            height={32}
             src="https://secure.gravatar.com/avatar/665a1a4dc7cc052eaa938253ef413a78?s=32&d=mm&r=g"
             alt=""
           />

@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./topbar.module.css";
 import { IoIosSearch, IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
+import Image from "next/image";
 const TopBar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +18,11 @@ const TopBar = () => {
             <p>شاهین مشکل گشا</p>
             <span>ادمین</span>
           </div>
-          <img src="/images/shahin.jpg" alt="" />
+          <Image
+            width={50}
+            height={50}
+            
+           src="/images/shahin.jpg" alt="" />
         </div>
         <section>
           <div className={styles.searchBox}>

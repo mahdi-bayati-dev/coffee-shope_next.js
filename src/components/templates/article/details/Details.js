@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaAngleLeft, FaAngleRight, FaFacebookF, FaLinkedinIn, FaPinterest, FaTelegram, FaTwitter } from 'react-icons/fa'
 import { IoGridOutline } from "react-icons/io5";
 import styles from './details.module.css'
+import Image from "next/image";
 
 const Details = () => {
   return (
@@ -11,7 +12,10 @@ const Details = () => {
                 <p className={styles.title}>نوشیدن قهوه تجربه ای است که به طور کامل مغز را به فعالیت وادار می کند</p>
                 <div className={styles.author}>
                     <p>نویسنده</p>
-                    <img src="https://secure.gravatar.com/avatar/665a1a4dc7cc052eaa938253ef413a78?s=32&d=mm&r=g" alt="" />
+                    <Image
+                    width={32}
+                    height={32}
+                     src="https://secure.gravatar.com/avatar/665a1a4dc7cc052eaa938253ef413a78?s=32&d=mm&r=g" alt="" />
                     <p>Mohebi</p>
                 </div>
 
@@ -20,7 +24,10 @@ const Details = () => {
                         <span>24</span>
                         <span>بهمن</span>
                     </div>
-                    <img src="https://set-coffee.com/wp-content/uploads/2024/01/coffe.jpg" alt="" />
+                    <Image
+                    width={430}
+                    height={430}
+                     src="https://set-coffee.com/wp-content/uploads/2024/01/coffe.jpg" alt="" />
                 </div>
                 <section>
                     <p>تحقیقات جدید حاکی از آن است که در واقع خود تجربه نوشیدن قهوه موجب هوشیاری و کارایی بیشتر ذهن می شود نه فقط کافئین موجود در آن. محققان با این فرضیه که «قهوه ضرروی برای صبحانه» که میلیاردها نفر در سراسر جهان از آن لذت می برند ممکن است دارونما باشد، روی افرادی که به طور منظم قهوه می نوشند، MRI انجام دادند تا فعالیت عملکردی مغز آنها را ارزیابی کنند.</p>
@@ -30,7 +37,11 @@ const Details = () => {
                     <p>اما گروهی که بدون تجربه نوشیدن قهوه صرفا کافئین مصرف کرده بودند، این افزایش در فعالیت عصبی را تجربه نکرده بودند.</p>
                 </section>
                 <div className={styles.img_content}>
-                    <img src="https://set-coffee.com/wp-content/uploads/2024/01/cofffe.jpg" alt="" />
+                    <Image
+                    width={430}
+                    height={430}
+
+                     src="https://set-coffee.com/wp-content/uploads/2024/01/cofffe.jpg" alt="" />
                     <p>نوشیدن قهوه برای مغز</p>
                 </div>
                 <section>

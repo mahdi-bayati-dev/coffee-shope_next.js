@@ -1,14 +1,10 @@
 "use client";
 import React from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-
-// import required modules
 import { Navigation, Autoplay } from "swiper/modules";
+import Image from "next/image";
 
 function Banner() {
   return (
@@ -21,20 +17,26 @@ function Banner() {
       className="mySwiper home-slider"
     >
       <SwiperSlide>
-        <img
-          src="../../images/fall.jpg"
+        <Image
+          width={1920}
+          height={1080}
+          src="/images/fall.jpg"
           alt="Slide"
         />
       </SwiperSlide>
       <SwiperSlide>
-        <img
-          src="../../images/slide.jpg"
+        <Image
+          width={1920}
+          height={1080}
+          src="/images/slide.jpg"
           alt="Slide"
         />
       </SwiperSlide>
       <SwiperSlide>
-        <img
-          src="../../images/winter-slie.jpg"
+        <Image
+          width={1920}
+          height={1080}
+          src="/images/winter-slie.jpg"
           alt="Slide"
         />
       </SwiperSlide>

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/styles/forget-password.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const ForgotPassword = () => {
   return (
@@ -25,7 +26,9 @@ const ForgotPassword = () => {
           </Link>
         </div>
         <section>
-          <img
+          <Image
+          width={500}
+          height={500}
             src="https://neurosciencenews.com/files/2023/06/coffee-brain-caffeine-neuroscincces.jpg"
             alt=""
           />

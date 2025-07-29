@@ -1,5 +1,6 @@
 import styles from "./topbar.module.css";
 import { IoIosSearch, IoIosNotifications } from "react-icons/io";
+import Image from "next/image";
 const Topbar = () => {
   return (
     <>
@@ -9,7 +10,10 @@ const Topbar = () => {
             <p>شاهین مشکل گشا</p>
             <span>ادمین</span>
           </div>
-          <img src="/images/shahin.jpg" alt="" />
+          <Image
+            width={50}
+            height={50}
+           src="/images/shahin.jpg" alt="" />
         </div>
         <section>
           <div className={styles.searchBox}>

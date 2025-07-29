@@ -4,6 +4,7 @@ import styles from "./Nabvar.module.css";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
+import Image from "next/image";
 
 function Navbar({ isLogin }) {
   const [fixTop, setFixTop] = useState(false);
@@ -27,7 +28,11 @@ function Navbar({ isLogin }) {
       <main>
         <div>
           <Link href="/">
-            <img src="/images/logo.png" alt="Logo" />
+            <Image
+              width={150}
+              height={50}
+              
+             src="/images/logo.png" alt="Logo" />
           </Link>
         </div>
 

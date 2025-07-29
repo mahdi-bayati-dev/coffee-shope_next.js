@@ -1,4 +1,27 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'set-coffee.com',
+      },
+            {
+        protocol: 'https',
+        hostname: 'neurosciencenews.com',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/uploads/**', // در صورت استفاده از فایل‌های لوکال
+      },
+      {
+        protocol: 'https',
+        hostname: 'secure.gravatar.com',
+      },
+    ],
+  },
+};
 
 export default nextConfig;

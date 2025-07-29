@@ -4,12 +4,13 @@ import { MdOutlineCopyright } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import Article from "./Article";
 import Link from "next/link";
+import Image from "next/image";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <main className="container">
         <section className={styles.descriptions}>
-          <img src="/images/logo_light.png" alt="" />
+          <Image width={150} height={150} src="/images/logo_light.png" alt="" />
           <p className={styles.descriptions_title}>
             شرکت فنجان داغ خوارزمی، فروشگاه اینترنتی قهوه ست
           </p>
@@ -82,10 +83,13 @@ const Footer = () => {
           </div>
         </ul>
         <div className={styles.licenses}>
-          <img src="/images/license4.htm" width={76} height={76} alt="" />
-          <img src="/images/license1.png" width={85} height={85} alt="" />
-          <img src="/images/license3.png" alt="" />
-          <img src="/images/license2.svg" width={62} height={95} alt="" />
+          <Image src="/images/license4.htm" width={76} height={76} alt="" />
+          <Image src="/images/license1.png" width={85} height={85} alt="" />
+          <Image
+            width={85}
+            height={85}
+           src="/images/license3.png"  alt="" />
+          <Image src="/images/license2.svg" width={62} height={95} alt="" />
         </div>
       </main>
       <hr />

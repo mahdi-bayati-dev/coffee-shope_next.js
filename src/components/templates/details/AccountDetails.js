@@ -6,6 +6,7 @@ import { IoCloudUploadOutline } from "react-icons/io5";
 import { MdOutlineDelete } from "react-icons/md";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 function AccountDetails() {
   const [name, setName] = useState("");
@@ -94,7 +95,11 @@ function AccountDetails() {
           </section>
           <section>
             <div className={styles.uploader}>
-              <img src="/images/shahin.jpg" alt="" />
+              <Image
+
+                width={150}
+                height={150}
+               src="/images/shahin.jpg" alt="" />
               <div>
                 <div>
                   <button>

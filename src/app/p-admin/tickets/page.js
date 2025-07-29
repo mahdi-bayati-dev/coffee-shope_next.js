@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import React from "react";
 import Layout from "@/components/layouts/AdminPanelLayout";
 import styles from "@/components/templates/p-admin/tickets/table.module.css";

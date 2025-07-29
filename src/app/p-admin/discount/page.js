@@ -1,8 +1,11 @@
+export const dynamic = "force-dynamic";
+
 import Table from "@/components/templates/p-admin/discounts/Table";
 import Layout from "@/components/layouts/AdminPanelLayout";
 import connectToDB from "@/configs/db";
 import DiscountModel from "@/model/Discount";
 import AddDiscounts from "@/components/templates/p-admin/discounts/addDiscounts";
+import styles from "@/components/templates/p-admin/discounts/table.module.css";
 
 const Discounts = async () => {
   connectToDB();

@@ -8,12 +8,10 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
 import Image from "next/image";
 
-const Gallery = () => {
+const Gallery = ({ productImg }) => {
+
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const images = [
-    "https://set-coffee.com/wp-content/uploads/2020/12/Gold-DG-700x700.jpg",
-    "https://set-coffee.com/wp-content/uploads/2020/12/Gold-box-DG--150x150.jpg",
-  ];
+  const images = [productImg];
 
   return (
     <section style={{ width: "36%" }}>
@@ -30,10 +28,12 @@ const Gallery = () => {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <Image  
-            width={700}
-            height={700}
-             src={img} />
+            <Image
+              width={700}
+              height={700}
+              alt={`Gallery image ${index + 1}`}
+              src={img}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -49,7 +49,7 @@ const Gallery = () => {
       >
         {images.map((img) => (
           <SwiperSlide key={Math.random()}>
-            <img src={img} />
+            <Image width={400} height={400}  src={img} alt="تصویر محصول" />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -5,6 +5,7 @@ import { CiSearch, CiHeart } from "react-icons/ci";
 import Image from "next/image";
 
 const Card = ({ name, price, img }) => {
+  
   return (
     <div className={styles.card}>
       <div className={styles.details_container}>
@@ -15,7 +16,7 @@ const Card = ({ name, price, img }) => {
             img ||
             "https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"
           }
-          alt=""
+          alt={`${name} image`}
         />
         <div className={styles.icons}>
           <Link href="/">

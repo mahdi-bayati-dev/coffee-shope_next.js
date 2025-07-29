@@ -3,22 +3,30 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'set-coffee.com',
-      },
-            {
-        protocol: 'https',
-        hostname: 'neurosciencenews.com',
+        protocol: "https",
+        hostname: "set-coffee.com",
+        pathname: "/**",
       },
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3000',
-        pathname: '/uploads/**', // در صورت استفاده از فایل‌های لوکال
+        protocol: "https",
+        hostname: "neurosciencenews.com",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'secure.gravatar.com',
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**", // مهم
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
+        pathname: "/uploads/**", // اختیاری برای تست
+      },
+      {
+        protocol: "https",
+        hostname: "secure.gravatar.com",
+        pathname: "/**",
       },
     ],
   },

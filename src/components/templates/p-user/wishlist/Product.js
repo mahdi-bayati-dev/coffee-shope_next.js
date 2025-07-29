@@ -6,6 +6,7 @@ import { IoMdStar } from "react-icons/io";
 import { FaRegStar } from "react-icons/fa";
 import swal from "sweetalert";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 const Card = ({ price, score = 0, name, productId }) => {
   const router = useRouter();
   const removeProduct = (productId) => {
@@ -63,7 +64,7 @@ const Card = ({ price, score = 0, name, productId }) => {
   return (
     <div className={styles.card}>
       <Link href={`/product/${productId}`}>
-        <img
+        <Image
           width={283}
           height={283}
           src="https://set-coffee.com/wp-content/uploads/2022/03/ethiopia-430x430.png"

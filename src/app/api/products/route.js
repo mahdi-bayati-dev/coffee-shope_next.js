@@ -1,8 +1,12 @@
 import connectToDB from "@/configs/db";
 import ProductModel from "@/model/Product";
-// import fs from "fs";
-import { mkdir,writeFile } from "fs/promises";
-import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(req) {
   try {
@@ -24,13 +28,23 @@ export async function POST(req) {
     }
 
     const buffer = Buffer.from(await img.arrayBuffer());
-    const filename = Date.now() + img.name;
+    console.log("Buffer size:", buffer.length);
 
-    const uploadDir = path.join(process.cwd(), "public/uploads");
-    await mkdir(uploadDir, { recursive: true });
 
-    const imgPath = path.join(uploadDir, filename);
-    await writeFile(imgPath, buffer);
+    const uploadResult = await new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        {
+          folder: "products",
+          resource_type: "image",
+        },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+
+      stream.end(buffer);
+    });
 
     const product = await ProductModel.create({
       name,
@@ -41,11 +55,11 @@ export async function POST(req) {
       suitableFor,
       smell,
       tags,
-      img: `http://localhost:3000/uploads/${filename}`,
+      img: uploadResult.secure_url, // آدرس Cloudinary
     });
 
     return Response.json(
-      { message: "Product created successfully :))", data: product },
+      { message: "Product created successfully", data: product },
       { status: 201 }
     );
   } catch (err) {

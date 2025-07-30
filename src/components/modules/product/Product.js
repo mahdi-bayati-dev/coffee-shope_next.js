@@ -1,10 +1,14 @@
+// modules/product
 import Link from "next/link";
 import styles from "./product.module.css";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { CiSearch, CiHeart } from "react-icons/ci";
 import Image from "next/image";
 
-const Card = ({ name, price, img }) => {
+const Card = ({ name, price, img, _id }) => {
+  console.log('===>',img);
+  console.log('===>',name);
+  
   
   return (
     <div className={styles.card}>
@@ -19,7 +23,7 @@ const Card = ({ name, price, img }) => {
           alt={`${name} image`}
         />
         <div className={styles.icons}>
-          <Link href="/">
+          <Link href="/product/[id]" as={`/product/${_id}`}>
             <CiSearch />
             <p className={styles.tooltip}>مشاهده سریع</p>
           </Link>
@@ -32,7 +36,9 @@ const Card = ({ name, price, img }) => {
       </div>
 
       <div className={styles.details}>
-        <Link href={"/"}>{name}</Link>
+        <Link href="/product/[id]" as={`/product/${_id}`}>
+          {name}
+        </Link>
         <div>
           <FaStar />
           <FaStar />

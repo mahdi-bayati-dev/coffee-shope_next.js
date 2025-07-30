@@ -1,3 +1,4 @@
+// app/page
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
 import Articles from "@/components/templates/index/articles/Articles";
@@ -14,10 +15,10 @@ export default async function Home() {
     <>
       <Navbar isLogin={user ? true : false} />
       <Banner />
-      <Latest products={JSON.parse(JSON.stringify(latestProducts))} />
+      {/* <Latest products={JSON.parse(JSON.stringify(latestProducts))} />
       <Promote />
       <Articles />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }

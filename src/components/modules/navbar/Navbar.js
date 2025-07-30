@@ -4,39 +4,45 @@ import styles from "./Nabvar.module.css";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
+import { FaBarsStaggered } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+
 import Image from "next/image";
 
 function Navbar({ isLogin }) {
   const [fixTop, setFixTop] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // ✅ برای باز و بسته کردن منو
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.pageYOffset;
-
-      if (scrollY > 100) {
-        setFixTop(true);
-      } else {
-        setFixTop(false);
-      }
+      setFixTop(scrollY > 100);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <nav className={fixTop ? styles.navbar_fixed : styles.navbar}>
       <main>
-        <div>
-          <Link href="/">
-            <Image
-              width={150}
-              height={50}
-              
-             src="/images/logo.png" alt="Logo" />
+        {/* ✅ لوگو و آیکون منو */}
+        <div className={styles.logo_section}>
+          <Link href="/" className={styles.logo}>
+            <Image width={150} height={50} src="/images/logo.png" alt="Logo" />
           </Link>
+
+          {/* ✅ آیکون منو در موبایل */}
+          <button
+            className={styles.hamburger}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+           {menuOpen?<IoClose />:<FaBarsStaggered />} 
+
+          </button>
         </div>
 
-        <ul className={styles.links}>
+        {/* ✅ منو */}
+        <ul className={`${styles.links} ${menuOpen ? styles.show_menu : ""}`}>
           <li>
             <Link href="/">صفحه اصلی</Link>
           </li>
@@ -44,7 +50,7 @@ function Navbar({ isLogin }) {
             <Link href="/category">فروشگاه</Link>
           </li>
           <li>
-            <Link href="/blog">وبلاگ</Link>
+            <Link href="/articles">وبلاگ</Link>
           </li>
           <li>
             <Link href="/contact-us">تماس با ما</Link>
@@ -60,26 +66,20 @@ function Navbar({ isLogin }) {
               <Link href="/login-register">ورود / عضویت</Link>
             </li>
           ) : (
-            
-              /* Start My-account section */
-            (
-              <div className={styles.dropdown}>
-                <Link href="/p-user">
-                  <IoIosArrowDown className={styles.dropdown_icons} />
-                  حساب کاربری
-                </Link>
-                <div className={styles.dropdown_content}>
-                  <Link href="/p-user/orders">سفارشات</Link>
-                  <Link href="/p-user/tickets">تیکت های پشتیبانی</Link>
-                  <Link href="/p-user/comments">کامنت‌ها</Link>
-                  <Link href="/p-user/wishlist">علاقه‌مندی‌ها</Link>
-                  <Link href="/p-user/account-details">جزئیات اکانت</Link>
-                </div>
+            <div className={styles.dropdown}>
+              <Link href="/p-user">
+                <IoIosArrowDown className={styles.dropdown_icons} />
+                حساب کاربری
+              </Link>
+              <div className={styles.dropdown_content}>
+                <Link href="/p-user/orders">سفارشات</Link>
+                <Link href="/p-user/tickets">تیکت ها</Link>
+                <Link href="/p-user/comments">کامنت‌ها</Link>
+                <Link href="/p-user/wishlist">علاقه‌مندی‌ها</Link>
+                <Link href="/p-user/account-details">جزئیات اکانت</Link>
               </div>
-            )
+            </div>
           )}
-
-          {/* Finish My-account section */}
         </ul>
 
         <div className={styles.navbar_icons}>

@@ -33,6 +33,7 @@ const Details = ({ product }) => {
         id: product._id,
         name: product.name,
         price: product.price,
+        img: product.img || "https://set-coffee.com/wp-content/uploads/2020/12/Red-box-DG--430x430.jpg",
         count,
       });
     }

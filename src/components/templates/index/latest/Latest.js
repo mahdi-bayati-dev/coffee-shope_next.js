@@ -1,9 +1,12 @@
+// template/index/Latest
 import Link from "next/link";
 import styles from "./latest.module.css";
 import { FaChevronLeft } from "react-icons/fa6";
 import Product from "@/components/modules/product/Product";
 
 const Latest = ({ products }) => {
+  console.log("Latest products:", products);
+  
   return (
     <div className={styles.container}>
       <section className={styles.title}>

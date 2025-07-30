@@ -1,0 +1,47 @@
+.group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.401);
+    padding-bottom: .5rem;
+    width: 100%;
+}
+
+.groups {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.group:last-child {
+    border-bottom: 0;
+}
+
+.modal_title {
+    padding: 1rem 0rem;
+}
+
+.modal_btn {
+    width: 100%;
+    padding: .5rem .8rem;
+    border: 0;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #711D1C;
+    margin-top: 1rem;
+}
+
+.modal_bill {
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.modal_bill div {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+    gap: 5px;
+    justify-content: space-between;
+    margin-top: 1rem;
+}

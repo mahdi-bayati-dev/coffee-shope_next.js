@@ -6,10 +6,11 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
+import ClientBasketBadge from "@/utils/ClientBasketBadge";
 
 import Image from "next/image";
 
-function Navbar({ isLogin }) {
+function Navbar({ isLogin, wishlist }) {
   const [fixTop, setFixTop] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // ✅ برای باز و بسته کردن منو
 
@@ -36,8 +37,7 @@ function Navbar({ isLogin }) {
             className={styles.hamburger}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-           {menuOpen?<IoClose />:<FaBarsStaggered />} 
-
+            {menuOpen ? <IoClose /> : <FaBarsStaggered />}
           </button>
         </div>
 
@@ -83,13 +83,18 @@ function Navbar({ isLogin }) {
         </ul>
 
         <div className={styles.navbar_icons}>
-          <Link href="/cart">
-            <FaShoppingCart />
-            <span>1</span>
-          </Link>
+          <ClientBasketBadge>
+            {(basket) => (
+              <Link href="/cart">
+                <FaShoppingCart />
+                {basket > 0 && <span>{basket}</span>}
+              </Link>
+            )}
+          </ClientBasketBadge>
+
           <Link href="/wishlist">
             <FaRegHeart />
-            <span>1</span>
+            <span>{wishlist}</span>
           </Link>
         </div>
       </main>

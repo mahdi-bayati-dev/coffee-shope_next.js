@@ -24,7 +24,7 @@ const page = async () => {
 
   return (
     <>
-      <Navbar isLogin={!!user} />
+      <Navbar isLogin={!!user}  wishlist={wishes.length}/>
       <Breadcrumb route={"علاقه مندی ها"} />
       <main className={styles.container} data-aos="fade-up">
         <p className={styles.title}>محصولات مورد علاقه شما</p>

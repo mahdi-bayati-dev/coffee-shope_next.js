@@ -11,6 +11,7 @@ const Card = ({ name, price, img, _id }) => {
   
   
   return (
+    
     <div className={styles.card}>
       <div className={styles.details_container}>
         <Image

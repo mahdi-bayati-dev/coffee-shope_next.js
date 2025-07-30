@@ -24,9 +24,9 @@ export default async function Home() {
       <Navbar isLogin={user ? true : false} wishlist={wishes.length} />
       <div className="navbarSpacerMobile"></div>
       <Banner />
-      {/* <Latest products={JSON.parse(JSON.stringify(latestProducts))} />
+      <Latest products={JSON.parse(JSON.stringify(latestProducts))} />
       <Promote />
-      <Articles />
+      {/*  <Articles />
       <Footer /> */}
     </>
   );

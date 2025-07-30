@@ -1,18 +1,84 @@
+.container {
+  max-width: 1222px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  direction: rtl;
+  text-align: center;
+}
+
 .title {
   color: #114639;
   font-size: 36px;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 .description {
   color: gray;
+  font-size: 16px;
+  margin-bottom: 2rem;
 }
 
-.container {
-  max-width: 1222px;
-  margin: 0 auto;
-  direction: rtl;
-}
-
+/* برای فاصله بین سوییپر و سایر بخش‌ها */
 .container main {
   margin: 40px 0 90px;
+}
+
+/* اسلایدر Swiper */
+.articles_slider {
+  padding-bottom: 2rem;
+}
+
+/* دکمه‌های ناوبری Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #114639;
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  background: #ffffffdd;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 12px;
+}
+
+/* برای مخفی کردن دکمه‌ها در موبایل */
+@media (max-width: 768px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+}
+
+/* رسپانسیو تیترها */
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .container main {
+    margin: 30px 0 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .container main {
+    margin: 20px 0 40px;
+  }
 }

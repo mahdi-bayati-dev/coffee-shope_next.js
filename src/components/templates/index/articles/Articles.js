@@ -17,7 +17,7 @@ const Articles = () => {
           spaceBetween={30}
           dir="rtl"
           autoplay={{ delay: 1500, disableOnInteraction: false }}
-          //   rewind={true}
+            rewind={true}
           loop={true}
           navigation={true}
           modules={[Navigation, Autoplay]}

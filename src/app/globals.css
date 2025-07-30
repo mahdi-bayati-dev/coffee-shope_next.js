@@ -201,3 +201,17 @@ a {
 .map-module__XZx8Ba__details {
   z-index: 100 !important;
 }
+
+/* برای نمایش اسلایدری زیر وبار */
+@media (max-width: 768px) {
+  .navbarSpacerMobile {
+    height: 5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbarSpacerMobile {
+    height: 0;
+  }
+}
+

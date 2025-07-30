@@ -6,14 +6,23 @@ import Banner from "@/components/templates/index/Banner/Banner";
 import Latest from "@/components/templates/index/latest/Latest";
 import Promote from "@/components/templates/index/promote/Promote";
 import { authUser } from "@/app/lib/authUser";
-import ProductModel from "@/model/Product"
+import ProductModel from "@/model/Product";
+import WishlistModel from "@/model/Wishlist";
 export default async function Home() {
   const user = await authUser();
   const latestProducts = await ProductModel.find({}).sort({ _id: -1 }).limit(8);
+  let wishes = [];
+  if (user) {
+    wishes = await WishlistModel.find({ user: user.id })
+      .populate("product", "name price score img")
+      .sort({ _id: -1 })
+      .lean();
+  }
 
   return (
     <>
-      <Navbar isLogin={user ? true : false} />
+      <Navbar isLogin={user ? true : false} wishlist={wishes.length} />
+      <div className="navbarSpacerMobile"></div>
       <Banner />
       {/* <Latest products={JSON.parse(JSON.stringify(latestProducts))} />
       <Promote />

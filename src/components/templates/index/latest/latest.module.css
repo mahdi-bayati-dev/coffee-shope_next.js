@@ -1,36 +1,79 @@
+/* styles/layout.module.css */
+
 .container {
   max-width: 1222px;
   margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* جلوگیری از جمع شدن و اسکرول افقی ناخواسته */
 }
 
+/* ------------------- Title Section ------------------- */
 .title {
-  color: black;
-  flex-direction: row-reverse;
-  width: 100%;
-  justify-content: space-between;
   display: flex;
-  text-align: center;
-  font-family: shabnam;
-  margin-top: 1.7rem;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.7rem;
+  text-align: center;
+  flex-direction: row-reverse;
+  color: black;
 }
+
 .title p {
+  font-size: 2rem;
   color: #114639;
-  font-size: 36px;
 }
+
 .title span {
+  font-size: 1rem;
   color: gray;
 }
+
+/* ------------------- Link ------------------- */
 .link {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
+  flex-direction: row-reverse;
   gap: 9px;
+  font-size: 1rem;
+  color: #114639;
+  text-decoration: none;
 }
+
+/* ------------------- Products Grid ------------------- */
 .products {
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  gap: 30px;
-  padding: 20px 0px;
-  justify-content: space-between;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px 0;
+  width: 100%; /* اطمینان از کنترل عرض */
+  box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* ✅ ستون‌ها با عرض منعطف */
+    gap: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
 }

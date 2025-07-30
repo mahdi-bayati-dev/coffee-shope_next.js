@@ -1,91 +1,202 @@
 .readable {
   background-color: #f3f3f3;
 }
+
 .container {
   max-width: 1222px;
   margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .main {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row-reverse;
+  gap: 2rem;
+  margin: 5rem 0 3rem;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: right;
 }
-.main section {
+
+.textBlock {
   font-family: shabnam;
   color: black;
   width: 50%;
+  text-align: center;
+  padding: 40px 20px;
 }
-.main {
-  margin-top: 5rem;
-  text-align: right;
-  margin-bottom: 3rem;
-}
-.club {
-  background-image: url("/images/clubset1.jpg");
-  background-repeat: no-repeat;
-  position: relative;
-  width: 60% !important;
-}
-.main span {
+
+.textBlock span {
   color: #114639;
   font-size: 32px;
 }
-.main section:nth-child(1) {
-  padding: 40px 20px 20px;
-  text-align: center;
-}
-.main section:nth-child(1) p {
+
+.textBlock p {
   color: gray;
-  margin: 15px 0px 80px;
+  margin: 15px 0 60px;
   font-size: 15px;
 }
+
+.image {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* باشگاه مشتریان */
+.club {
+  background-image: url("/images/clubset1.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 60% !important;
+  position: relative;
+  min-height: 300px;
+  border-radius: 8px;
+}
+
 .club div {
   position: absolute;
   bottom: 20px;
   left: 0;
   padding: 30px;
-  width: 411px;
-  background: white;
-}
-.club p {
-  margin-top: 10px;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+  border-radius: 0 8px 8px 0;
 }
 
-.logo {
-  width: 80px;
-  margin-left: auto;
+.club span {
+  color: #114639;
+  font-size: 22px;
 }
+
+.club p {
+  margin-top: 10px;
+  color: #333;
+}
+
+/* چرا قهوه ست */
+.why_coffee {
+  padding: 60px 30px;
+  flex: 1;
+}
+
 .title {
   color: #711d1c;
   font-size: 44px;
+  margin-bottom: 1rem;
 }
 
-.why_coffee {
-  padding: 80px 30px;
-}
-.why_coffee div {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: right;
-}
-.red_btn {
-  background-color: #711d1c !important;
-  border: 1px solid #711d1c !important;
-  color: white !important;
-}
-.why_coffee div button {
-  padding: 0.8rem 1.2rem;
-  cursor: pointer;
-  border: 1px solid gray;
-  margin-top: 2rem;
-  color: black;
-  background: white;
-  font-family: shabnam;
-}
-.why_coffee p:nth-child(3) {
-  margin-top: 1rem;
-  direction: rtl;
-  line-height: 1.8rem;
+.description {
   color: gray;
   font-size: 15px;
+  line-height: 1.8rem;
+  direction: rtl;
+  margin-top: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.buttons button {
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  font-family: shabnam;
+  font-size: 15px;
+  border: 1px solid gray;
+  background: white;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.red_btn {
+  background-color: #711d1c !important;
+  color: white !important;
+  border: 1px solid #711d1c !important;
+}
+
+.white_btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* رسپانسیو */
+@media (max-width: 992px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 3rem 0 2rem;
+  }
+
+  .textBlock,
+  .why_coffee {
+    width: 100% !important;
+  }
+
+  .club {
+    width: 100% !important;
+    min-height: 250px;
+  }
+
+  .club div {
+    position: static;
+    width: 100% !important;
+    margin-top: 1rem;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .textBlock span {
+    font-size: 24px;
+  }
+
+  .textBlock p {
+    font-size: 14px;
+    margin: 10px 0 30px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.6rem;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .club div {
+    padding: 16px;
+  }
+  .image {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+}
 }

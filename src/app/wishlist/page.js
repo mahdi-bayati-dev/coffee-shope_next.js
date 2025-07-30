@@ -1,3 +1,4 @@
+// app/wishlist/
 import Breadcrumb from "@/components/modules/breadcrumb/Breadcrumb";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
@@ -8,7 +9,7 @@ import { authUser } from "@/app/lib/authUser";
 import Link from "next/link";
 import { FaRegHeart } from "react-icons/fa";
 import WishlistModel from "@/model/Wishlist";
-import "@/model/Product"; // ← بسیار مهم
+import "@/model/Product";
 
 const page = async () => {
   let wishes = [];
@@ -16,7 +17,8 @@ const page = async () => {
   const user = await authUser();
   if (user) {
     wishes = await WishlistModel.find({ user: user.id })
-      .populate("product", "name price score")
+      .populate("product", "name price score img")
+      .sort({ _id: -1 })
       .lean();
   }
 

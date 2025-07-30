@@ -4,6 +4,9 @@ import React from "react";
 import connectToDB from "@/configs/db";
 import CommentModel from "@/model/Comments";
 import { authUser } from "@/app/lib/authUser";
+import styles from "@/components/templates/p-admin/comments/table.module.css";
+
+
 
 import ProductModel from "@/model/Product";
 

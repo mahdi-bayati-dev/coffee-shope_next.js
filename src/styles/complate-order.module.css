@@ -1,0 +1,57 @@
+.box div{
+    display: flex;
+    gap: 5px;
+}
+.box strong{
+    color: black;
+}
+.box ul{ 
+    flex-direction: column;
+    display: flex; 
+    gap: 10px;
+}
+.box button:hover {
+    color: #3E3E3E;
+    box-shadow: inset 0 0 200px rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+.box button{
+    margin-top: 1rem;
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 18px;
+    background-color: #F3F3F3;
+    color: #3E3E3E;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    box-shadow: none;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease, opacity .25s ease;
+}
+.box{
+    color: gray;
+    margin-left: auto;
+    width: max-content;
+    direction: rtl;
+
+}
+.container {
+    max-width: 1222px; 
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-bottom: 4rem;
+    margin-left: auto;
+}

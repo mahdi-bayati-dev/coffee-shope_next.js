@@ -9,7 +9,6 @@ import Select from "react-select";
 import swal from "sweetalert";
 import Image from "next/image";
 
-
 const stateOptions = stateData();
 
 const Table = () => {
@@ -54,16 +53,30 @@ const Table = () => {
     console.log("Response ->", res);
 
     if (res.status === 404) {
-      return swal({title:"کد تخفیف وارد شده معتبر نیست", icon:"error", button:"تلاش مجدد"});
+      return swal({
+        title: "کد تخفیف وارد شده معتبر نیست",
+        icon: "error",
+        button: "تلاش مجدد",
+      });
     } else if (res.status === 422) {
-      return swal({title:"کد تخفیف وارد شده منقضی شده", icon:"error", button:"تلاش مجدد"});
+      return swal({
+        title: "کد تخفیف وارد شده منقضی شده",
+        icon: "error",
+        button: "تلاش مجدد",
+      });
     } else if (res.status === 200) {
       const discountCode = await res.json();
       const newPrice = totalPrice - (totalPrice * discountCode.percent) / 100;
       setTotalPrice(newPrice);
-      return swal({title:"کد تخفیف با موفقیت اعمال شد", icon:"success", button:"فهمیدم"});
+      return swal({
+        title: "کد تخفیف با موفقیت اعمال شد",
+        icon: "success",
+        button: "فهمیدم",
+      });
     }
   };
+  
+  console.log('==>',cart);
 
   return (
     <>
@@ -97,8 +110,11 @@ const Table = () => {
                   <Image
                     width={430}
                     height={430}
-                    src="https://set-coffee.com/wp-content/uploads/2020/12/Red-box-DG--430x430.jpg"
-                    alt=""
+                    src={
+                      item.img ||
+                      " https://set-coffee.com/wp-content/uploads/2020/12/Red-box-DG--430x430.jpg"
+                    }
+                    alt=" product image"
                   />
                   <Link href={"/"}>{item.name}</Link>
                 </td>

@@ -16,10 +16,35 @@
 }
 
 .main {
-  gap: 50px;
+  gap: 25px;
   display: flex;
   flex-direction: row-reverse;
 }
+
+.main > * {
+  flex: 1; /* تقسیم فضای برابر بین Gallery و Details */
+  max-width: 50%; /* محدود کردن حداکثر عرض هر کامپوننت به 50% */
+}
+
 .container {
   overflow: auto;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+
+  .main > * {
+    max-width: 100%; /* در موبایل عرض کامل */
+  }
+
+  .contents {
+    padding: 0 1rem;
+    margin-top: 100px;
+  }
+
+  .container {
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+  }
 }

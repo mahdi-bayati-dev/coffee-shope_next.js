@@ -1,0 +1,58 @@
+.galleryContainer {
+  width: 100%;
+  max-width: 100%; /* به جای 600px، اجازه می‌دهیم عرض توسط والد کنترل شود */
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.gallerySlider {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* حفظ نسبت تصویر */
+  max-height: 500px; /* محدود کردن ارتفاع در دسکتاپ */
+}
+
+.gallerySlider2 {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.imageWrapper,
+.thumbWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.imageWrapper img,
+.thumbWrapper img {
+  object-fit: cover; /* اطمینان از پر شدن فضا بدون اعوجاج */
+}
+
+/* دسکتاپ */
+@media (min-width: 769px) {
+  .gallerySlider {
+    max-height: 450px; /* کاهش ارتفاع در دسکتاپ */
+  }
+  .gallerySlider2 {
+    --swiper-slides-per-view: 4;
+  }
+}
+
+/* تبلت */
+@media (max-width: 768px) {
+  .gallerySlider {
+    max-height: 400px;
+  }
+  .gallerySlider2 {
+    --swiper-slides-per-view: 3;
+  }
+}
+
+/* موبایل */
+@media (max-width: 480px) {
+  .gallerySlider {
+    max-height: 300px;
+  }
+  .gallerySlider2 {
+    --swiper-slides-per-view: 2;
+  }
+}

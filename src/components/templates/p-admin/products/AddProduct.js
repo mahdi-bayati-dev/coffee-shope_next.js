@@ -35,7 +35,6 @@ function AddProduct() {
       body: formData,
     });
 
-    console.log("Res ->", res);
 
     if (res.status === 201) {
       swal({

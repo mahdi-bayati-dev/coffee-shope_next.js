@@ -1,22 +1,88 @@
 .container {
-    color: black;
-    text-align: right;
-    max-width: 1222px;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-bottom: 4rem;
-    direction: rtl;
-    margin-left: auto;
+  color: black;
+  text-align: right;
+  max-width: 1222px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto 4rem auto;
+  direction: rtl;
 }
 
-.container p,.container span{
-    margin-bottom: 20px;
-    text-align: justify;
-    color: rgb(105, 102, 102);
+.container h2 {
+  font-size: 28px;
+  margin: 30px 0 15px;
+  color: black;
 }
-.container p:nth-child(2){
-    
-    margin-bottom:0px;
+
+.container p,
+.container span {
+  margin-bottom: 20px;
+  text-align: justify;
+  color: rgb(105, 102, 102);
+  font-size: 16px;
+  line-height: 1.8rem;
+}
+
+.container p:nth-child(2) {
+  margin-bottom: 20px; /* اصلاح حاشیه صفر برای یکپارچگی */
+}
+
+/* تبلت */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 10px;
+    margin-bottom: 3rem;
+  }
+
+  .container h2 {
+    font-size: 24px;
+    margin: 25px 0 12px;
+  }
+
+  .container p,
+  .container span {
+    font-size: 15px;
+    line-height: 1.7rem;
+    margin-bottom: 15px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 8px;
+    margin-bottom: 2rem;
+  }
+
+  .container h2 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+  }
+
+  .container p,
+  .container span {
+    font-size: 14px;
+    line-height: 1.6rem;
+    margin-bottom: 12px;
+    text-align: right; /* برای خوانایی بهتر متن فارسی در موبایل */
+  }
+}
+
+/* موبایل‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 5px;
+  }
+
+  .container h2 {
+    font-size: 18px;
+    margin: 15px 0 8px;
+  }
+
+  .container p,
+  .container span {
+    font-size: 13px;
+    line-height: 1.5rem;
+    margin-bottom: 10px;
+  }
 }

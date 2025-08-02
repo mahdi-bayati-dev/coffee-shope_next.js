@@ -50,7 +50,6 @@ const Table = () => {
       body: JSON.stringify({ code: discount }),
     });
 
-    console.log("Response ->", res);
 
     if (res.status === 404) {
       return swal({
@@ -76,7 +75,6 @@ const Table = () => {
     }
   };
   
-  console.log('==>',cart);
 
   return (
     <>

@@ -6,8 +6,7 @@ import { CiSearch, CiHeart } from "react-icons/ci";
 import Image from "next/image";
 
 const Card = ({ name, price, img, _id }) => {
-  console.log('===>',img);
-  console.log('===>',name);
+
   
   
   return (

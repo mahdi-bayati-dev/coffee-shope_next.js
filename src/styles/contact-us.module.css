@@ -1,26 +1,93 @@
-.maps{
-    display: flex;
-    gap: 25px;
+.container {
+  color: black;
+  text-align: right;
+  max-width: 1222px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto 4rem auto;
+  direction: rtl;
 }
-.container{
-    color: black;
-    text-align: right;
-    max-width: 1222px; 
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-bottom: 4rem;
-    margin-left: auto;
+
+.maps {
+    margin: 1.5rem 1.5rem ;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-.maps section{
-    width: 50%;
+
+.maps section {
+  flex: 1;
+  min-width: 300px;
 }
-.contents{
-    display: flex;
-    gap: 35px;
+
+.contents {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 3rem;
 }
-.contents section,.contents form{
-    width: 50%;
-    margin-top: 3rem;
+
+.contents section,
+.contents form {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* تبلت */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 10px;
+    margin-bottom: 3rem;
+  }
+
+  .maps {
+    gap: 15px;
+  }
+
+  .contents {
+    gap: 20px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 8px;
+    margin-bottom: 2rem;
+  }
+
+  .maps {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .maps section {
+    min-width: 100%;
+  }
+
+  .contents {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 2rem;
+  }
+
+  .contents section,
+  .contents form {
+    min-width: 100%;
+  }
+}
+
+/* موبایل‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 5px;
+  }
+
+  .maps {
+    gap: 8px;
+  }
+
+  .contents {
+    gap: 10px;
+  }
 }

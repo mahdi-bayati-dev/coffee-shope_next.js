@@ -1,14 +1,102 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  direction: rtl;
+  font-family: shabnam, sans-serif;
+}
+
+.commentsCount {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.23);
+  margin: 15px 0;
+}
+
 .comments {
   display: flex;
-  gap: 50px;
+  gap: 30px;
 }
-.comments span {
-  margin-right: 0.3rem;
-}
-.user_comments {
+
+.userComments,
+.formBg {
   width: 50%;
 }
 
-.form_bg {
-  width: 50%;
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.userComments span {
+  margin-right: 0.3rem;
+}
+
+/* دسکتاپ */
+@media (min-width: 769px) {
+  .container {
+    padding: 30px;
+  }
+  .comments {
+    gap: 40px;
+    flex-direction: row;
+  }
+  .commentsCount {
+    font-size: 20px;
+  }
+  .title {
+    font-size: 18px;
+  }
+}
+
+/* تبلت */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  .comments {
+    gap: 20px;
+    flex-direction: column;
+  }
+  .userComments,
+  .formBg {
+    width: 100%;
+  }
+  .commentsCount {
+    font-size: 16px;
+  }
+  .title {
+    font-size: 14px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  .comments {
+    gap: 15px;
+    flex-direction: column;
+  }
+  .formBg {
+    order: -1; /* فرم نظرات در موبایل به بالا منتقل می‌شود */
+  }
+  .userComments {
+    order: 0; /* نظرات در موبایل پایین فرم قرار می‌گیرند */
+  }
+  .commentsCount {
+    font-size: 14px;
+  }
+  .title {
+    font-size: 12px;
+  }
 }

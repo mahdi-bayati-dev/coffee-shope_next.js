@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
-import swal from "sweetalert"; // اگه استفاده می‌کنی حتما import کن
+import swal from "sweetalert";
+import styles from "./AddToWishlist.module.css"; // وارد کردن CSS ماژولار
 
 export default function AddToWishlist({ productId }) {
   const [user, setUser] = useState(null);
@@ -33,13 +34,10 @@ export default function AddToWishlist({ productId }) {
       });
     }
 
-
     const wishlist = {
       user: user._id,
       product: productId._id,
     };
-    
-    
 
     try {
       const res = await fetch("/api/wishlist", {
@@ -48,7 +46,6 @@ export default function AddToWishlist({ productId }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(wishlist),
-        
       });
 
       const result = await res.json();
@@ -63,8 +60,8 @@ export default function AddToWishlist({ productId }) {
   };
 
   return (
-    <button onClick={addToWishlist}>
-      <CiHeart />
+    <button onClick={addToWishlist} className={styles.wishlistButton}>
+      <CiHeart className={styles.heartIcon} />
       افزودن به علاقه‌مندی‌ها
     </button>
   );

@@ -1,60 +1,132 @@
-.container section {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    color: black; 
-    line-height: 2rem;
-    direction: rtl;
-    gap: 110px;
-    padding: 40px 0;
-    color: gray;
+.container {
+  color: black;
+  text-align: right;
+  max-width: 1222px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto 4rem auto;
+  direction: rtl;
 }
 
-.container section div p {
-    font-size: 36px;
-
-    line-height: 2.4rem;
+.container section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  color: gray;
+  line-height: 2rem;
+  gap: 30px;
+  padding: 40px 0;
 }
 
 .container section div {
-    display: grid;
-    gap: 5px;
-    color: black;
+  display: grid;
+  gap: 10px;
+  color: black;
+}
+
+.container section div p {
+  font-size: 32px;
+  line-height: 2.2rem;
 }
 
 .container span {
-    font-size: 14px;
-}
-
-.container {
-    color: black;
-    text-align: right;
-    max-width: 1222px;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-bottom: 4rem;
-    margin-left: auto;
-}
-
-.main p {
-    margin-top: 20px;
-    direction: rtl;
+  font-size: 16px;
 }
 
 .main {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 90px;
-    margin-top: 150px;
-    margin-bottom: 150px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 50px 0;
+}
+
+.main p {
+  margin-top: 15px;
+  direction: rtl;
 }
 
 .main span {
-    font-size: 14px;
+  font-size: 16px;
 }
 
 .title {
-    margin: 10px 0 !important;
-    font-size: 35px;
+  margin: 10px 0;
+  font-size: 30px;
+}
+
+/* تبلت */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 10px;
+    margin-bottom: 3rem;
+  }
+
+  .container section {
+    gap: 20px;
+    padding: 30px 0;
+  }
+
+  .main {
+    gap: 20px;
+    margin: 40px 0;
+  }
+
+  .container section div p,
+  .title {
+    font-size: 28px;
+    line-height: 2rem;
+  }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 8px;
+    margin-bottom: 2rem;
+  }
+
+  .container section {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin: 30px 0;
+  }
+
+  .container section div p,
+  .title {
+    font-size: 24px;
+    line-height: 1.8rem;
+  }
+
+  .container span,
+  .main span {
+    font-size: 14px;
+  }
+}
+
+/* موبایل‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 5px;
+  }
+
+  .container section {
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .main {
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .container section div p,
+  .title {
+    font-size: 20px;
+    line-height: 1.6rem;
+  }
 }

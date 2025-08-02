@@ -1,0 +1,53 @@
+.wishlistButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: shabnam, sans-serif;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  direction: rtl;
+}
+
+.wishlistButton:hover {
+  background-color: #e91e63;
+  color: #fff;
+  border-color: #e91e63;
+}
+
+.heartIcon {
+  font-size: 24px;
+  color: #e91e63;
+  transition: color 0.3s ease;
+}
+
+.wishlistButton:hover .heartIcon {
+  color: #fff;
+}
+
+/* تبلت */
+@media (max-width: 768px) {
+  .wishlistButton {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  .heartIcon {
+    font-size: 20px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 480px) {
+  .wishlistButton {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .heartIcon {
+    font-size: 18px;
+  }
+}

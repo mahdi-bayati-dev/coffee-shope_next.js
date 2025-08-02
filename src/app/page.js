@@ -26,8 +26,8 @@ export default async function Home() {
       <Banner />
       <Latest products={JSON.parse(JSON.stringify(latestProducts))} />
       <Promote />
-     <Articles />
-        <Footer />
+      <Articles />
+      <Footer />
     </>
   );
 }

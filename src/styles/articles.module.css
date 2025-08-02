@@ -1,20 +1,40 @@
-
 .container {
     color: black;
     text-align: right;
     max-width: 1222px;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-bottom: 4rem;
+    padding: 0 15px;
+    margin: 0 auto 4rem auto;
     direction: rtl;
-    margin-left: auto;
-  
 }
-.articles{ 
-    gap: 23px;
-    display: grid;  
-    row-gap: 30px;
-    grid-template-columns: auto auto auto;
+
+.articles {
+    margin-top: 1rem;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* برای صفحه‌نمایش‌های کوچک‌تر (موبایل) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+        margin-bottom: 2rem;
+    }
+
+    .articles {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* برای صفحه‌نمایش‌های خیلی کوچک (مثل موبایل‌های قدیمی) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 5px;
+    }
+
+    .articles {
+        gap: 10px;
+    }
 }

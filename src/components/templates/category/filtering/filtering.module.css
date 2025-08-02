@@ -1,109 +1,169 @@
 .filtering {
-    width: 20%;
-    font-size: 15px;
-    direction: rtl;
-}
-
-.filter_btn:hover {
-    background-color: #efefef !important;
-}
-
-.filter_btn {
-    margin-bottom: 10px;
-    padding: 10px 14px;
-    font-size: 12px;
-    line-height: 16px;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: .1s all ease-in;
-    border-radius: 4px;
-    color: black;
-    background-color: #f7f7f7;
-}
-
-.name_filtering {
-    padding-top: 30px;
-    border-top: 1px solid rgba(128, 128, 128, 0.388);
+  width: 20%;
+  font-size: 15px;
+  direction: rtl;
+  font-family: "Vazir", sans-serif;
+  padding: 20px;
+  background: white;
+  transition: right 0.3s ease-in-out; /* فقط right در transition */
 }
 
 .title {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
-.name_filtering div div {
-    color: rgb(52, 24, 14);
-    background: white;
-    text-align: center;
-    border-radius: 100%;
-    padding: .3rem .3rem .1rem .3rem;
-    font-size: 14px;
-    transition: .1s all ease-in;
+.filter_btn {
+  margin: 1rem 0 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  line-height: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  color: black;
+  background-color: #f7f7f7;
+  transition: background-color 0.1s ease-in;
 }
 
-.name_filtering .active div {
-    background: rgb(52, 24, 14);
-    color: white;
+.filter_btn:hover {
+  background-color: #efefef;
 }
 
-.name_filtering div:hover div {
-    background: rgb(52, 24, 14);
-    color: white;
+.price_filtering {
+  margin-bottom: 2rem;
 }
 
-.name_filtering div {
-    cursor: pointer;
-    align-items: center;
-    margin-top: .5rem;
-    gap: 10px;
-    display: flex;
-    justify-content: space-between;
+.name_filtering {
+  padding-top: 30px;
+  border-top: 1px solid rgba(128, 128, 128, 0.388);
 }
 
 .name_filtering section {
-    padding-left: .5rem;
-    height: 245px;
-    overflow-y: scroll;
+  max-height: 245px;
+  overflow-y: auto;
+  padding-left: 0.5rem;
 }
 
 .name_filtering section::-webkit-scrollbar {
-    width: 8px;
-    background-color: #747272 !important;
-    border-radius: 10px;
+  width: 8px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }
 
 .name_filtering section::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgb(52, 24, 14) !important;
+  border-radius: 4px;
+  background-color: rgb(52, 24, 14);
+}
+
+.name_filtering div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in;
+}
+
+.name_filtering div div {
+  color: rgb(52, 24, 14);
+  background: white;
+  text-align: center;
+  border-radius: 100%;
+  padding: 0.3rem;
+  font-size: 14px;
+  transition: all 0.1s ease-in;
+}
+
+.name_filtering .active,
+.name_filtering div:hover div {
+  background: rgb(52, 24, 14);
+  color: white;
+}
+
+.star_filtering,
+.best_products {
+  padding-top: 30px;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.388);
 }
 
 .star_filtering section {
-    display: grid;
-    gap: 10px;
+  display: grid;
+  gap: 10px;
 }
 
 .star_filtering div {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
-.star_filtering span {
-    color: gray;
-}
-
-.star_filtering,.best_products {
-    padding-top: 30px;
-    margin-top: 2rem;
-    border-top: 1px solid rgba(128, 128, 128, 0.388);
+.star_filtering div.active {
+  background: #f5f5f5;
 }
 
 .star_filtering svg {
-   color: orange;
+  color: orange;
 }
-.best_products section{
-    display: grid;
-    gap: 10px;
+
+.star_filtering span {
+  color: gray;
 }
- 
+
+.best_products section {
+  display: grid;
+  gap: 10px;
+}
+
+/* پاسخ‌گویی برای تبلت و موبایل */
+@media (max-width: 1024px) {
+  .filtering {
+    position: fixed;
+    top: 0;
+    right: -100%; /* کاملاً خارج از صفحه */
+    width: 300px;
+    height: 100%;
+    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    display: block; /* همیشه نمایش داده شود وقتی باز است */
+  }
+
+  .filtering.closed {
+    display: none; /* در حالت بسته مخفی شود */
+  }
+
+  .filtering.open {
+    right: 0;
+    display: block;
+  }
+
+  .name_filtering section {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filtering {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .filter_btn {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filtering {
+    font-size: 14px;
+  }
+
+  .name_filtering section {
+    max-height: 150px;
+  }
+}

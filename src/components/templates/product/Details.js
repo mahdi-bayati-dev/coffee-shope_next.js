@@ -61,7 +61,7 @@ const Details = ({ product }) => {
   } = product;
 
   return (
-    <main style={{ width: "63%" }}>
+    <main>
       <Breadcrumb title={name} />
       <h2>{name}</h2>
 

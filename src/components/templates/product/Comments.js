@@ -1,34 +1,30 @@
+"use client";
 import Comment from "@/components/modules/comment/Comment";
 import styles from "./comments.module.css";
 import CommentForm from "./CommentForm";
 
-const Comments = ({productId, comments , userId }) => {
-  
-  
+const Comments = ({ productId, comments, userId, productName }) => {
   return (
-    <>
-      {" "}
-      <div>
-        <p>نظرات ({comments.length}) :</p>
-        <hr />
-
-        <main className={styles.comments}>
-          <div className={styles.user_comments}>
-            <p className={styles.title}>
-              7 دیدگاه برای کپسول قهوه SETPRESSO سازگار با دستگاه نسپرسو ( GOLD
-              ) ده -10- عددی
-            </p>
-            {comments.map((comment) => (
-             comment.isAccess && <Comment key={comment._id} comments={comment} />
-
-            ))}
-          </div>
-          <div className={styles.form_bg}>
-            <CommentForm ProductId={productId} userId={userId} />
-          </div>
-        </main>
-      </div>
-    </>
+    <div className={styles.container}>
+      <p className={styles.commentsCount}>
+        نظرات ({comments.filter((c) => c.isAccess).length}) :
+      </p>
+      <hr className={styles.divider} />
+      <main className={styles.comments}>
+        <div className={styles.formBg}>
+          <CommentForm productId={productId} userId={userId} />
+        </div>
+        <div className={styles.userComments}>
+          <p className={styles.title}>دیدگاه‌ها برای {productName}</p>
+          {comments.map(
+            (comment) =>
+              comment.isAccess && (
+                <Comment key={comment._id} comments={comment} />
+              )
+          )}
+        </div>
+      </main>
+    </div>
   );
 };
 

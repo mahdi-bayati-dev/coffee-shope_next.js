@@ -12,7 +12,7 @@ export default function DataTable({ comments, title }) {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <h1 className={styles.title}>
           <span>{title}</span>

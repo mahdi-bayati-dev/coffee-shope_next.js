@@ -6,29 +6,30 @@
   padding: 10px;
   position: sticky;
   top: 0;
+  transition: transform 0.3s ease-in-out;
 }
 
 .sidebar_header {
   text-align: center;
   margin-top: 0.8rem;
-  padding-bottom: 23px;
+  padding-bottom: 20px;
   border-bottom: 1px solid white;
 }
 
 .sidebar_main {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding: 30px 10px;
+  gap: 25px;
+  padding: 25px 10px;
 }
 
 .sidebar_main a {
-  list-style: none;
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
   font-size: 18px;
   opacity: 0.7;
+  text-decoration: none;
 }
 
 .sidebar_link_active {
@@ -38,14 +39,128 @@
 .logout {
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: 30px;
   flex-direction: row-reverse;
   align-items: center;
   cursor: pointer;
-  max-width: 0 auto;
   width: 90%;
-  padding-top: 9px;
-  font-size: 1.3rem;
+  padding-top: 10px;
+  font-size: 1.2rem;
   border-top: 2px solid white;
+  position: absolute;
+  bottom: 20px;
+  margin: 0 auto;
+}
+
+.menuToggle {
+  width: 31px;
+  height: 31px;
+  display: none;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: #711d1c;
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* تبلت */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .sidebar_main {
+    gap: 20px;
+    padding: 20px 8px;
+  }
+
+  .sidebar_main a {
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  .logout {
+    font-size: 1.1rem;
+    padding-top: 8px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%); /* مخفی در حالت اولیه */
+    width: 250px;
+    z-index: 999;
+  }
+
+  .sidebar.open {
+    transform: translateX(0); /* نمایش سایدبار */
+  }
+
+  .menuToggle {
+    display: block;
+  }
+
+  .sidebar_header {
+    margin-top: 1rem;
+    padding-bottom: 15px;
+  }
+
+  .sidebar_main {
+    gap: 15px;
+    padding: 15px 8px;
+  }
+
+  .sidebar_main a {
+    font-size: 15px;
+    gap: 6px;
+  }
+
+  .logout {
+    font-size: 1rem;
+    bottom: 15px;
+    padding-top: 6px;
+  }
+}
+
+/* موبایل‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .sidebar_header {
+    margin-top: 1rem;
+    margin-right: 10px;
+    padding-bottom: 15px;
+    font-size: 12px;
+  }
+  .sidebar {
+    width: 200px;
+  }
+
+  .menuToggle {
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    padding: 6px;
+  }
+
+  .sidebar_main {
+    gap: 12px;
+    padding: 12px 6px;
+  }
+
+  .sidebar_main a {
+    font-size: 14px;
+    gap: 5px;
+  }
+
+  .logout {
+    font-size: 0.9rem;
+    bottom: 10px;
+  }
 }

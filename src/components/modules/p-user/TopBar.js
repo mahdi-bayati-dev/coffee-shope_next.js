@@ -1,15 +1,15 @@
-"use client";
-
+'use client';
 import { useState } from "react";
 import styles from "./topbar.module.css";
 import { IoIosSearch, IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
 import Image from "next/image";
+
 const TopBar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
   const hideModal = () => setShowModal(false);
+
   return (
     <>
       <div className={styles.topbar}>
@@ -21,8 +21,9 @@ const TopBar = () => {
           <Image
             width={50}
             height={50}
-            
-           src="/images/shahin.jpg" alt="" />
+            src="/images/shahin.jpg"
+            alt="پروفایل"
+          />
         </div>
         <section>
           <div className={styles.searchBox}>
@@ -40,7 +41,6 @@ const TopBar = () => {
           </div>
         </section>
       </div>
-
       {showNotifications && (
         <div>
           <div
@@ -70,7 +70,6 @@ const TopBar = () => {
               </p>
               <button onClick={() => setShowNotifications(false)}>دیدم</button>
             </div>
-
             {/* if we dont have any notif we show : */}
             {/* <div>
               <span>پیفامی وجود ندارد</span>

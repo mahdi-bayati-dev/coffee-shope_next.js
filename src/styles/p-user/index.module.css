@@ -1,13 +1,85 @@
 .boxes {
-    gap: 20px;
-    margin-top: 3rem;
-    padding: 0 40px;
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 3rem;
+  padding: 0 40px;
+  
+}
+
+.boxes > * {
+  flex: 1;
+  min-width: 250px; /* حداقل عرض برای هر باکس */
 }
 
 .contents {
-    display: flex;
-    padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px;
+}
+
+.contents > * {
+  flex: 1;
+  min-width: 300px; /* حداقل عرض برای تیکت‌ها و سفارشات */
+}
+
+/* تبلت */
+@media (max-width: 992px) {
+  .boxes {
+    gap: 15px;
+    padding: 0 20px;
+    margin-top: 2rem;
+  }
+
+  .boxes > * {
+    min-width: 200px;
+  }
+
+  .contents {
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .contents > * {
+    min-width: 280px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+  .boxes {
+    flex-direction: column;
     gap: 10px;
+    padding: 0 10px;
+    margin-top: 3rem;
+  }
+
+  .boxes > * {
+    min-width: 100%;
+  }
+
+  .contents {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .contents > * {
+    min-width: 100%;
+  }
+}
+
+/* موبایل‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .boxes {
+    gap: 8px;
+    padding: 0 5px;
+    margin-top: 3rem;
+  }
+
+  .contents {
+    gap: 8px;
+    padding: 5px;
+  }
 }

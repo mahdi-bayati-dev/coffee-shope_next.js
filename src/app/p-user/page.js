@@ -7,17 +7,17 @@ import { authUser } from "@/app/lib/authUser";
 import TicketModel from "@/model/Ticket";
 import WishlistMOdel from "@/model/Wishlist";
 import CommentsModel from "@/model/Comments";
+
 const page = async () => {
   const user = await authUser();
-  const allTickets = await TicketModel.find({ user: user.id })
-  const allWishList = await WishlistMOdel.find({ user: user.id })
-  const allComments = await CommentsModel.find({ user: user.id })
-  
+  const allTickets = await TicketModel.find({ user: user.id });
+  const allWishList = await WishlistMOdel.find({ user: user.id });
+  const allComments = await CommentsModel.find({ user: user.id });
   const tickets = await TicketModel.find({ user: user.id })
     .populate("department", "title")
     .limit(3)
     .lean()
-    .sort({_id:-1})
+    .sort({ _id: -1 });
 
   return (
     <Layout>

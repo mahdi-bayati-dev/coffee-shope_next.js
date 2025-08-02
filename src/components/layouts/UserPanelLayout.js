@@ -6,11 +6,9 @@ import { redirect } from "next/navigation";
 
 const Layout = async ({ children }) => {
   const user = await authUser();
-
   if (!user) {
     redirect("/login-register");
   }
-
   return (
     <div className={styles.layout}>
       <section className={styles.section}>

@@ -158,3 +158,126 @@
   background-color: red;
   color: #fff;
 }
+
+.table_container {
+  padding: 40px 25px;
+  overflow-x: auto; /* اسکرول افقی در سایز کوچک */
+}
+
+/* تنظیمات جدول */
+.table {
+  width: 100%;
+  min-width: 900px; /* حداقل عرض برای حفظ ساختار جدول */
+  background-color: #f2f7fd;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px 22px;
+  text-align: center;
+  white-space: nowrap; /* جلوگیری از شکستن متن */
+}
+
+/* در نمایشگرهای کوچکتر */
+@media (max-width: 768px) {
+  .table {
+    font-size: 13px;
+    min-width: 800px;
+  }
+
+  .delete_btn,
+  .edit_btn,
+  .btn,
+  .check,
+  .no_check {
+    padding: 0.3rem 0.5rem;
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .title span {
+    margin-right: 2rem;
+    padding: 0 10px;
+  }
+
+  .table_container {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+
+
+
+  .table {
+    min-width: 750px;
+    font-size: 12px;
+  }
+
+  .delete_btn,
+  .edit_btn,
+  .btn,
+  .check,
+  .no_check {
+    padding: 0.2rem 0.3rem;
+    font-size: 11px;
+  }
+
+  .title {
+    margin-top: 3rem;
+    font-size: 20px;
+  }
+
+  .title span {
+    margin-right: 1rem;
+    padding: 0 8px;
+  }
+}
+
+/* table.module.css */
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.table th,
+.table td {
+  padding: 0.8rem 1rem;
+  text-align: right;
+  border-bottom: 1px solid #ccc;
+}
+
+.empty {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* 🟦 برای موبایل */
+@media screen and (max-width: 768px) {
+  .table {
+    font-size: 0.85rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem;
+  }
+
+  .empty {
+    font-size: 1rem;
+  }
+}

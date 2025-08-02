@@ -1,115 +1,152 @@
+.container {
+  padding: 0 30px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
 .title {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    text-transform: uppercase;
-    position: relative;
-    font-size: 30px;
-    z-index: 1;
-    margin-bottom: 30px;
-    font-weight: 500;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 30px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+  font-weight: 500;
+  gap: 15px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .title span {
+    margin-right: 0;
+  }
+
+  .title a {
+    left: 0;
+  }
 }
 
 .title a {
-    background-color: #ffffff;
-    color: #711D1C;
-    font-size: 1rem;
-    display: flex;
-    position: relative;
-    left: 30px;
-    border-radius: 20px;
-    padding: 0 10px;
-    align-items: center;
-    border: 1px solid #711D1C;
-}
-
-.title:before {
-    border-top: 2px solid #dfdfdf;
-    content: "";
-    margin: 0 auto;
-    position: absolute;
-    top: 52%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: -1;
-}
-
-.title span {
-    background: #fff;
-    padding: 0 15px;
-    margin-right: 4rem;
-}
-
-.title:before {
-    border-top: none;
+  background-color: #ffffff;
+  color: #711D1C;
+  font-size: 1rem;
+  display: flex;
+  position: relative;
+  left: 30px;
+  border-radius: 20px;
+  padding: 0 10px;
+  align-items: center;
+  border: 1px solid #711D1C;
 }
 
 .title:after {
-    border-bottom: 1px solid #711D1C;
-    -webkit-box-shadow: 0 1px 0 0 #711D1C;
-    -moz-box-shadow: 0 1px 0 0 #711D1C;
-    box-shadow: 0 1px 0 0 #711D1C;
-    content: "";
-    margin: 0 auto;
-    position: absolute;
-    top: 51%;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: -1;
+  border-bottom: 1px solid #711D1C;
+  box-shadow: 0 1px 0 0 #711D1C;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 51%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
 }
 
-.container {
-    padding: 0 30px;
+.title span {
+  background: #fff;
+  padding: 0 15px;
+  margin-right: 4rem;
 }
 
 .boxes {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
 }
 
-.filtering select {
-    background: white;
-    padding: 10px;
-    color: black;
-    border: none;
-    border-bottom: 3px solid #711D1C;
-    margin-top: 4.5px;
-    width: 150px;
-    outline: 0;
+@media (max-width: 1024px) {
+  .boxes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .boxes {
+    grid-template-columns: 1fr;
+  }
 }
 
 .filtering {
-    display: flex;
-    justify-content: space-between; 
-    align-items: baseline;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  gap: 20px;
 }
 
 .filtering div {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filtering select {
+  background: white;
+  padding: 10px;
+  color: black;
+  border: none;
+  border-bottom: 3px solid #711D1C;
+  width: 150px;
+  outline: 0;
+}
+
+@media (max-width: 480px) {
+    .title a {
+
+  left: 0px;
+ 
+}
+  .filtering select {
+    width: 100%;
+  }
 }
 
 .filtering button {
-    width: max-content;
-    padding: .8rem 1.4rem;
-    border: 0;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #711D1C;
+  width: max-content;
+  padding: .8rem 1.4rem;
+  border: 0;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #711D1C;
 }
-.empty{
-    width: 100%;
-    border-radius: 5px;
-    border-radius: 5px;
-    background-color: #711d1c21 ;
-    text-align: center;
-    margin-top: 60px;
-    padding: 20px 0;
-    color: #711D1C;
- }
+
+.empty {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #711d1c21 ;
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px 0;
+  color: #711D1C;
+}

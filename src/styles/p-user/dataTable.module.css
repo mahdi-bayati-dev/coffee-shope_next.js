@@ -148,3 +148,46 @@
   font-size: 1.7rem;
   border-radius: 5px;
 }
+
+/* //// */
+
+/* رپ جدول برای اسکرول افقی */
+.table_container {
+  padding: 40px 25px;
+  overflow-x: auto;
+}
+
+/* ریسپانسیو برای نمایش بهتر در موبایل */
+@media screen and (max-width: 768px) {
+.container{
+  margin-top: 3rem;
+}
+  .table {
+    min-width: 600px; /* جدول کمی بزرگتر از عرض موبایل باشه برای اسکرول افقی */
+    font-size: 0.85rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px 12px;
+  }
+
+  .title {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .title span {
+    margin-right: 1rem;
+    padding: 0 10px;
+  }
+
+  .btn,
+  .delete_btn,
+  .edit_btn,
+  .no_check {
+    font-size: 12px;
+    padding: 0.3rem 0.5rem;
+  }
+}
+

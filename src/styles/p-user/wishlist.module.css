@@ -7,12 +7,13 @@
     font-size: 1.7rem;
     border-radius: 5px;
 }
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    gap:  20px;
-    justify-content: space-around;
-    padding: 0 30px;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  padding: 0 30px;
 }
 .title {
     margin-top: 30px;
@@ -62,4 +63,19 @@
     right: 0;
     width: 100%;
     z-index: -1;
+}
+
+
+
+/* 🎯 ریسپانسیو کردن با media query */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .mainContainer{
+    margin-top: 3rem;
+  }
 }

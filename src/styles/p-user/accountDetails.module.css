@@ -224,3 +224,53 @@
     opacity: .5;
     cursor: none;
 }
+
+
+/* 📱 ریسپانسیو برای نمایش در موبایل */
+@media (max-width: 768px) {
+  .details_main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 50px;
+  }
+
+  .password_group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .password_group input,
+  .password_group button {
+    width: 100% !important;
+  }
+
+  .uploader {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .uploader img {
+    width: 140px;
+  }
+
+  .uploader div {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .title span {
+    margin-right: 0;
+    padding: 0 10px;
+  }
+
+  .submit_btn {
+    width: 90%;
+    font-size: 1.4rem;
+    margin: 60px auto;
+  }
+}

@@ -23,7 +23,7 @@ export default async function Page() {
 
   return (
     <UserPanelLayout>
-      <main>
+      <main className={styles.mainContainer}>
         <h1 className={styles.title}>
           <span>علاقه مندی ها</span>
         </h1>

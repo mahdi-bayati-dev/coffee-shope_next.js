@@ -1,42 +1,52 @@
 .topbar {
   width: 100%;
   background-color: rgb(17, 17, 17);
-  height: 70px;
+  /* height: 70px; */
   padding: 5px 20px;
   display: flex;
-  color: white;
   justify-content: space-between;
+  align-items: center;
+  color: white;
   border-bottom: 4px solid #711d1c;
 }
+
 .topbar section {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-end;
+  gap: 15px;
   align-items: center;
 }
+
 .profile {
   display: flex;
   gap: 10px;
   align-items: center;
   flex-direction: row-reverse;
 }
+
 .profile img {
   width: 50px;
+  height: 50px;
   border-radius: 100%;
 }
+
 .profile span {
   font-size: 14px;
   color: rgb(144, 131, 131);
 }
+
 .searchBox {
   position: relative;
 }
+
 .searchBox input {
   background: white;
   padding: 10px 10px;
   border-radius: 20px;
   width: 300px;
+  font-size: 14px;
 }
+
 .searchBox div {
   background-color: #711d1c;
   color: white;
@@ -45,17 +55,17 @@
   display: flex;
   align-items: center;
   height: 34px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   top: 4px;
   border-radius: 100%;
-  padding: 0px 5px;
+  padding: 0 5px;
 }
+
 .searchBox svg,
 .notification svg {
-  position: relative;
-  bottom: 1px;
   cursor: pointer;
 }
+
 .notification {
   background-color: #711d1c;
   color: white;
@@ -63,11 +73,12 @@
   align-items: center;
   position: relative;
   height: 34px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   border-radius: 20%;
-  padding: 0px 5px;
+  padding: 0 5px;
 }
+
 .notification span {
   position: absolute;
   top: -6px;
@@ -75,10 +86,25 @@
   background-color: white;
   color: #711d1c;
   font-size: 9px;
-  padding: 1px 3px 0 3.5px;
+  padding: 1px 3px;
   text-align: center;
-  cursor: pointer;
   border-radius: 100%;
+}
+
+.notifications_box {
+  background-color: #711d1c;
+  width: 300px;
+  max-width: 90%;
+  border-radius: 8px;
+  padding: 15px 10px;
+  color: white;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
 }
 
 .notifications_box div {
@@ -87,6 +113,7 @@
   align-items: center;
   width: 100%;
 }
+
 .notifications_box button {
   background: blue;
   color: white;
@@ -94,28 +121,17 @@
   border: 0;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
 }
+
 .notifications_box p,
 .notifications_box svg {
   cursor: pointer;
+  font-size: 14px;
 }
-.notifications_box {
-  background-color: #711d1c;
-  width: 300px;
-  border-radius: 8px;
-  padding: 15px 10px;
-  color: white;
-  display: flex;
-  gap: 10px;
-  align-items: top;
-  flex-direction: column;
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  z-index: 9999;
-}
+
 .notifications_overlay {
-  background: rgba(0, 0, 0, 0.389);
+  background: rgba(0, 0, 0, 0.4);
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -123,8 +139,183 @@
   right: 0;
   z-index: 99;
 }
+
 .modal_text {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin: 2rem 0;
   text-align: center;
+  font-size: 16px;
+}
+
+/* تبلت */
+@media (max-width: 992px) {
+  .topbar {
+    /* height: 60px; */
+    padding: 5px 15px;
+  }
+
+  .topbar section {
+    gap: 12px;
+  }
+
+  .profile img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile span {
+    font-size: 13px;
+  }
+
+  .searchBox input {
+    width: 200px;
+    font-size: 13px;
+  }
+
+  .searchBox div,
+  .notification {
+    height: 30px;
+    font-size: 1.3rem;
+    padding: 0 4px;
+  }
+
+  .notification span {
+    font-size: 8px;
+    padding: 1px 2.5px;
+  }
+
+  .notifications_box {
+    width: 250px;
+    padding: 12px 8px;
+    top: 70px;
+    right: 15px;
+  }
+
+  .notifications_box p,
+  .notifications_box button {
+    font-size: 13px;
+  }
+
+  .modal_text {
+    font-size: 15px;
+    margin: 1.5rem 0;
+  }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+  .topbar {
+    height: 55px;
+    padding: 5px 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .topbar section {
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .profile {
+    gap: 8px;
+  }
+
+  .profile img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .profile span {
+    font-size: 12px;
+  }
+
+  .searchBox input {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .searchBox div,
+  .notification {
+    height: 26px;
+    font-size: 1.2rem;
+    padding: 0 3px;
+  }
+
+  .notification span {
+    font-size: 7px;
+    top: -5px;
+    right: -5px;
+  }
+
+  .notifications_box {
+    width: 90%;
+    padding: 10px 8px;
+    top: 60px;
+    right: 10px;
+  }
+
+  .notifications_box p,
+  .notifications_box button {
+    font-size: 12px;
+  }
+
+  .modal_text {
+    font-size: 14px;
+    margin: 1rem 0;
+  }
+}
+
+/* موبایل‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .topbar {
+    padding: 5px 8px;
+  }
+
+  .profile {
+    gap: 6px;
+  }
+
+  .profile img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .profile span {
+    font-size: 11px;
+  }
+
+  .searchBox input {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  .searchBox div,
+  .notification {
+    height: 23px;
+    font-size: 1.1rem;
+    padding: 0 2px;
+  }
+
+  .notification span {
+    font-size: 6px;
+    padding: 1px 2px;
+  }
+
+  .notifications_box {
+    padding: 8px 6px;
+    top: 55px;
+    right: 8px;
+  }
+
+  .notifications_box p,
+  .notifications_box button {
+    font-size: 11px;
+  }
+
+  .modal_text {
+    font-size: 13px;
+    margin: 0.8rem 0;
+  }
 }

@@ -6,9 +6,36 @@
   color: black;
 }
 
-.contents {
-  width: 100%;
-}
 .section {
   display: flex;
+}
+
+.contents {
+  width: 100%;
+  padding: 20px;
+}
+
+/* تبلت */
+@media (max-width: 992px) {
+  .contents {
+    padding: 15px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+  .section {
+    position: relative;
+  }
+
+  .contents {
+    padding: 10px;
+  }
+}
+
+/* موبایل‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .contents {
+    padding: 5px;
+  }
 }

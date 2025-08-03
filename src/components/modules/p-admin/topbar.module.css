@@ -1,3 +1,4 @@
+
 .topbar {
   width: 100%;
   background-color: rgb(17, 17, 17);
@@ -6,56 +7,75 @@
   display: flex;
   color: white;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 4px solid #711d1c;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
+
 .topbar section {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-end;
+  gap: 15px;
   align-items: center;
 }
+
 .profile {
   display: flex;
   gap: 10px;
   align-items: center;
   flex-direction: row-reverse;
+  
 }
-.profile img {
+
+.profile_img {
   width: 50px;
+  height: 50px;
   border-radius: 100%;
+  object-fit: cover;
 }
+
 .profile span {
   font-size: 14px;
   color: rgb(144, 131, 131);
 }
+
 .searchBox {
   position: relative;
+  display: flex;
+  align-items: center;
 }
+
 .searchBox input {
   background: white;
-  padding: 10px 10px;
+  padding: 10px 40px 10px 10px;
   border-radius: 20px;
   width: 300px;
+  border: none;
+  outline: none;
 }
+
 .searchBox div {
   background-color: #711d1c;
   color: white;
   position: absolute;
-  left: 5px;
+  right: 5px;
   display: flex;
   align-items: center;
   height: 34px;
   font-size: 1.5rem;
-  top: 4px;
+  top: 50%;
+  transform: translateY(-50%);
   border-radius: 100%;
-  padding: 0px 5px;
+  padding: 0 5px;
 }
+
 .searchBox svg,
 .notification svg {
-  position: relative;
-  bottom: 1px;
   cursor: pointer;
 }
+
 .notification {
   background-color: #711d1c;
   color: white;
@@ -66,8 +86,9 @@
   font-size: 1.5rem;
   cursor: pointer;
   border-radius: 20%;
-  padding: 0px 5px;
+  padding: 0 5px;
 }
+
 .notification span {
   position: absolute;
   top: -6px;
@@ -75,30 +96,11 @@
   background-color: white;
   color: #711d1c;
   font-size: 9px;
-  padding: 1px 3px 0 3.5px;
+  padding: 1px 3px;
   text-align: center;
-  cursor: pointer;
   border-radius: 100%;
 }
 
-.notifications_box div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-.notifications_box button {
-  background: blue;
-  color: white;
-  padding: 0.5rem 0.7rem;
-  border: 0;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.notifications_box p,
-.notifications_box svg {
-  cursor: pointer;
-}
 .notifications_box {
   background-color: #711d1c;
   width: 300px;
@@ -107,24 +109,140 @@
   color: white;
   display: flex;
   gap: 10px;
-  align-items: top;
   flex-direction: column;
   position: absolute;
-  top: 50px;
-  left: 50px;
-  z-index: 9999;
+  top: 70px;
+  right: 20px;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.notifications_box div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.notifications_box button {
+  background: blue;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.notifications_box p,
+.notifications_box svg {
+  cursor: pointer;
+}
+
 .notifications_overlay {
-  background: rgba(0, 0, 0, 0.389);
+  background: rgba(0, 0, 0, 0.4);
   position: fixed;
   width: 100%;
   height: 100vh;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 99;
 }
-.modal_text {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  text-align: center;
+
+/* Media Queries برای تبلت و موبایل */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 5px 15px;
+    height: 60px;
+  }
+
+  .searchBox input {
+    width: 200px;
+  }
+
+  .profile p {
+    font-size: 14px;
+  }
+
+  .profile span {
+    font-size: 12px;
+  }
+
+  .profile_img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .notifications_box {
+    width: 250px;
+    right: 15px;
+  }
+    .profile {
+
+  margin-right: 2rem;
+}
+}
+
+/* برای موبایل‌های کوچک */
+@media (max-width: 480px) {
+  .profile {
+
+  margin-right: 2rem;
+}
+  .topbar {
+    padding: 5px 10px;
+    height: 50px;
+  }
+
+  .searchBox input {
+    width: 150px;
+    padding: 8px 35px 8px 8px;
+    font-size: 14px;
+  }
+
+  .searchBox div {
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .notification {
+    height: 30px;
+    font-size: 1.2rem;
+    padding: 0 4px;
+  }
+
+  .notification span {
+    font-size: 8px;
+    padding: 1px 2px;
+  }
+
+  .profile p {
+    font-size: 12px;
+    
+  }
+
+.name{
+  display: flex;
+  gap: .5rem;
+}
+
+  .profile_img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .notifications_box {
+    width: 90%;
+    max-width: 200px;
+    right: 10px;
+    padding: 10px;
+  }
+
+  .notifications_box p {
+    font-size: 14px;
+  }
+
+  .notifications_box button {
+    padding: 0.4rem 0.6rem;
+    font-size: 12px;
+  }
 }

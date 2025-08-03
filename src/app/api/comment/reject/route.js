@@ -1,8 +1,15 @@
 import { NextResponse } from "next/server";
 import connectToDB from "@/configs/db";
 import CommentsModel from "@/model/Comments";
+import { authAdmin } from "@/app/lib/authUser";
 
 export async function PUT(req) {
+   const admin=authAdmin()
+   console.log(admin);
+   
+    if (!admin) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   try {
     await connectToDB();
     const body = await req.json();

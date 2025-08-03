@@ -14,7 +14,7 @@ const generateAccessToken = (data) => {
 };
 const verifyAccessToken = (token) => {
   if (!token) {
-    console.log("No token provided");
+    // console.log("No token provided");
     return false;
   }
 
@@ -24,7 +24,7 @@ const verifyAccessToken = (token) => {
     });
     return tokenPayload;
   } catch (error) {
-    console.log("verify Access Token ===>", error);
+    // console.log("verify Access Token ===>", error);
     return false;
   }
 };

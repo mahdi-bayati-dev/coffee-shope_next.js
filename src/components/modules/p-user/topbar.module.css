@@ -272,6 +272,10 @@
   .topbar {
     padding: 5px 8px;
   }
+  .name{
+  display: flex;
+  gap: .5rem;
+}
 
   .profile {
     gap: 6px;

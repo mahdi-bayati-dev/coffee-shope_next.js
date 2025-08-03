@@ -1,11 +1,20 @@
+
 .sidebar {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: 100vh;
   background-color: #711d1c;
   color: white;
   padding: 10px;
-  position: sticky;
+  position: fixed;
   top: 0;
+  right: -100%; /* مخفی در موبایل */
+  transition: right 0.3s ease-in-out;
+  z-index: 99999;
+}
+
+.sidebar_open {
+  right: 0; /* نمایش در موبایل وقتی باز است */
 }
 
 .sidebar_header {
@@ -13,6 +22,11 @@
   margin-top: 0.8rem;
   padding-bottom: 23px;
   border-bottom: 1px solid white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
 }
 
 .sidebar_main {
@@ -22,30 +36,132 @@
   padding: 30px 10px;
 }
 
-.sidebar_main a {
+.sidebar_main li {
   list-style: none;
+}
+
+.sidebar_link {
   display: flex;
   align-items: center;
   gap: 11px;
   font-size: 18px;
   opacity: 0.7;
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.sidebar_link:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .sidebar_link_active {
   opacity: 1 !important;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .logout {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 11px;
   position: absolute;
   bottom: 30px;
-  flex-direction: row-reverse;
-  align-items: center;
   cursor: pointer;
-  max-width: 0 auto;
   width: 90%;
-  padding-top: 9px;
+  padding: 9px 10px;
   font-size: 1.3rem;
   border-top: 2px solid white;
+}
+
+.hamburger {
+  display: none; /* به طور پیش‌فرض مخفی */
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  background: none;
+  border: none;
+  color: #711d1c;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close_btn {
+  display: none; /* به طور پیش‌فرض مخفی */
+  position: absolute;
+  left: 15px;
+  top: 0px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Media Queries برای دسکتاپ */
+@media (min-width: 768px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    right: 0; /* در دسکتاپ همیشه نمایش داده می‌شود */
+  }
+
+  .hamburger,
+  .close_btn {
+    display: none; /* دکمه‌ها در دسکتاپ مخفی هستند */
+  }
+}
+
+/* Media Queries برای موبایل */
+@media (max-width: 767px) {
+  .hamburger {
+    display: block; /* نمایش دکمه همبرگری در موبایل */
+  }
+
+  .close_btn {
+    display: block; /* نمایش دکمه بستن در موبایل */
+  }
+
+  .sidebar {
+    width: 80%; /* عرض کمتر در موبایل */
+    max-width: 300px;
+  }
+
+  .sidebar_main {
+    padding: 20px 10px;
+    gap: 24px;
+  }
+
+  .sidebar_link {
+    font-size: 16px; /* فونت کوچکتر در موبایل */
+  }
+
+  .logout {
+    font-size: 1.1rem;
+    bottom: 20px;
+  }
+}
+
+/* برای صفحه‌نمایش‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 90%;
+    max-width: 250px;
+  }
+
+  .sidebar_main {
+    gap: 20px;
+  }
+
+  .sidebar_link {
+    font-size: 14px;
+  }
+
+  .hamburger,
+  .close_btn {
+    font-size: 20px;
+  }
 }

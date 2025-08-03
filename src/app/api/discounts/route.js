@@ -1,25 +1,26 @@
 import connectToDB from "@/configs/db";
 import DiscountModel from "@/model/Discount";
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
-    connectToDB();
+    await connectToDB();
+
     const body = await req.json();
     const { code, percent, maxUse } = body;
 
-    // Validation (You) ✅
+    // Validation can be added here
 
-    await DiscountModel.create({
-      code,
-      percent,
-      maxUse,
-    });
+    await DiscountModel.create({ code, percent, maxUse });
 
-    return Response.json(
+    return NextResponse.json(
       { message: "Discount code created successfully :))" },
       { status: 201 }
     );
   } catch (err) {
-    return Response.json({ message: err }, { status: 500 });
+    return NextResponse.json(
+      { message: err.message || "Something went wrong" },
+      { status: 500 }
+    );
   }
 }

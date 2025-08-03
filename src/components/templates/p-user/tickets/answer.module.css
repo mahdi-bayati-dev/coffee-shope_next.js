@@ -1,36 +1,34 @@
 .userTicket,
-.adminticket {
+.adminTicket {
   width: 50%;
-  border-radius: 5px;
-  padding: 0px 10px 10px;
-  margin-bottom: 15px;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: "Vazirmatn", sans-serif; /* فونت خوانا */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* سایه نرم */
+}
+.title{
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .userTicket {
-  background-color: #711d1c;
-  color: white;
+  background-color: #711d1c; /* رنگ اصلی شما */
+  color: #ffffff;
 }
 
-.adminticket {
+.userTicket:hover,
+.adminTicket:hover {
+  transform: translateY(-3px); /* افکت بالا آمدن */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.adminTicket {
   background-color: #f9f9f9;
-  border: 3px solid #711d1c;
+  border: 2px solid #711d1c; /* حاشیه با رنگ اصلی */
   margin-right: auto;
-  color: black;
-}
-
-/* ریسپانسیو کردن عرض کارت‌ها در موبایل */
-@media (max-width: 768px) {
-  .userTicket,
-  .adminticket {
-    width: 100%;
-  }
-}
-
-.userTicket img,
-.adminticket img {
-  width: 80px;
-  height: auto;
-  border-radius: 100px;
+  color: #333333;
 }
 
 .ticket_main {
@@ -41,63 +39,107 @@
   justify-content: space-between;
   flex-direction: row-reverse;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
 }
 
 .ticket_main div {
-  gap: 10px;
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .ticket_main div div {
-  justify-content: right;
-  gap: 5px;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 5px;
 }
 
-/* متن داخل تیکت */
+.ticket_main p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.ticket_main div div span {
+  font-size: 0.85rem;
+  color: #aaaaaa; /* خاکستری برای نقش */
+}
+
+.profile_image {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* حاشیه نرم برای تصویر */
+}
+
 .ticket_text {
-  background-color: white;
-  color: black;
-  margin: 0.5rem 1rem;
-  border-radius: 5px;
-  padding: 0.5rem;
+  background-color: #ffffff;
+  color: #333333;
+  margin: 0.75rem 1rem;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  transition: background 0.2s ease;
 }
 
-/* متن داخل تیکت برای مدیر */
-.adminticket .ticket_text {
-  background-color: #711d1c;
-  color: white;
+.adminTicket .ticket_text {
+  background-color: #711d1c; /* رنگ اصلی شما */
+  color: #ffffff;
 }
 
-/* باکس خالی */
 .empty {
   width: 100%;
-  border-radius: 5px;
-  background-color: #711d1c21;
+  border-radius: 8px;
+  background-color: rgba(113, 29, 28, 0.1); /* نسخه شفاف‌تر از رنگ اصلی */
   text-align: center;
   margin-top: 60px;
   padding: 20px 0;
   color: #711d1c;
+  font-size: 1rem;
 }
 
-/* نقش کاربر/مدیر */
-.ticket_main div div span {
-  font-size: 14px;
-  color: gray;
-}
-
-/* تصویر کوچکتر برای موبایل */
-@media (max-width: 480px) {
-  .userTicket img,
-  .adminticket img {
-    width: 60px;
+/* ریسپانسیو برای تبلت و موبایل */
+@media (max-width: 768px) {
+  .userTicket,
+  .adminTicket {
+    width: 100%;
+    padding: 12px;
   }
-
+  .ticket_main {
+    gap: 10px;
+  }
   .ticket_text {
-    margin: 0.5rem 0.5rem;
+    margin: 0.5rem;
+    padding: 10px;
+  }
+  .profile_image {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* موبایل‌های خیلی کوچک */
+@media (max-width: 480px) {
+  .userTicket,
+  .adminTicket {
+    padding: 10px;
+  }
+  .profile_image {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .ticket_main p {
+    font-size: 0.85rem;
+  }
+  .ticket_main div div span {
+    font-size: 0.8rem;
+  }
+  .ticket_text {
+    margin: 0.5rem 0;
+    padding: 8px;
+    font-size: 0.9rem;
   }
 }

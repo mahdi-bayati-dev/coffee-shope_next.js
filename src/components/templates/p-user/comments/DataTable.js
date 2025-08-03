@@ -5,6 +5,10 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import swal from "sweetalert";
 
 export default function DataTable({ comments, title }) {
+  // console.log(comments);
+  // console.log(title);
+  
+  
   
 
   const showCommentBody = (commentBody) => {
@@ -35,7 +39,7 @@ export default function DataTable({ comments, title }) {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{new Date(comment.date).toLocaleDateString("fa-IR")}</td>
-                <td>{comment.ProductId?.name || "بدون نام"}</td>
+                <td>{comment.productId?.name || "بدون نام"}</td>
                 <td>
                   {new Array(comment.score).fill(0).map((item, index) => (
                     <FaStar key={index} />

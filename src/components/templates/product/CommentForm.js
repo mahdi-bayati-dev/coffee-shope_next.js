@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import swal from "sweetalert";
 
 const CommentForm = ({ productId, userId }) => {
+  console.log(productId);
+  
   const [userName, setUserName] = useState("");
   const [body, setBody] = useState("");
   const [email, setEmail] = useState("");
@@ -43,6 +45,8 @@ const CommentForm = ({ productId, userId }) => {
         body: JSON.stringify(comment),
       });
       const data = await res.json();
+      console.log(data);
+      
       if (!res.ok) {
         return swal({
           title: "ثبت ناموفق!",

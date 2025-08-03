@@ -5,21 +5,25 @@ import connectToDB from "@/configs/db";
 import CommentModel from "@/model/Comments";
 import { authUser } from "@/app/lib/authUser";
 import styles from "@/components/templates/p-admin/comments/table.module.css";
-
-
-
 import ProductModel from "@/model/Product";
 
 const page = async () => {
   await connectToDB();
   const user = await authUser();
+  
 
   let userId = user.id;
 
   const comments = await CommentModel.find({ user: userId }, "-__v").populate(
-    "ProductId",
+    "productId",
     "name"
   );
+  // console.log('==>',comments);
+
+  const testComments = await CommentModel.find({ user: userId });
+console.log(testComments.map((c) => c.ProductId));
+
+  
 
   return (
     <Layout>

@@ -1,80 +1,121 @@
- .title {
-     margin-top: 30px;
-     display: flex;
-     justify-content: space-between;
-     text-transform: uppercase;
-     position: relative;
-     font-size: 30px;
-     z-index: 1;
-     margin-bottom: 30px;
-     font-weight: 500;
- }
+.container {
+  padding: 0 15px; /* کاهش پدینگ برای صفحه‌نمایش‌های کوچک‌تر */
+  max-width: 1200px; /* محدود کردن حداکثر عرض */
+  margin: 0 auto; /* وسط‌چین کردن محتوا */
+}
 
- .title a {
-     background-color: #ffffff;
-     color: #711D1C;
-     font-size: 1rem;
-     display: flex;
-     position: relative;
-     left: 30px;
-     border-radius: 20px;
-     padding: 0 10px;
-     align-items: center;
-     border: 1px solid #711D1C;
- }
+.title {
+  margin-top: 20px; /* کاهش حاشیه برای صفحه‌نمایش‌های کوچک‌تر */
+  display: flex;
+  flex-wrap: wrap; /* اجازه می‌دهد آیتم‌ها در صورت نیاز به خط بعدی بروند */
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  position: relative;
+  font-size: 1.8rem; /* استفاده از rem برای مقیاس‌پذیری */
+  z-index: 1;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
 
- .title:before {
-     border-top: 2px solid #dfdfdf;
-     content: "";
-     margin: 0 auto;
-     position: absolute;
-     top: 52%;
-     left: 0;
-     right: 0;
-     bottom: 0;
-     width: 100%;
-     z-index: -1;
- }
+.title a {
+  background-color: #ffffff;
+  color: #711d1c;
+  font-size: 0.9rem; /* کاهش اندازه فونت برای صفحه‌نمایش‌های کوچک‌تر */
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 8px 12px; /* پدینگ بهینه‌شده */
+  border: 1px solid #711d1c;
+  text-decoration: none; /* حذف زیرخط پیش‌فرض لینک */
+  margin-left: auto; /* جایگزین position: relative و left */
+}
 
- .title span {
-     background: #fff;
-     padding: 0 15px;
-     margin-right: 4rem;
- }
+.title:before {
+  border-top: 2px solid #dfdfdf;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
 
- .title:before {
-     border-top: none;
- }
+.title span {
+  background: #fff;
+  padding: 0 10px;
+  margin-right: 1rem; /* کاهش حاشیه برای صفحه‌نمایش‌های کوچک‌تر */
+}
 
- .title:after {
-     border-bottom: 1px solid #711D1C;
-     -webkit-box-shadow: 0 1px 0 0 #711D1C;
-     -moz-box-shadow: 0 1px 0 0 #711D1C;
-     box-shadow: 0 1px 0 0 #711D1C;
-     content: "";
-     margin: 0 auto;
-     position: absolute;
-     top: 51%;
-     left: 0;
-     right: 0;
-     width: 100%;
-     z-index: -1;
- }
+.title:after {
+  border-bottom: 1px solid #711d1c;
+  box-shadow: 0 1px 0 0 #711d1c;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
 
- .container {
-     padding: 0 30px;
- }
+.empty {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #711d1c21;
+  text-align: center;
+  margin-top: 40px; /* کاهش حاشیه برای صفحه‌نمایش‌های کوچک‌تر */
+  padding: 15px 0;
+  color: #711d1c;
+  font-size: 0.9rem; /* فونت مقیاس‌پذیر */
+}
 
- 
- .empty {
-     width: 100%;
-     border-radius: 5px;
-     border-radius: 5px;
-     background-color: #711d1c21;
-     text-align: center;
-     margin-top: 60px;
-     padding: 20px 0;
-     color: #711D1C;
- }
+/* Media Queries برای صفحه‌نمایش‌های کوچک‌تر */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
 
- 
+  .title {
+    font-size: 1.5rem;
+    flex-direction: column; /* تغییر به ستون در صفحه‌نمایش‌های کوچک */
+    align-items: flex-start;
+    gap: 10px; /* فاصله بین آیتم‌ها */
+  }
+
+  .title a {
+    margin-left: 0; /* حذف حاشیه اضافی */
+    width: 100%; /* لینک تمام‌عرض */
+    justify-content: center;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .title span {
+    margin-right: 0;
+    padding: 0 8px;
+  }
+
+  .empty {
+    margin-top: 20px;
+    padding: 10px 0;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .title a {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+
+  .empty {
+    font-size: 0.8rem;
+    padding: 8px 0;
+  }
+}

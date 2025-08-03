@@ -1,5 +1,5 @@
-'use client';
-import { useState , useEffect} from "react";
+"use client";
+import { useState, useEffect } from "react";
 import styles from "./topbar.module.css";
 import { IoIosSearch, IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
@@ -11,34 +11,36 @@ const TopBar = () => {
   const hideModal = () => setShowModal(false);
   const [user, setUser] = useState(null); // ✅ اضافه کن
 
+  useEffect(() => {
+    const getMe = async () => {
+      const res = await fetch("/api/auth/me");
+      const data = await res.json();
+      setUser(data.data.user);
+    };
 
-
-    useEffect(() => {
-      const getMe = async () => {
-        const res = await fetch("/api/auth/me");
-        const data = await res.json();
-        setUser(data.data.user);
-      };
-  
-      getMe();
-    }, []);
+    getMe();
+  }, []);
 
   return (
     <>
       <div className={styles.topbar}>
         <div className={styles.profile}>
-         <div className={styles.name}>
-            <p>{user?.name}</p>
-            <span>{user?.role === "ADMIN" ? "ادمین" : "کاربر"}</span>
-          </div>
           <Image
             width={50}
             height={50}
             src="/images/shahin.jpg"
             alt="پروفایل"
+            className={styles.profileImg}
           />
+          <div className={styles.name}>
+            <p className={styles.userName}>{user?.name || "بدون نام"}</p>
+            <span className={styles.userRole}>
+              {user?.role === "ADMIN" ? "ادمین" : "کاربر"}
+            </span>
+          </div>
         </div>
-        <section>
+
+        {/* <section>
           <div className={styles.searchBox}>
             <input type="text" placeholder="جستجو کنید" />
             <div>
@@ -52,7 +54,7 @@ const TopBar = () => {
             <IoIosNotifications />
             <span>0</span>
           </div>
-        </section>
+        </section> */}
       </div>
       {showNotifications && (
         <div>

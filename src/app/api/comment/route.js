@@ -9,7 +9,7 @@ export async function POST(req) {
 
     const reqBody = await req.json(); // ✅
 
-    const { userName, email, body, score, date, ProductId, user } = reqBody;
+    const { userName, email, body, score, date, productId, user } = reqBody;
 
     const comment = await CommentModel.create({
       name: userName,
@@ -17,12 +17,12 @@ export async function POST(req) {
       body,
       score,
       date,
-      ProductId,
+      productId,
       user,
     });
 
     await ProductModel.findByIdAndUpdate(
-      ProductId,
+      productId,
       {
         $push: { Comments: comment._id },
       },

@@ -1,39 +1,56 @@
 .sidebar {
-  width: 350px;
+  width: 300px;
   height: 100vh;
-  background-color: #711d1c;
-  color: white;
-  padding: 10px;
+  background: #711d1c; /* رنگ اصلی شما */
+  color: #ffffff;
+  padding: 20px;
   position: sticky;
   top: 0;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* سایه نرم */
+  font-family: 'Vazirmatn', sans-serif; /* فونت واضح و زیبای فارسی */
 }
 
 .sidebar_header {
   text-align: center;
-  margin-top: 0.8rem;
-  padding-bottom: 20px;
-  border-bottom: 1px solid white;
+  margin: 1.5rem 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* خط جداکننده با شفافیت */
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 .sidebar_main {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  padding: 25px 10px;
+  gap: 15px;
+  padding: 20px 10px;
 }
 
 .sidebar_main a {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 18px;
-  opacity: 0.7;
+  gap: 12px;
+  font-size: 1rem;
   text-decoration: none;
+  color: #ffffff;
+  opacity: 0.7;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.sidebar_main a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+  transform: translateX(5px); /* انیمیشن حرکت به راست */
 }
 
 .sidebar_link_active {
+  background-color: #9b2d2c; /* رنگ کمی روشن‌تر از پس‌زمینه برای لینک فعال */
   opacity: 1 !important;
+  font-weight: 500;
 }
 
 .logout {
@@ -43,28 +60,41 @@
   align-items: center;
   cursor: pointer;
   width: 90%;
-  padding-top: 10px;
-  font-size: 1.2rem;
-  border-top: 2px solid white;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   position: absolute;
   bottom: 20px;
   margin: 0 auto;
+  color: #ffffff;
+  transition: background 0.2s ease;
+}
+
+.logout:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
 }
 
 .menuToggle {
-  width: 31px;
-  height: 31px;
+  width: 40px;
+  height: 40px;
   display: none;
   position: fixed;
   top: 15px;
   right: 15px;
-  font-size: 24px;
-  background: #711d1c;
-  color: white;
+  font-size: 1.5rem;
+  background: #711d1c; /* رنگ اصلی شما */
+  color: #ffffff;
   border: none;
-  padding: 8px;
+  border-radius: 50%; /* دکمه گرد */
+  padding: 10px;
   cursor: pointer;
   z-index: 1000;
+  transition: background 0.2s ease;
+}
+
+.menuToggle:hover {
+  background: #9b2d2c; /* رنگ کمی روشن‌تر برای هاور */
 }
 
 /* تبلت */
@@ -72,20 +102,17 @@
   .sidebar {
     width: 250px;
   }
-
   .sidebar_main {
-    gap: 20px;
-    padding: 20px 8px;
+    gap: 12px;
+    padding: 15px 8px;
   }
-
   .sidebar_main a {
-    font-size: 16px;
-    gap: 8px;
+    font-size: 0.95rem;
+    padding: 8px 12px;
   }
-
   .logout {
-    font-size: 1.1rem;
-    padding-top: 8px;
+    font-size: 0.95rem;
+    padding: 10px 12px;
   }
 }
 
@@ -95,72 +122,65 @@
     position: fixed;
     top: 0;
     right: 0;
-    transform: translateX(100%); /* مخفی در حالت اولیه */
+    transform: translateX(100%);
     width: 250px;
     z-index: 999;
   }
-
   .sidebar.open {
-    transform: translateX(0); /* نمایش سایدبار */
+    transform: translateX(0);
   }
-
   .menuToggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
   .sidebar_header {
-    margin-top: 1rem;
-    padding-bottom: 15px;
+    margin-top: 1.2rem;
+    padding-bottom: 12px;
   }
-
   .sidebar_main {
-    gap: 15px;
-    padding: 15px 8px;
+    gap: 10px;
+    padding: 12px 8px;
   }
-
   .sidebar_main a {
-    font-size: 15px;
-    gap: 6px;
+    font-size: 0.9rem;
+    padding: 8px 10px;
   }
-
   .logout {
-    font-size: 1rem;
+    font-size: 0.9rem;
     bottom: 15px;
-    padding-top: 6px;
+    padding: 8px 10px;
   }
 }
 
 /* موبایل‌های خیلی کوچک */
 @media (max-width: 480px) {
-  .sidebar_header {
-    margin-top: 1rem;
-    margin-right: 10px;
-    padding-bottom: 15px;
-    font-size: 12px;
-  }
   .sidebar {
     width: 200px;
   }
-
+  .sidebar_header {
+    margin-top: 1rem;
+    padding-bottom: 10px;
+    font-size: 0.9rem;
+  }
   .menuToggle {
+    width: 35px;
+    height: 35px;
     top: 10px;
     right: 10px;
-    font-size: 20px;
-    padding: 6px;
+    font-size: 1.2rem;
   }
-
   .sidebar_main {
-    gap: 12px;
-    padding: 12px 6px;
+    gap: 8px;
+    padding: 10px 6px;
   }
-
   .sidebar_main a {
-    font-size: 14px;
-    gap: 5px;
+    font-size: 0.85rem;
+    padding: 6px 8px;
   }
-
   .logout {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     bottom: 10px;
+    padding: 6px 8px;
   }
 }

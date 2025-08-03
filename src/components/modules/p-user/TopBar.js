@@ -9,6 +9,8 @@ const TopBar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const hideModal = () => setShowModal(false);
+  const [user, setUser] = useState(null); // ✅ اضافه کن
+
 
 
     useEffect(() => {

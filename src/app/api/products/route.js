@@ -1,6 +1,7 @@
 import connectToDB from "@/configs/db";
 import ProductModel from "@/model/Product";
 import { v2 as cloudinary } from "cloudinary";
+import { NextResponse } from "next/server";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -28,8 +29,7 @@ export async function POST(req) {
     }
 
     const buffer = Buffer.from(await img.arrayBuffer());
-    console.log("Buffer size:", buffer.length);
-
+    // console.log("Buffer size:", buffer.length);
 
     const uploadResult = await new Promise((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
@@ -66,4 +66,14 @@ export async function POST(req) {
     console.log(err);
     return Response.json({ message: err.message }, { status: 500 });
   }
+}
+export async function GET(req) {
+  try {
+    await connectToDB();
+    const products = await ProductModel.find({});
+    return NextResponse.json(
+      { message: "گرفتن داده‌ها موفق بود", data: products },
+      { status: 200 }
+    );
+  } catch (error) {}
 }

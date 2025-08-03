@@ -1,16 +1,19 @@
+
 "use client";
 import React from "react";
 import styles from "./table.module.css";
 import { useRouter } from "next/navigation";
 import swal from "sweetalert";
+
 export default function DataTable({ tickets, title }) {
   const router = useRouter();
 
   const showTicketBody = (body) => {
-swal({
-  title: body,
-  buttons: 'خوندم'
-})  };
+    swal({
+      title: body,
+      buttons: "خوندم",
+    });
+  };
 
   const answerToTicket = async (ticket) => {
     swal({
@@ -24,7 +27,6 @@ swal({
           body: answerText,
           ticketID: ticket._id,
         };
-
         const res = await fetch("/api/tickets/answer", {
           method: "POST",
           headers: {
@@ -32,12 +34,13 @@ swal({
           },
           body: JSON.stringify(answer),
         });
-
         if (res.status === 201) {
           swal({
             title: "پاسخ مورد نظر ثبت شد",
             icon: "success",
             buttons: "فهمیدم",
+          }).then(() => {
+            router.refresh();
           });
         }
       }
@@ -45,59 +48,69 @@ swal({
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <h1 className={styles.title}>
           <span>{title}</span>
         </h1>
       </div>
       <div className={styles.table_container}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>شناسه</th>
-              <th>کاربر</th>
-              <th>عنوان</th>
-              <th>دپارتمان</th>
-              <th>مشاهده</th>
-              <th>پاسخ</th>
-              <th>بن</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tickets.map((ticket, index) => (
-              <tr key={ticket._id}>
-                <td>{index + 1}</td>
-                <td>{ticket.user.name}</td>
-                <td>{ticket.title}</td>
-                <td>{ticket.department.title}</td>
-                <td>
-                  <button
-                    type="button"
-                    className={styles.edit_btn}
-                    onClick={() => showTicketBody(ticket.body)}
-                  >
-                    مشاهده
-                  </button>
-                </td>
-                <td>
-                  <button
-                    type="button"
-                    className={styles.delete_btn}
-                    onClick={() => answerToTicket(ticket)}
-                  >
-                    پاسخ
-                  </button>
-                </td>
-                <td>
-                  <button type="button" className={styles.delete_btn}>
-                    بن
-                  </button>
-                </td>
+        {tickets.length === 0 ? (
+          <div className={styles.empty}>هیچ تیکتی یافت نشد</div>
+        ) : (
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th scope="col">شناسه</th>
+                <th scope="col">کاربر</th>
+                <th scope="col">عنوان</th>
+                <th scope="col">دپارتمان</th>
+                <th scope="col">مشاهده</th>
+                <th scope="col">پاسخ</th>
+                <th scope="col">بن</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {tickets.map((ticket, index) => (
+                <tr key={ticket._id}>
+                  <td>{index + 1}</td>
+                  <td>{ticket.user?.name || "ناشناخته"}</td>
+                  <td>{ticket.title}</td>
+                  <td>{ticket.department?.title || "نامشخص"}</td>
+                  <td>
+                    <button
+                      type="button"
+                      className={styles.edit_btn}
+                      onClick={() => showTicketBody(ticket.body)}
+                      aria-label="مشاهده تیکت"
+                    >
+                      مشاهده
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className={styles.delete_btn}
+                      onClick={() => answerToTicket(ticket)}
+                      aria-label="پاسخ به تیکت"
+                    >
+                      پاسخ
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className={styles.delete_btn}
+                      aria-label="بن کاربر"
+                    >
+                      بن
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

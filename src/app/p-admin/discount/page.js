@@ -11,6 +11,10 @@ const Discounts = async () => {
   connectToDB();
   const discounts = await DiscountModel.find({}).lean();
 
+
+  
+  
+
   return (
     <Layout>
       <main>

@@ -1,8 +1,14 @@
 import connectToDB from "@/configs/db";
 import UserModel from "@/model/User";
 import { NextResponse } from "next/server";
+import { authAdmin } from "@/app/lib/authUser";
 
-export async function POST(req) {
+export async function PUT(req) {
+   const admin=authAdmin()   
+
+     if (!admin) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   try {
     await connectToDB();
 

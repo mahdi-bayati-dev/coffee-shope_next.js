@@ -1,23 +1,68 @@
 .dashboard_contents {
   gap: 20px;
   margin-top: 3rem;
-  padding: 0 40px;
+  padding: 0 5%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* برای تراز کردن باکس‌ها در مرکز */
 }
+
 .dashboard_charts {
   display: flex;
-  gap: 10px;
-  padding: 0px 42px;
+  flex-wrap: wrap; /* برای ریسپانسیو شدن در موبایل */
+  gap: 20px;
+  padding: 0 5%;
   margin-top: 2rem;
 }
-.dashboard_charts section p {
-  margin-bottom: 10px;
-}
+
 .dashboard_charts section {
   background: #711d1c0f;
   padding: 20px;
   border-radius: 4px;
   text-align: right;
-  width: 50%;
+  width: 100%; /* به طور پیش‌فرض عرض کامل در موبایل */
+  box-sizing: border-box; /* جلوگیری از مشکلات پدینگ */
+}
+
+.dashboard_charts section p {
+  margin-bottom: 10px;
+  font-size: 1rem; /* فونت مناسب برای خوانایی */
+}
+
+/* Media Queries برای دسکتاپ */
+@media (min-width: 768px) {
+  .dashboard_contents {
+    padding: 0 40px;
+  }
+
+  .dashboard_charts {
+    flex-wrap: nowrap; /* در دسکتاپ دو ستون کنار هم */
+    padding: 0 42px;
+  }
+
+  .dashboard_charts section {
+    width: 50%; /* در دسکتاپ عرض نصف */
+  }
+}
+
+/* برای صفحه‌نمایش‌های خیلی کوچک (مثل موبایل‌های قدیمی) */
+@media (max-width: 480px) {
+  .dashboard_contents {
+    gap: 15px;
+    margin-top: 2rem;
+    padding: 0 3%;
+  }
+
+  .dashboard_charts {
+    gap: 15px;
+    margin-top: 1.5rem;
+  }
+
+  .dashboard_charts section {
+    padding: 15px;
+  }
+
+  .dashboard_charts section p {
+    font-size: 0.9rem;
+  }
 }

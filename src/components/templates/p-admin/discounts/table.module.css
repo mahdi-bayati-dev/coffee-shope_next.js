@@ -1,106 +1,238 @@
-.discount {
+
+.container {
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.discount_main {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: auto auto;
-}
-.discount_main div {
-  display: flex;
-  flex-direction: column;
-}
-.discount select {
-  background: white;
-  padding: 10px;
-  color: black;
-  border-radius: 5px;
-  border: 3px solid #711d1c;
-  margin-top: 4.5px;
-  outline: 0;
-}
-.discount input {
-  padding: 10px;
-  background-color: white;
-  margin-top: 4px;
-  outline: 0;
-  color: black;
-  border-radius: 5px;
-  border: 3px solid #711d1c;
-  width: 100%;
-}
-.discount p {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  text-align: right;
-  text-transform: uppercase;
-  font-size: 30px;
-  position: relative;
-  z-index: 1;
-}
-.discount label {
-  font-size: 20px;
-}
-.table {
-  width: 100%;
-}
-
-.table tbody tr {
-  background-color: rgb(255, 255, 255);
+.table_container {
+  padding: 20px 15px;
+  overflow-x: auto; /* اسکرول افقی در موبایل */
 }
 
 .table {
   width: 100%;
   background-color: #f2f7fd;
+  border-collapse: collapse;
 }
 
 .table th {
-  border: none;
   color: #000000;
   text-align: center;
+  padding: 12px 10px;
+  font-weight: 600;
+}
+
+.table td {
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .table tr {
   vertical-align: middle;
 }
 
-.table td,
-.table th {
-  padding: 8px 0px;
-  text-align: center;
-}
-
 .delete_btn {
   font-size: 13px;
   background: #711d1c;
   padding: 0.4rem 0.7rem;
-  border: 0;
+  border: none;
   border-radius: 3px;
   color: white;
   cursor: pointer;
+  width: 100%;
+}
+
+.green {
+  background-color: #28a745;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.red {
+  background-color: #dc3545;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.empty {
+  color: white;
+  background-color: #711d1c;
+  padding: 0.7rem 2rem;
+  width: max-content;
+  margin: 8rem auto;
+  font-size: 1.7rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* استایل‌های مربوط به فرم تخفیف */
+.discount {
+  padding: 20px;
+}
+
+.discount_main {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.discount_main div {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount select,
+.discount input {
+  padding: 10px;
+  background-color: white;
+  margin-top: 4px;
+  outline: none;
+  color: black;
+  border-radius: 5px;
+  border: 3px solid #711d1c;
+  width: 100%;
+}
+
+.discount p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.discount label {
+  font-size: 18px;
 }
 
 .discount button {
   margin-left: auto;
   width: max-content;
-  border: 0;
+  border: none;
   border-radius: 4px;
   background-color: #711d1c;
   color: white;
   cursor: pointer;
   padding: 0.5rem 1.5rem;
-  margin-top: 1.4rem;
+  margin-top: 1rem;
 }
 
+/* Media Queries برای تبلت */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
 
-.green {
-  color: white;
-  background-color: green;
+  .table_container {
+    padding: 15px 10px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 5px;
+    font-size: 14px;
+  }
+
+  .delete_btn {
+    font-size: 12px;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .green,
+  .red {
+    padding: 2px 6px;
+    font-size: 13px;
+  }
+
+  .discount {
+    padding: 15px;
+  }
+
+  .discount p {
+    font-size: 20px;
+  }
+
+  .discount label {
+    font-size: 16px;
+  }
+
+  .discount input,
+  .discount select {
+    padding: 8px;
+  }
+
+  .discount button {
+    padding: 0.4rem 1.2rem;
+  }
 }
 
-.red {
-  color: white;
-  background: red;
-}
+/* Media Queries برای موبایل */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
 
+  .table_container {
+    padding: 10px 5px;
+  }
+
+  .table {
+    min-width: 500px; /* حداقل عرض برای اسکرول افقی */
+  }
+
+  .table th,
+  .table td {
+    padding: 6px 4px;
+    font-size: 12px;
+  }
+
+  .delete_btn {
+    font-size: 11px;
+    padding: 0.3rem 0.4rem;
+  }
+
+  .green,
+  .red {
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+
+  .empty {
+    font-size: 1.4rem;
+    padding: 0.5rem 1.5rem;
+    margin: 5rem auto;
+  }
+
+  .discount {
+    padding: 10px;
+  }
+
+  .discount_main {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .discount p {
+    font-size: 18px;
+  }
+
+  .discount label {
+    font-size: 14px;
+  }
+
+  .discount input,
+  .discount select {
+    padding: 7px;
+  }
+
+  .discount button {
+    padding: 0.3rem 1rem;
+  }
+}

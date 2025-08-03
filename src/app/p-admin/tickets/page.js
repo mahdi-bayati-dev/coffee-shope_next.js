@@ -15,6 +15,10 @@ const page = async () => {
     .populate("department")
     .lean();
 
+
+    
+    
+
   return (
     <Layout>
       <main>

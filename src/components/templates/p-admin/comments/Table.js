@@ -89,7 +89,7 @@ export default function DataTable({ comments, title }) {
                 <td>{comment.username}</td>
                 <td>{comment.email}</td>
                 <td>{comment.score}</td>
-                <td>{comment.ProductId.name}</td>
+                <td>{comment.ProductId?.name || "محصول ناموجود"}</td>
                 <td>{new Date(comment.date).toLocaleDateString("fa-IR")}</td>
                 <td>
                   <button

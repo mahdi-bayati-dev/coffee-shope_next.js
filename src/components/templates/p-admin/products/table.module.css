@@ -1,23 +1,30 @@
+
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .title {
   margin-top: 30px;
   text-align: right;
   text-transform: uppercase;
   position: relative;
   font-size: 30px;
-  z-index: 1;
   font-weight: 500;
+  z-index: 1;
 }
 
-.title:before {
-  border-top: 2px solid #dfdfdf;
+.title::before {
   content: "";
-  margin: 0 auto;
   position: absolute;
   top: 52%;
   left: 0;
   right: 0;
-  bottom: 0;
   width: 95%;
+  margin: 0 auto;
+  border-bottom: 1px solid #711d1c;
+  box-shadow: 0 1px 0 0 #711d1c;
   z-index: -1;
 }
 
@@ -27,231 +34,55 @@
   margin-right: 4rem;
 }
 
-.title:before {
-  border-top: none;
-}
-
-.title:after {
-  border-bottom: 1px solid #711d1c;
-  -webkit-box-shadow: 0 1px 0 0 #711d1c;
-  -moz-box-shadow: 0 1px 0 0 #711d1c;
-  box-shadow: 0 1px 0 0 #711d1c;
-  content: "";
-  margin: 0 auto;
-  position: absolute;
-  top: 51%;
-  left: 0;
-  right: 0;
-  width: 95%;
-  z-index: -1;
-}
-
-.table {
-  width: 100%;
-}
-
-.table tbody tr {
-  background-color: rgb(255, 255, 255);
-}
-
-.table {
-  width: 100%;
-  background-color: #f2f7fd;
-}
-
-.table th {
-  border: none;
-  color: #000000;
-  text-align: center;
-}
-
-.table tr {
-  vertical-align: middle;
-}
-
-.table td,
-.table th {
-  padding: 8px 22px;
-  text-align: center;
-}
-
-.delete_btn {
-  font-size: 13px;
-  background: #711d1c;
-  padding: 0.4rem 0.7rem;
-  border: 0;
-  border-radius: 3px;
-  color: white;
-  cursor: pointer;
-  width: -webkit-fill-available;
-}
-
-.edit_btn,
-.btn {
-  font-size: 13px;
-  background: #000000;
-  padding: 0.4rem 0.7rem;
-  cursor: pointer;
-  border: 0;
-  border-radius: 3px;
-  color: white;
-  width: -webkit-fill-available;
-}
-
 .table_container {
-  padding: 40px 25px;
-}
-
-.answer_contact {
-  color: rgb(0, 0, 0);
-  background-color: blue !important;
-}
-
-.no_answer_contact {
-  color: white;
-  background-color: red !important;
-}
-.answer_comment {
-  color: rgb(255, 255, 255);
-  background-color: blue !important;
-}
-
-.no_answer_comment {
-  color: white;
-  background-color: red !important;
-}
-.check,
-.no_check {
-  font-size: 13px;
-  background: #000000;
-  padding: 0.4rem 0.7rem;
-  width: -webkit-fill-available;
-  cursor: pointer;
-  border: 0;
-  border-radius: 3px;
-  color: white;
-}
-.no_check {
-  background: #711d1c;
-}
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.empty {
-  color: white;
-  background-color: #711d1c;
-  padding: 0.7rem 2rem;
-  width: max-content;
-  margin: 15rem auto;
-  font-size: 1.7rem;
-  border-radius: 5px;
-}
-
-.accept {
-  background-color: green;
-  color: #fff;
-}
-
-.reject {
-  background-color: red;
-  color: #fff;
-}
-
-.discount {
-  padding: 20px;
-}
-
-.discount_main {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: auto auto;
-}
-.discount_main div {
-  display: flex;
-  flex-direction: column;
-}
-.discount select {
-  background: white;
-  padding: 10px;
-  color: black;
-  border-radius: 5px;
-  border: 3px solid #711d1c;
-  margin-top: 4.5px;
-  outline: 0;
-}
-.discount input {
-  padding: 10px;
-  background-color: white;
-  margin-top: 4px;
-  outline: 0;
-  color: black;
-  border-radius: 5px;
-  border: 3px solid #711d1c;
-  width: 100%;
-}
-.discount p {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  text-align: right;
-  text-transform: uppercase;
-  font-size: 30px;
-  position: relative;
-  z-index: 1;
-}
-.discount label {
-  font-size: 20px;
-}
-.table {
-  width: 100%;
-}
-
-.table tbody tr {
-  background-color: rgb(255, 255, 255);
+  padding: 20px 15px;
+  overflow-x: auto; /* اسکرول افقی در موبایل */
 }
 
 .table {
   width: 100%;
   background-color: #f2f7fd;
+  border-collapse: collapse;
 }
 
 .table th {
-  border: none;
   color: #000000;
   text-align: center;
+  padding: 12px 10px;
+  font-weight: 600;
+}
+
+.table td {
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .table tr {
   vertical-align: middle;
 }
 
-.table td,
-.table th {
-  padding: 8px 0px;
-  text-align: center;
-}
-
 .delete_btn {
   font-size: 13px;
   background: #711d1c;
   padding: 0.4rem 0.7rem;
-  border: 0;
+  border: none;
   border-radius: 3px;
   color: white;
   cursor: pointer;
+  width: 100%;
 }
 
-.discount button {
-  margin-left: auto;
-  width: max-content;
-  border: 0;
-  border-radius: 4px;
-  background-color: #711d1c;
+.edit_btn {
+  font-size: 13px;
+  background: #000000;
+  padding: 0.4rem 0.7rem;
+  border: none;
+  border-radius: 3px;
   color: white;
   cursor: pointer;
-  padding: 0.5rem 1.5rem;
-  margin-top: 1.4rem;
+  width: 100%;
 }
 
 .empty {
@@ -262,14 +93,178 @@
   margin: 8rem auto;
   font-size: 1.7rem;
   border-radius: 5px;
+  text-align: center;
 }
 
-.green {
-  color: white;
-  background-color: green;
+/* استایل‌های مربوط به تخفیف */
+.discount {
+  padding: 20px;
 }
 
-.red {
+.discount_main {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.discount_main div {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount select,
+.discount input {
+  padding: 10px;
+  background-color: white;
+  margin-top: 4px;
+  outline: none;
+  color: black;
+  border-radius: 5px;
+  border: 3px solid #711d1c;
+  width: 100%;
+}
+
+.discount p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.discount label {
+  font-size: 18px;
+}
+
+.discount button {
+  margin-left: auto;
+  width: max-content;
+  border: none;
+  border-radius: 4px;
+  background-color: #711d1c;
   color: white;
-  background-color: red;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Media Queries برای تبلت */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .title span {
+    margin-right: 2rem;
+    padding: 0 10px;
+  }
+
+  .table_container {
+    padding: 15px 10px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 5px;
+    font-size: 14px;
+  }
+
+  .delete_btn,
+  .edit_btn {
+    font-size: 12px;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .discount p {
+    font-size: 20px;
+  }
+
+  .discount label {
+    font-size: 16px;
+  }
+
+  .discount input,
+  .discount select {
+    padding: 8px;
+  }
+
+  .discount button {
+    padding: 0.4rem 1.2rem;
+  }
+}
+
+/* Media Queries برای موبایل */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-top: 15px;
+  }
+
+  .title span {
+    margin-right: 1.5rem;
+    padding: 0 8px;
+  }
+
+  .table_container {
+    padding: 10px 5px;
+  }
+
+  .table {
+    min-width: 600px; /* حداقل عرض برای اسکرول افقی */
+  }
+
+  .table th,
+  .table td {
+    padding: 6px 4px;
+    font-size: 12px;
+  }
+
+  .delete_btn,
+  .edit_btn {
+    font-size: 11px;
+    padding: 0.3rem 0.4rem;
+  }
+
+  .empty {
+    font-size: 1.4rem;
+    padding: 0.5rem 1.5rem;
+    margin: 5rem auto;
+  }
+
+  .discount {
+    padding: 15px;
+  }
+
+  .discount_main {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .discount p {
+    font-size: 18px;
+  }
+
+  .discount label {
+    font-size: 14px;
+  }
+
+  .discount input,
+  .discount select {
+    padding: 7px;
+  }
+
+  .discount button {
+    padding: 0.3rem 1rem;
+  }
 }

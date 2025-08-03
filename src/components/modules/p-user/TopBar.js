@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import styles from "./topbar.module.css";
 import { IoIosSearch, IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
@@ -10,13 +10,24 @@ const TopBar = () => {
   const [showModal, setShowModal] = useState(false);
   const hideModal = () => setShowModal(false);
 
+
+    useEffect(() => {
+      const getMe = async () => {
+        const res = await fetch("/api/auth/me");
+        const data = await res.json();
+        setUser(data.data.user);
+      };
+  
+      getMe();
+    }, []);
+
   return (
     <>
       <div className={styles.topbar}>
         <div className={styles.profile}>
-          <div>
-            <p>شاهین مشکل گشا</p>
-            <span>ادمین</span>
+         <div className={styles.name}>
+            <p>{user?.name}</p>
+            <span>{user?.role === "ADMIN" ? "ادمین" : "کاربر"}</span>
           </div>
           <Image
             width={50}

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./adminPanelLayout.module.css";
+import styles from "@/styles/p-admin/adminPanelLayout.module.css";
 import Sidebar from "@/components/modules/p-admin/Sidebar";
 import Topbar from "@/components/modules/p-admin/Topbor";
 import { authUser } from "@/app/lib/authUser";

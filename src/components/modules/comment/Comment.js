@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import styles from "./comment.module.css";
 const Comment = ({ comments }) => {
+  
   return (
     <section className={styles.comment}>
       <Image

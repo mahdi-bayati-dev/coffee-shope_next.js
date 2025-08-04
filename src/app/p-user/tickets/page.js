@@ -1,4 +1,4 @@
-import Layout from "@/components/layouts/UserPanelLayout";
+// import Layout from "@/components/layouts/UserPanelLayout";
 import Tickets from "@/components/templates/p-user/tickets/Tickets";
 import connectToDB from "@/configs/db";
 import { authUser } from "@/app/lib/authUser";
@@ -13,9 +13,9 @@ const page = async () => {
   }).populate("department", "title");
 
   return (
-    <Layout>
+    // <Layout>
       <Tickets tickets={JSON.parse(JSON.stringify(tickets))} />
-    </Layout>
+    // </Layout>
   );
 };
 

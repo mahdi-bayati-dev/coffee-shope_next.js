@@ -1,5 +1,5 @@
 "use client"; // اضافه کردن "use client" برای مدیریت state در کلاینت
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Breadcrumb from "@/components/modules/breadcrumb/Breadcrumb";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
@@ -22,15 +22,58 @@ const Page = () => {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [wishes, setWishes] = useState([]);
+  const [user, setUser] = useState(null);
 
+  const [loadingUser, setLoadingUser] = useState(true);
   const toggleFilterMenu = () => {
-    console.log("Toggling menu, current state:", isMenuOpen); // برای دیباگ
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const fetchWishlist = async () => {
+      try {
+        const res = await fetch("/api/wishlist");
+        const data = await res.json();
+        setWishes(data.wishes || []);
+      } catch (err) {
+        console.error("Error fetching wishlist:", err);
+      }
+    };
+
+    fetchWishlist();
+
+    const fetchUser = async () => {
+      try {
+        const res = await fetch("/api/auth/me");
+        if (!res.ok) return;
+
+        const data = await res.json();
+        setUser(data.data?.user); // یا optional chaining برای اطمینان
+
+        console.log(res);
+      } catch (err) {
+        console.error("خطا در دریافت کاربر", err);
+      } finally {
+        setLoadingUser(false); // ✅ بعد از گرفتن یا نخوردن به خطا
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+
+ useEffect(() => {
+  if (user !== null) {
+    console.log("🔄 مقدار user به‌روز شد:", user);
+  }
+}, [user]);
+
+
   return (
     <>
-      <Navbar isLogin={false} wishlist={0} /> {/* مقادیر نمونه */}
+      <Navbar isLogin={!!user} wishlist={wishes.length} />
+
       <Breadcrumb route={"فروشگاه"} />
       <main className={styles.container} data-aos="fade-up">
         <button

@@ -21,7 +21,6 @@ const Topbar = () => {
 
     getMe();
   }, []);
- 
 
   return (
     <>
@@ -34,7 +33,7 @@ const Topbar = () => {
           <Image
             width={50}
             height={50}
-            src="/images/shahin.jpg"
+            src={user?.avatar || "/images/avatar.png"}
             alt={`پروفایل ${user?.name || "کاربر"}`}
             className={styles.profile_img}
           />

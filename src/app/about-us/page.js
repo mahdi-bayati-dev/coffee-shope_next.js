@@ -1,9 +1,11 @@
+export const dynamic = "force-dynamic";
 
 import Breadcrumb from "@/components/modules/breadcrumb/Breadcrumb";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
 import styles from "@/styles/rules.module.css";
 import { authUser } from "@/app/lib/authUser";
+import WishlistModel from "@/model/Wishlist";
 
 export const metadata = {
   title: "قوانین | قهوه ست",
@@ -11,11 +13,25 @@ export const metadata = {
 };
 
 const page = async () => {
-  const user = await authUser();
+  // const user = await authUser();
+   let user = null;
+        let wishes = [];
+    
+        try {
+            user = await authUser();
+            if (user) {
+                wishes = await WishlistModel.find({ user: user.id })
+                    .populate("product", "name price score img")
+                    .sort({ _id: -1 })
+                    .lean();
+            }
+        } catch (error) {
+            console.error("Error fetching user or wishlist:", error);
+        }
 
   return (
     <>
-      <Navbar isLogin={!!user} />
+      <Navbar isLogin={!!user} wishlist={wishes.length}/>
       <Breadcrumb route={"قوانین"} />
       <div className={styles.container} data-aos="fade-up">
         <h2>قوانین و مقررات قهوه ست</h2>

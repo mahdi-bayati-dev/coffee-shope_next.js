@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import React from "react";
-import Layout from "@/components/layouts/AdminPanelLayout";
+// import Layout from "@/components/layouts/AdminPanelLayout";
 import styles from "@/components/templates/p-admin/tickets/table.module.css";
 import Table from "@/components/templates/p-admin/tickets/Table";
 import connectToDB from "@/configs/db";
@@ -20,7 +20,7 @@ const page = async () => {
     
 
   return (
-    <Layout>
+    // <Layout>
       <main>
         {tickets.length === 0 ? (
           <p className={styles.empty}>تیکتی وجود ندارد</p>
@@ -31,7 +31,7 @@ const page = async () => {
           />
         )}
       </main>
-    </Layout>
+    // </Layout>
   );
 };
 

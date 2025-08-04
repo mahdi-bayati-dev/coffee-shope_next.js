@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import React from "react";
-import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
+// import AdminPanelLayout from "@/components/layouts/AdminPanelLayout";
 import GrowthChart from "@/components/templates/p-admin/index/GrowthChart";
 import SaleChart from "@/components/templates/p-admin/index/SaleChart";
 
@@ -20,7 +20,7 @@ async function AdminHomePage() {
   const products = await ProductModel.find({}).lean();
 
   return (
-    <AdminPanelLayout>
+    // <AdminPanelLayout>
       <main>
         <section className={styles.dashboard_contents}>
           <Box title="مجموع تیکت های دریافتی" value={tickets.length} />
@@ -39,7 +39,7 @@ async function AdminHomePage() {
           </section>
         </div>
       </main>
-    </AdminPanelLayout>
+    // </AdminPanelLayout>
   );
 }
 

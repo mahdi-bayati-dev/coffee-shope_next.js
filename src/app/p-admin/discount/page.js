@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import Table from "@/components/templates/p-admin/discounts/Table";
-import Layout from "@/components/layouts/AdminPanelLayout";
+// import Layout from "@/components/layouts/AdminPanelLayout";
 import connectToDB from "@/configs/db";
 import DiscountModel from "@/model/Discount";
 import AddDiscounts from "@/components/templates/p-admin/discounts/addDiscounts";
@@ -16,7 +16,7 @@ const Discounts = async () => {
   
 
   return (
-    <Layout>
+    // <Layout>
       <main>
         <AddDiscounts />
 
@@ -29,7 +29,7 @@ const Discounts = async () => {
           />
         )}
       </main>
-    </Layout>
+    // </Layout>
   );
 };
 

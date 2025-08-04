@@ -5,8 +5,6 @@ import ProductModel from "../../../model/Product";
 
 export async function POST(req) {
   try {
-   
-
     const reqBody = await req.json(); // ✅
 
     const { userName, email, body, score, date, productId, user } = reqBody;
@@ -24,7 +22,7 @@ export async function POST(req) {
     await ProductModel.findByIdAndUpdate(
       productId,
       {
-        $push: { Comments: comment._id },
+        $push: { comments: comment._id }, // ✅ 
       },
       { new: true }
     );

@@ -2,7 +2,6 @@ import styles from "./answer.module.css";
 import Image from "next/image";
 
 const Answer = ({ type, body, title, createdAt, user }) => {
-  console.log(title);
 
   return (
     <section

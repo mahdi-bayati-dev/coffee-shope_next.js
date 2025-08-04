@@ -1,4 +1,4 @@
-import Layout from "@/components/layouts/UserPanelLayout";
+// import Layout from "@/components/layouts/UserPanelLayout";
 import styles from "@/styles/p-user/answerTicket.module.css";
 import Link from "next/link";
 import Answer from "@/components/templates/p-user/tickets/Answer";
@@ -13,7 +13,7 @@ const page = async ({ params }) => {
 
 
   return (
-    <Layout>
+    // <Layout>
       <main className={styles.container}>
         <h1 className={styles.title}>
           <span>تیکت </span>
@@ -31,7 +31,7 @@ const page = async ({ params }) => {
           )}
         </div>
       </main>
-    </Layout>
+    // </Layout>
   );
 };
 

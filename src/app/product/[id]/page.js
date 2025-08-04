@@ -26,18 +26,42 @@ export default async function ProductPage({ params }) {
   }
 
   const product = await ProductModel.findOne({ _id: id })
-    .populate("comments")
+    .populate({
+      path: "comments",
+      populate: { path: "user", select: "name" }, // 👈 populate داخل کامنت
+    })
     .lean();
-  product._id = product._id.toString();
 
   if (!product) {
     return <div>محصول پیدا نشد</div>;
   }
 
+  // تبدیل کامل همه چیز به string/plain
+  product._id = product._id.toString();
+
+  product.comments = product.comments.map((comment) => ({
+    ...comment,
+    _id: comment._id.toString(),
+    productId: comment.productId?.toString(),
+    user: comment.user
+      ? {
+          _id: comment.user._id.toString(),
+          name: comment.user.name,
+        }
+      : null,
+    date: comment.date?.toISOString() || null,
+  }));
+
   const relatedProduct = await ProductModel.find({
     smell: product.smell,
-    _id: { $ne: product._id },
+    _id: { $ne: new mongoose.Types.ObjectId(product._id.toString()) },
   }).lean();
+
+  // 👇 تبدیل کامل به JSON-safe plain object
+  const cleanRelatedProduct = relatedProduct.map((item) => ({
+    ...item,
+    _id: item._id.toString(),
+  }));
 
   if (user) {
     try {
@@ -50,11 +74,9 @@ export default async function ProductPage({ params }) {
     }
   }
 
-
-
   return (
     <div className={styles.container}>
-      <Navbar isLogin={!!user} wishlist={wishes.length} />
+      {/* <Navbar isLogin={!!user} wishlist={wishes.length} /> */}
 
       <div data-aos="fade-up" className={styles.contents}>
         <div className={styles.main}>
@@ -63,7 +85,7 @@ export default async function ProductPage({ params }) {
           <Gallery productImg={product.img} />
         </div>
         <Tabs product={product} userId={userId} />
-        {/* <MoreProducts relatedProduct={relatedProduct} /> */}
+        <MoreProducts relatedProduct={cleanRelatedProduct} />
       </div>
       <Footer />
     </div>

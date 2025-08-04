@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import styles from "./Nabvar.module.css";
 import Link from "next/link";
@@ -7,17 +8,15 @@ import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import ClientBasketBadge from "@/utils/ClientBasketBadge";
-
 import Image from "next/image";
 
 function Navbar({ isLogin, wishlist }) {
   const [fixTop, setFixTop] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // ✅ برای باز و بسته کردن منو
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.pageYOffset;
-      setFixTop(scrollY > 100);
+      setFixTop(window.pageYOffset > 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -26,13 +25,11 @@ function Navbar({ isLogin, wishlist }) {
   return (
     <nav className={fixTop ? styles.navbar_fixed : styles.navbar}>
       <main>
-        {/* ✅ لوگو و آیکون منو */}
+        {/* لوگو و آیکون منو */}
         <div className={styles.logo_section}>
           <Link href="/" className={styles.logo}>
             <Image width={150} height={50} src="/images/logo.png" alt="Logo" />
           </Link>
-
-          {/* ✅ آیکون منو در موبایل */}
           <button
             className={styles.hamburger}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -41,30 +38,16 @@ function Navbar({ isLogin, wishlist }) {
           </button>
         </div>
 
-        {/* ✅ منو */}
+        {/* منو */}
         <ul className={`${styles.links} ${menuOpen ? styles.show_menu : ""}`}>
-          <li>
-            <Link href="/">صفحه اصلی</Link>
-          </li>
-          <li>
-            <Link href="/category">فروشگاه</Link>
-          </li>
-          <li>
-            <Link href="/articles">وبلاگ</Link>
-          </li>
-          <li>
-            <Link href="/contact-us">تماس با ما</Link>
-          </li>
-          <li>
-            <Link href="/about-us">درباره ما</Link>
-          </li>
-          <li>
-            <Link href="/rules">قوانین</Link>
-          </li>
+          <li><Link href="/">صفحه اصلی</Link></li>
+          <li><Link href="/category">فروشگاه</Link></li>
+          <li><Link href="/articles">وبلاگ</Link></li>
+          <li><Link href="/contact-us">تماس با ما</Link></li>
+          <li><Link href="/about-us">درباره ما</Link></li>
+          <li><Link href="/rules">قوانین</Link></li>
           {!isLogin ? (
-            <li>
-              <Link href="/login-register">ورود / عضویت</Link>
-            </li>
+            <li><Link href="/login-register">ورود / عضویت</Link></li>
           ) : (
             <div className={styles.dropdown}>
               <Link href="/p-user">
@@ -73,7 +56,7 @@ function Navbar({ isLogin, wishlist }) {
               </Link>
               <div className={styles.dropdown_content}>
                 <Link href="/p-user/orders">سفارشات</Link>
-                <Link href="/p-user/tickets">تیکت ها</Link>
+                <Link href="/p-user/tickets">تیکت‌ها</Link>
                 <Link href="/p-user/comments">کامنت‌ها</Link>
                 <Link href="/p-user/wishlist">علاقه‌مندی‌ها</Link>
                 <Link href="/p-user/account-details">جزئیات اکانت</Link>
@@ -82,6 +65,7 @@ function Navbar({ isLogin, wishlist }) {
           )}
         </ul>
 
+        {/* آیکون‌ها */}
         <div className={styles.navbar_icons}>
           <ClientBasketBadge>
             {(basket) => (
@@ -94,7 +78,7 @@ function Navbar({ isLogin, wishlist }) {
 
           <Link href="/wishlist">
             <FaRegHeart />
-            <span>{wishlist}</span>
+            {wishlist > 0 && <span>{wishlist}</span>}
           </Link>
         </div>
       </main>

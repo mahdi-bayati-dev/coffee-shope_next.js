@@ -1,4 +1,4 @@
-import UserPanelLayout from "@/components/layouts/UserPanelLayout";
+// import UserPanelLayout from "@/components/layouts/UserPanelLayout";
 import styles from "@/styles/p-user/wishlist.module.css";
 import Product from "@/components/templates/p-user/wishlist/Product";
 import connectToDB from "@/configs/db";
@@ -22,7 +22,7 @@ export default async function Page() {
   const wishes = JSON.parse(JSON.stringify(wishesRaw));
 
   return (
-    <UserPanelLayout>
+    // <UserPanelLayout>
       <main className={styles.mainContainer}>
         <h1 className={styles.title}>
           <span>علاقه مندی ها</span>
@@ -44,6 +44,6 @@ export default async function Page() {
           )}
         </div>
       </main>
-    </UserPanelLayout>
+    // </UserPanelLayout>
   );
 }

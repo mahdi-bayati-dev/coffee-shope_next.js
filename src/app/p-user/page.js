@@ -1,4 +1,4 @@
-import Layout from "@/components/layouts/UserPanelLayout";
+// import Layout from "@/components/layouts/UserPanelLayout";
 import styles from "@/styles/p-user/index.module.css";
 import Box from "@/components/templates/p-user/index/Box";
 import Tickets from "@/components/templates/p-user/index/Tickets";
@@ -20,7 +20,7 @@ const page = async () => {
     .sort({ _id: -1 });
 
   return (
-    <Layout>
+    // <Layout>
       <main>
         <section className={styles.boxes}>
           <Box title="مجموع تیکت ها " value={allTickets.length} />
@@ -33,7 +33,7 @@ const page = async () => {
           <Orders />
         </section>
       </main>
-    </Layout>
+    // </Layout>
   );
 };
 

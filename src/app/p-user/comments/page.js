@@ -1,5 +1,5 @@
 import DataTable from "@/components/templates/p-user/comments/DataTable";
-import Layout from "@/components/layouts/UserPanelLayout";
+// import Layout from "@/components/layouts/UserPanelLayout";
 import React from "react";
 import connectToDB from "@/configs/db";
 import CommentModel from "@/model/Comments";
@@ -21,12 +21,11 @@ const page = async () => {
   // console.log('==>',comments);
 
   const testComments = await CommentModel.find({ user: userId });
-console.log(testComments.map((c) => c.ProductId));
 
   
 
   return (
-    <Layout>
+    // <Layout>
       <main>
         {comments.length === 0 ? (
           <p className={styles.empty}>کامنتی وجود ندارد</p>
@@ -37,7 +36,7 @@ console.log(testComments.map((c) => c.ProductId));
           />
         )}
       </main>
-    </Layout>
+    // </Layout>
   );
 };
 

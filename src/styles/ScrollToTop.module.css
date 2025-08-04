@@ -1,5 +1,6 @@
 .button,
 .buttonVisible {
+    z-index: 9999;
     position: fixed;
     bottom: 2rem;
     left: 1rem;

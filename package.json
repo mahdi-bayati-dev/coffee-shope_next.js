@@ -12,6 +12,7 @@
     "aos": "^2.3.4",
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.7.0",
+    "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.4",
     "mongoose": "^8.15.1",

@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./table.module.css";
 import { useRouter } from "next/navigation";
 import swal from "sweetalert";
-export default function DataTable({ comments, title }) {
+export default function DataTable({ comments, title }) {  
   const router = useRouter();
 
   const showCommentBody = (body) => {
@@ -82,14 +82,14 @@ export default function DataTable({ comments, title }) {
             {comments.map((comment, index) => (
               <tr key={comment._id}>
                 <td
-                  className={comment.isAccept ? styles.accept : styles.reject}
+                  className={comment.isAccess ? styles.accept : styles.reject}
                 >
                   {index + 1}
                 </td>
                 <td>{comment.username}</td>
                 <td>{comment.email}</td>
                 <td>{comment.score}</td>
-                <td>{comment.ProductId?.name || "محصول ناموجود"}</td>
+                <td>{comment.productId?.name || "محصول ناموجود"}</td>
                 <td>{new Date(comment.date).toLocaleDateString("fa-IR")}</td>
                 <td>
                   <button

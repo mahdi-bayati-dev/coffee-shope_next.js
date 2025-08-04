@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import React from "react";
-import Layout from "@/components/layouts/AdminPanelLayout";
+// import Layout from "@/components/layouts/AdminPanelLayout";
 import styles from "@/components/templates/p-admin/users/table.module.css";
 import Table from "@/components/templates/p-admin/users/Table";
 import connectToDB from "@/configs/db";
@@ -12,7 +12,7 @@ const page = async () => {
   const users = await UserModel.find({}).lean();
 
   return (
-    <Layout>
+    // <Layout>
       <main>
         {users.length === 0 ? (
           <p className={styles.empty}>کاربری وجود ندارد</p>
@@ -23,7 +23,7 @@ const page = async () => {
           />
         )}
       </main>
-    </Layout>
+    // </Layout>
   );
 };
 

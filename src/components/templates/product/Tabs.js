@@ -6,6 +6,7 @@ import MoreInfoes from "./MoreInfoes";
 import Comments from "./Comments";
 
 const Tabs = ({ product, userId }) => {
+  
   const [tab, setTab] = useState("description");
 
   return (

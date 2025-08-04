@@ -20,6 +20,7 @@ const TopBar = () => {
 
     getMe();
   }, []);
+  
 
   return (
     <>
@@ -28,9 +29,8 @@ const TopBar = () => {
           <Image
             width={50}
             height={50}
-            src="/images/shahin.jpg"
-            alt="پروفایل"
-            className={styles.profileImg}
+            src={user?.avatar || "/images/avatar.png"}
+            alt="user-profile"
           />
           <div className={styles.name}>
             <p className={styles.userName}>{user?.name || "بدون نام"}</p>

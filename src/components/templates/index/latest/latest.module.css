@@ -6,7 +6,8 @@
   padding: 0 1rem;
   width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden; /* جلوگیری از جمع شدن و اسکرول افقی ناخواسته */
+  overflow-x: hidden;
+  overflow-y: hidden; /* جلوگیری از جمع شدن و اسکرول افقی ناخواسته */
 }
 
 /* ------------------- Title Section ------------------- */

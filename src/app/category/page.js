@@ -51,7 +51,7 @@ const Page = () => {
         const data = await res.json();
         setUser(data.data?.user); // یا optional chaining برای اطمینان
 
-        console.log(res);
+        
       } catch (err) {
         console.error("خطا در دریافت کاربر", err);
       } finally {

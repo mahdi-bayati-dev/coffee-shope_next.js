@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 const MoreProducts = ({ relatedProduct }) => {
-  console.log(relatedProduct);
+  
 
   return (
     <div data-aos="fade-right" style={{ padding: "20px 0" }}>
